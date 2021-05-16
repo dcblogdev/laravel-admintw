@@ -48,14 +48,11 @@
                    </button>
                </x-slot>
                <x-slot name="content">
-                   <x-dropdown-link>
-                       <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <div class="cursor-pointer" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log out') }}
-                        </div>
-                        </form>
-                   </x-dropdown-link>
+                   <x-dropdown-link :href="route('app.users.edit')">Edit Account</x-dropdown-link>
+                   <form method="POST" action="{{ route('logout') }}">
+                       @csrf
+                       <x-dropdown-link href="#" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</x-dropdown-link>
+                   </form>
                </x-slot>
            </x-dropdown>
         </div>

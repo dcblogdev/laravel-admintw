@@ -114,6 +114,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-reflector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/livewire/livewire" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/christophrumpel/missing-livewire-assertions" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-package-tools" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
