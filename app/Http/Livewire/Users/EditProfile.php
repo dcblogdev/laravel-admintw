@@ -54,6 +54,7 @@ class EditProfile extends Component
         $this->user->save();
 
         session()->flash('message', 'updated.');
-        session()->flash('other', 'other.');
+
+        $this->emit('refreshUserMenu');
     }
 }

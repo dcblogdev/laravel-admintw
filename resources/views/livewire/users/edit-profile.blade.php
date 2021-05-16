@@ -1,4 +1,5 @@
 <div>
+
     <x-card>
 
         <div class="mb-10">
@@ -19,7 +20,7 @@
                 </x-col>
 
                 <x-col>
-                    <x-form.input wire:model="email" label='Email' name='email'></x-form.input>
+                    <x-form.input wire:model="email" label='Email' name='email' required></x-form.input>
                 </x-col>
 
             </x-row>
