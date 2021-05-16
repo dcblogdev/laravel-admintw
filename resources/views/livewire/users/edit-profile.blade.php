@@ -8,9 +8,7 @@
             </div>
         </div>
 
-        @if($updated === true)
-            <x-alert>Updated!</x-alert>
-        @endif
+        <x-alert/>
 
         <x-form wire:submit.prevent="" method="put">
 

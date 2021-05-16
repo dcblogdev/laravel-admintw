@@ -14,14 +14,11 @@ class EditProfile extends Component
     public User   $user;
     public string $name  = '';
     public string $email = '';
-    public bool $updated = false;
 
     public function mount(): void
     {
         $this->name  = $this->user->name;
         $this->email = $this->user->email;
-
-        $this->updated = false;
     }
 
     public function render(): View
@@ -56,6 +53,7 @@ class EditProfile extends Component
         $this->user->email = $this->email;
         $this->user->save();
 
-        $this->updated = true;
+        session()->flash('message', 'updated.');
+        session()->flash('other', 'other.');
     }
 }
