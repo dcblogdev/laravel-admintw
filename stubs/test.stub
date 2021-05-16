@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ namespace }};
+
+use Tests\TestCase;
+
+class {{ class }} extends TestCase
+{
+    /** @test **/
+    public function example(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+}

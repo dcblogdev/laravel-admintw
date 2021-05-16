@@ -1,0 +1,12 @@
+@php
+use Illuminate\Support\Str;
+@endphp
+
+@props(['href' => '', 'icon' => ''])
+<li class="{{ Str::endsWith(request()->url(), $href) ? 'bg-gray-700 dark:bg-gray-600' : '' }} text-gray-300 text-sm p-3 hover:bg-gray-900 hover:text-gray-200">
+    <a class="flex items-center" href="{{ $href }}">
+        {{ $slot }}
+    </a>
+</li>
+
+
