@@ -71,6 +71,9 @@
       <data directive="@isset" injection="true" prefix="&lt;?php if(isset(" suffix=")): ?&gt;" />
       <data directive="@json" injection="true" prefix="&lt;?php echo json_encode(" suffix=") ?&gt;" />
       <data directive="@lang" injection="true" prefix="&lt;?php echo app('translator')-&gt;get(" suffix="); ?&gt;" />
+      <data directive="@livewire" injection="true" prefix="&lt;?php echo \Livewire\Livewire::mount(" suffix=")-&gt;dom; ?&gt;" />
+      <data directive="@livewireScripts" />
+      <data directive="@livewireStyles" />
       <data directive="@method" injection="true" prefix="&lt;?php echo method_field(" suffix="); ?&gt;" />
       <data directive="@once" />
       <data directive="@overwrite" />
