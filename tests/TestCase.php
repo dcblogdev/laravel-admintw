@@ -16,7 +16,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function prepareUser(): User
     {
-        return User::factory(UserFactory::class)->create();
+        return User::factory()->create();
     }
 
     protected function authenticate(): User
