@@ -11,7 +11,7 @@ class RegistrationTest extends TestCase
     use RefreshDatabase;
 
     /** @test **/
-    public function registration_screen_can_be_rendered()
+    public function registration_screen_can_be_rendered(): void
     {
         $response = $this->get('/register');
 
@@ -19,7 +19,7 @@ class RegistrationTest extends TestCase
     }
 
     /** @test **/
-    public function new_users_can_register()
+    public function new_users_can_register(): void
     {
         $response = $this->post('/register', [
             'name' => 'Test User',

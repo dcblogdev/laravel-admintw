@@ -9,7 +9,7 @@ class UserTest extends TestCase
     /** @test **/
     public function can_see_edit_page(): void
     {
-        $this->authenticate();
+        $this->authenticate();   
 
         $response = $this->get(route('app.users.edit'));
         $response->assertStatus(200);

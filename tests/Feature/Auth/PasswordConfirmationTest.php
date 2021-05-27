@@ -11,7 +11,7 @@ class PasswordConfirmationTest extends TestCase
     use RefreshDatabase;
 
     /** @test **/
-    public function confirm_password_screen_can_be_rendered()
+    public function confirm_password_screen_can_be_rendered(): void
     {
         $user = User::factory()->create();
 
@@ -21,7 +21,7 @@ class PasswordConfirmationTest extends TestCase
     }
 
     /** @test **/
-    public function password_can_be_confirmed()
+    public function password_can_be_confirmed(): void
     {
         $user = User::factory()->create();
 
@@ -34,7 +34,7 @@ class PasswordConfirmationTest extends TestCase
     }
 
     /** @test **/
-    public function password_is_not_confirmed_with_invalid_password()
+    public function password_is_not_confirmed_with_invalid_password(): void
     {
         $user = User::factory()->create();
 
