@@ -2,6 +2,7 @@
     "name": "dcblogdev/laravel-admintw",
     "description": "Tailwind admin theme & starter pack for Laravel.",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "David Carr",
