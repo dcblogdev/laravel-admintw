@@ -1,6 +1,6 @@
 {
-    "name": "dcblogdev/admintw",
-    "description": "Tailwind admin theme for Laravel.",
+    "name": "dcblogdev/laravel-admintw",
+    "description": "Tailwind admin theme & starter pack for Laravel.",
     "type": "library",
     "authors": [
         {
@@ -8,6 +8,7 @@
             "email": "dave@dcblog.dev"
         }
     ],
+    "homepage": "https://github.com/dcblogdev/laravel-admintw",
     "require": {
         "php": "^7.4|^8.0",
         "christophrumpel/missing-livewire-assertions": "^0.3.3",
