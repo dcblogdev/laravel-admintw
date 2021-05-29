@@ -10,6 +10,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "christophrumpel/missing-livewire-assertions": "^0.3.3",
         "illuminate/filesystem": "^8.0",
         "illuminate/support": "^8.12",
         "livewire/livewire": "^2.4.4",
