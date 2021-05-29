@@ -1,7 +1,7 @@
-<p align="center"><img src="https://raw.githubusercontent.com/dcblogdev/laravel-admintw/main/public/tmp/edit-user.png"></p>
-<p align="center"><img src="https://raw.githubusercontent.com/dcblogdev/laravel-admintw/main/public/tmp/login.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/dcblogdev/laravel-admintw/main/images/edit-user.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/dcblogdev/laravel-admintw/main/images/login.png"></p>
 
-## About Laravel AdminTW
+## Laravel AdminTW
 
 Laravel AdminTW is a free theme built on top of Laravel Breeze, main reason for this theme is a sidebar layout rather than top navigation.
 
@@ -13,12 +13,27 @@ Provided are blade components for common layout / UI elements and a complete tes
 
 ## Install
 
-Clone this repo, rename .env.example to .env 
+Install a fresh copy of Laravel then use require this package with composer:
+
+```bash
+composer require dcblogdev/laravel-admintw
+```
+Then install using the command:
+
+```bash
+php artisan admintw:install
+```
 
 Migrate the database
 
 ```
 php artisan migrate
+```
+
+To compile your assets:
+
+```bash
+npm install && npm run dev
 ```
 
 ## Contributing
