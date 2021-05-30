@@ -1,5 +1,4 @@
 @props([
-    'type' => 'button',
     'color' => 'blue',
     'name' => '',
     'id' => '',
