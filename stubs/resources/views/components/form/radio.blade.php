@@ -26,5 +26,5 @@
 
 <div>
     <input type='radio' name='{{ $name }}' id='{{ $id }}' value='{{ $value }}' @if ($slot != '') checked="checked" @endif {{ $attributes }}>
-    <label for='{{ $id }}'>{{ $label }}</label>
+    <label for='{{ $id }}' class="text-white dark:text-gray-300">{{ $label }}</label>
 </div>
