@@ -16,7 +16,9 @@
             <x-row>
 
                 <x-col>
-                    <x-form.input wire:model="name" label='Name' name='name' required></x-form.input>
+                    <x-form.input wire:model="firstName" label='First Name' name='firstName' required></x-form.input>
+                    <x-form.input wire:model="lastName" label='Last Name' name='lastName' required></x-form.input>
+
                 </x-col>
 
                 <x-col>
