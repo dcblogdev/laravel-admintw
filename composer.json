@@ -11,7 +11,7 @@
     ],
     "homepage": "https://github.com/dcblogdev/laravel-admintw",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "christophrumpel/missing-livewire-assertions": "^0.3.3",
         "illuminate/filesystem": "^8.0",
         "illuminate/support": "^8.12",
@@ -25,7 +25,13 @@
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "pestphp/pest": "^1.17",
+        "pestphp/pest-plugin-faker": "^1.0",
+        "pestphp/pest-plugin-global-assertions": "^1.0",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "pestphp/pest-plugin-mock": "^1.0",
+        "pestphp/pest-plugin-parallel": "^0.3.0",
+        "phpunit/phpunit": "^9.5.8"
     },
     "autoload": {
         "psr-4": {

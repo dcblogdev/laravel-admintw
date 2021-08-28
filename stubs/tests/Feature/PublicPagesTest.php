@@ -1,15 +1,5 @@
 <?php
 
-namespace Tests\Feature;
+test('can see home page')->get('/')->assertOk();
 
-use Tests\TestCase;
-
-class PublicPagesTest extends TestCase
-{
-    /** @test **/
-    public function can_see_home_page(): void
-    {
-        $response = $this->get('/');
-        $response->assertStatus(200);
-    }
-}
+test('is redirected when not authenticated')->get('app')->assertRedirect();

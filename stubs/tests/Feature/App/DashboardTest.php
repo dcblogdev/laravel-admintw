@@ -1,24 +1,10 @@
 <?php
 
-namespace Tests\Feature\App;
+test('can see dashboard when authenticated', function() {
+    $this->authenticate();
+    $this->get(route('app'))->assertOk();
+});
 
-use Tests\TestCase;
-
-class DashboardTest extends TestCase
-{
-    /** @test **/
-    public function can_see_dashboard_when_authenticated(): void
-    {
-        $this->authenticate();
-
-        $response = $this->get(route('app'));
-        $response->assertStatus(200);
-    }
-
-    /** @test **/
-    public function is_redirected_when_not_authenticated(): void
-    {
-        $response = $this->get(route('app'));
-        $response->assertStatus(302);
-    }
-}
+test('is redirected when not authenticated', function(){
+    $this->get(route('app'))->assertRedirect();
+});
