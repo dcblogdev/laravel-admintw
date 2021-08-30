@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{ factoryNamespace }};
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -9,7 +11,7 @@ class {{ factory }}Factory extends Factory
 {
     protected $model = {{ model }}::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
             //
