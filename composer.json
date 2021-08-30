@@ -17,7 +17,13 @@
         "illuminate/support": "^8.12",
         "livewire/livewire": "^2.4.4",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laracasts/flash": "^3.2"
+        "laracasts/flash": "^3.2",
+        "pestphp/pest": "^1.17",
+        "pestphp/pest-plugin-faker": "^1.0",
+        "pestphp/pest-plugin-global-assertions": "^1.0",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "pestphp/pest-plugin-mock": "^1.0",
+        "pestphp/pest-plugin-parallel": "^0.3.0"
     },
     "require-dev": {
         "brianium/paratest": "9999999-dev",
@@ -25,12 +31,6 @@
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "pestphp/pest": "^1.17",
-        "pestphp/pest-plugin-faker": "^1.0",
-        "pestphp/pest-plugin-global-assertions": "^1.0",
-        "pestphp/pest-plugin-laravel": "^1.1",
-        "pestphp/pest-plugin-mock": "^1.0",
-        "pestphp/pest-plugin-parallel": "^0.3.0",
         "phpunit/phpunit": "^9.5.8"
     },
     "autoload": {
