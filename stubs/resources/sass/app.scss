@@ -45,7 +45,7 @@
     }
 
     tbody tr {
-        @apply hover:bg-gray-100 dark:hover:bg-blue-500 focus-within:bg-gray-100;
+        @apply hover:bg-gray-100 dark:hover:bg-blue-500;
     }
 
     hr {
