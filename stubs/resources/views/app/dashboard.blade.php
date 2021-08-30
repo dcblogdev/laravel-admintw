@@ -2,10 +2,8 @@
 
     <x-slot name="title">Dashboard</x-slot>
 
-    <x-card>
+    <div class="card">
         You're logged in!
-    </x-card>
-
-
+    </div>
 
 </x-app-layout>

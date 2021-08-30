@@ -1,11 +1,10 @@
-@props(['title' => ''])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@if($title !== '') {{ $title }} - @endif {{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? '' }} {{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <livewire:styles/>
@@ -31,27 +30,32 @@
 
         </div>
 
-        <div class="pt-2 pr-2">
-           <livewire:user-menu/>
-        </div>
+        @auth
+            <div class="pt-2 pr-2">
+               <livewire:user-menu/>
+            </div>
+        @endauth
 
     </div>
 
     <div class="flex min-h-screen">
 
-        <!-- regular sidebar -->
-        <div class="hidden flex-none w-full md:block md:w-56 bg-gray-800">
-            @include('layouts.navigation')
-        </div>
+        @auth
+            <!-- regular sidebar -->
+            <div class="hidden flex-none w-full md:block md:w-56 bg-gray-800">
+                @include('layouts.navigation')
+            </div>
 
-        <!--sidebar on mobile-->
-        <div x-show.transition.origin.top.left="sidebarOpen" class="min-w-full bg-gray-800 md:hidden">
-            @include('layouts.navigation')
-        </div>
+            <!--sidebar on mobile-->
+            <div x-show.transition.origin.top.left="sidebarOpen" class="min-w-full bg-gray-800 md:hidden">
+                @include('layouts.navigation')
+            </div>
+        @endauth
 
         <!-- main content -->
         <div class="w-full bg-gray-200 dark:bg-gray-600 p-5">
-            {{ $slot }}
+            @yield('content')
+            {{ $slot ?? '' }}
         </div>
 
     </div>

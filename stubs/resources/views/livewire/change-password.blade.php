@@ -1,26 +1,23 @@
 <div>
-    <x-card>
+    <div class="card">
         <h2 class="mb-5">Change Password</h2>
 
         <x-form wire:submit.prevent="update" method="put">
 
-            <x-row>
+            <div class="col2">
 
-                <x-col>
+                <div>
                     <x-form.input wire:model="newPassword" name="newPassword" type="password" label="New Password"/>
-                </x-col>
+                </div>
 
-                <x-col>
+                <div>
                     <x-form.input wire:model="confirmPassword" name="confirmPassword" type="password" label="Confirm Password"/>
-                </x-col>
+                </div>
 
-            </x-row>
+            </div>
 
-            <x-alert/>
-
-            <x-form.button>Change Password</x-form.button>
+            <button class="btn btn-blue">Change Password</button>
         </x-form>
 
-
-    </x-card>
+    </div>
 </div>

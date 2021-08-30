@@ -1,21 +1,21 @@
 @include('flash::message')
 
 @if (session('message'))
-    <x-alert color="blue">
+    <div class="alert alert-blue">
         {{ session('messsage') }}
-    </x-alert>
+    </div>
 @endif
 
 @if (session('success'))
-    <x-alert color="green">
+    <div class="alert alert-green">
         {{ session('success') }}
-    </x-alert>
+    </div>
 @endif
 
 @if (session('status'))
-    <x-alert color="yellow">
+    <div class="alert alert-yellow">
         {{ session('status') }}
-    </x-alert>
+    </div>
 @endif
 
 @if (isset($errors))

@@ -14,35 +14,22 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-form.input label="Name" name="name">{{ old('name') }}</x-form.input>
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-form.input label="Email" name="email">{{ old('email') }}</x-form.input>
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                <x-form.input type="password" label="Password" name="password"></x-form.input>
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+                <x-form.input type="password" label="Comfirm Password" name="password_confirmation"></x-form.input>
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -50,9 +37,9 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <button class="ml-4 btn btn-blue">
                     {{ __('Register') }}
-                </x-button>
+                </button>
             </div>
         </form>
     </x-auth-card>
