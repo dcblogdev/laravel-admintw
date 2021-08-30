@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Users;
 
 use App\Models\User;
@@ -11,8 +13,8 @@ use Livewire\Component;
 
 class ChangePassword extends Component
 {
-    public User $user;
-    public string $newPassword = '';
+    public User   $user;
+    public string $newPassword     = '';
     public string $confirmPassword = '';
 
     public function render(): View
@@ -20,11 +22,14 @@ class ChangePassword extends Component
         return view('livewire.change-password');
     }
 
-    #[ArrayShape(['newPassword' => "array", 'confirmPassword' => "string"])]
+    #[ArrayShape([
+        'newPassword' => "array",
+        'confirmPassword' => "string"
+    ])]
     protected function rules(): array
     {
         return [
-            'newPassword' => [
+            'newPassword'     => [
                 'required',
                 Password::min(8)->mixedCase()->letters()->numbers()->uncompromised()
             ],
@@ -44,6 +49,6 @@ class ChangePassword extends Component
         $this->user->password = Hash::make($this->newPassword);
         $this->user->save();
 
-        session()->flash('message', 'Password Changes');
+        session()->flash('success', 'Password Changes');
     }
 }

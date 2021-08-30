@@ -6,15 +6,10 @@ use App\Providers\RouteServiceProvider;
 test('can see login page')->get('login')->assertOk();
 
 test('can authenticate', function(){
-    $user = User::factory()->create();
+    $this->authenticate();
 
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+    $response = $this->get('login');
+    $response->assertRedirect('/app');
 });
 
 test('cannot authenticate with invalid password', function(){

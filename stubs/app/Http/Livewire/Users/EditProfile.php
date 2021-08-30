@@ -53,7 +53,7 @@ class EditProfile extends Component
         $this->user->email = $this->email;
         $this->user->save();
 
-        session()->flash('message', 'updated.');
+        session()->flash('success', 'updated.');
 
         $this->emit('refreshUserMenu');
     }

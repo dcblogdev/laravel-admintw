@@ -31,7 +31,7 @@
         </div>
 
         @auth
-            <div class="pt-2 pr-2">
+            <div class="pt-3 pr-2">
                <livewire:user-menu/>
             </div>
         @endauth

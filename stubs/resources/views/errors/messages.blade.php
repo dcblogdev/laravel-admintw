@@ -1,7 +1,7 @@
 @include('flash::message')
 
 @if (session('message'))
-    <div class="alert alert-blue">
+    <div class="">??
         {{ session('messsage') }}
     </div>
 @endif

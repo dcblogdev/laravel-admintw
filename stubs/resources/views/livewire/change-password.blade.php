@@ -7,14 +7,16 @@
             <div class="col2">
 
                 <div>
-                    <x-form.input wire:model="newPassword" name="newPassword" type="password" label="New Password"/>
+                    <x-form.input wire:model="newPassword" name="newPassword" type="password" label="New Password" required />
                 </div>
 
                 <div>
-                    <x-form.input wire:model="confirmPassword" name="confirmPassword" type="password" label="Confirm Password"/>
+                    <x-form.input wire:model="confirmPassword" name="confirmPassword" type="password" label="Confirm Password" required />
                 </div>
 
             </div>
+
+            @include('errors.success')
 
             <button class="btn btn-blue">Change Password</button>
         </x-form>

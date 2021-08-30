@@ -14,16 +14,16 @@
             <div class="col2">
 
                 <div>
-                    <x-form.input wire:model="firstName" label='First Name' name='firstName' required></x-form.input>
-                    <x-form.input wire:model="lastName" label='Last Name' name='lastName' required></x-form.input>
-
+                    <x-form.input wire:model="name" label='Name' name='name' required />
                 </div>
 
                 <div>
-                    <x-form.input wire:model="email" label='Email' name='email' required></x-form.input>
+                    <x-form.input wire:model="email" label='Email' name='email' required />
                 </div>
 
             </div>
+
+            @include('errors.success')
 
             <button class="btn btn-blue" wire:click="update">Update Profile</button>
 
