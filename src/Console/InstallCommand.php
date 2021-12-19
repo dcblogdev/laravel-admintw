@@ -36,7 +36,7 @@ class InstallCommand extends Command
                 "resolve-url-loader" => "^3.1.0",
                 "sass" => "^1.29.0",
                 "sass-loader" => "^8.0.2",
-                "tailwindcss" => "^2.0.2",
+                "tailwindcss" => "^3.0.7",
                 "vue-template-compiler" => "^2.6.12"
             ] + $packages;
         }, 'devDependencies');
