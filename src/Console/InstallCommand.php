@@ -44,7 +44,6 @@ class InstallCommand extends Command
         $this->updateNodePackages(function ($packages) {
             return [
                 "@tailwindcss/forms" => "^0.2",
-                "@tailwindcss/typography" => "^0.3",
                 "@fortawesome/fontawesome-free" => "^5.15.2",
                 "flatpickr" => "^4.6.9",
                 "filepond" => "^4.25.1",
