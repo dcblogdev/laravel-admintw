@@ -32,6 +32,6 @@
     {{ $slot }}
     </select>
     @error($name)
-        <p class="text-red-500">{{ $message }}</p>
+        <p class="error">{{ $message }}</p>
     @enderror
 </div>

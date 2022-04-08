@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
+<x-app-layout>
 @section('title', '404')
 
-@section('content')
-<div class="prose">
-    <h3>404 - The requested page was not found.</h3>
+<h3 class="text-center mt-10">404 - The requested page was not found.</h3>
 
-    @include('errors.messages')
-</div>
-@stop
+@include('errors.messages')
+
+</x-app-layout>
+

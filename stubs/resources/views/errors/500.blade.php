@@ -1,17 +1,10 @@
-@extends('layouts.app')
-
+<x-app-layout>
 @section('title', '500')
 
-@section('content')
+<h3 class="text-center mt-10">500 - There has been an internal server error.</h3>
 
-<div class="prose">
+@include('errors.messages')
 
-    <h3>500 - There has been an internal server error.</h3>
+<h4 class="text-center mt-10">{{ $message ?? '' }}</h4>
 
-    @include('errors.messages')
-
-    <h4>{{ $message }}</h4>
-
-</div>
-
-@stop
+</x-app-layout>

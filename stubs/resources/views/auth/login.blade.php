@@ -1,49 +1,22 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-card>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+	<x-form action="{{ route('login') }}">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+		@include('errors.messages')
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+		<x-form.input name="email" label="Email">{{ old('email') }}</x-form.input>
+		<x-form.input name="password" label="Password" type="password" />
 
-            <!-- Email Address -->
-            <div>
-                <x-form.input label="Email" name="email">{{ old('email') }}</x-form.input>
-            </div>
+		<div class="flex justify-between">
+			<a href="{{ route('password.request') }}">Forgot your password?</a>
+			<a href="{{ route('register') }}">Register</a>
+		</div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-form.input type="password" label="Password" name="password"></x-form.input>
-            </div>
+		<p><button type="submit" class="btn btn-primary w-full justify-center">Login</button></p>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+	</x-form>
 
-            <div class="flex justify-between mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+</x-auth-card>
 
-                <button class="btn btn-blue">
-                    {{ __('Log in') }}
-                </button>
-            </div>
-        </form>
-    </x-auth-card>
 </x-guest-layout>

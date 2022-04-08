@@ -1,17 +1,10 @@
-@extends('layouts.app')
-
+<x-app-layout>
 @section('title', '401')
 
-@section('content')
+<h3>401 - You do not have the correct permissions.</h3>
 
-<div class="prose">
+@include('errors.messages')
 
-    <h3>401 - You do not have the correct permissions.</h3>
-
-    @include('errors.messages')
-
-    <h4>{{ $message }}</h4>
-
-</div>
-
-@stop
+<h4>{{ $message ?? '' }}</h4>
+    
+</x-app-layout>

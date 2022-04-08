@@ -1,0 +1,11 @@
+.error {
+    @apply text-red-500 dark:text-red-300
+}
+
+.col2 {
+    @apply grid md:grid-cols-2 gap-10
+}
+
+.row {
+    @apply md:flex md:space-x-8
+}

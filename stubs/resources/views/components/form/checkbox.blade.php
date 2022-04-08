@@ -3,13 +3,14 @@
     'id'    => '',
     'label' => '',
     'value' => '',
+    'selected' => ''
 ])
 
-@if ($id === '')
-    @php
-        $id = $name;
-    @endphp
-@endif
+@php
+if ($id === '') {
+    $id = $name;
+}
+@endphp
 
 @if ($label === '')
     @php
@@ -25,6 +26,6 @@
 @endif
 
 <div>
-    <input type='checkbox' name='{{ $name }}' id='{{ $id }}' value='{{ $value }}' @if ($slot != '') checked="checked" @endif {{ $attributes }}>
+    <input type='checkbox' name='{{ $name }}' id='{{ $id }}' value='{{ $value }}' @if ($selected === $value) checked='checked' @endif {{ $attributes }}>
     <label for='{{ $id }}'>{{ $label }}</label>
 </div>

@@ -1,13 +1,12 @@
 @props([
-    'method' => 'post',
-    'action' => ''
+    'method' => 'post'
 ])
 
 @php
 $method = strtolower($method);
 @endphp
 
-<form method="{{ $method === 'get' ? 'get' : 'post' }}" action="{{ $action }}" {{ $attributes}}>
+<form method="{{ $method === 'get' ? 'get' : 'post' }}" {{ $attributes }}>
 @if ($method != 'get')
     @csrf
 @endif

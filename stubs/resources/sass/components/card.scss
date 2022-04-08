@@ -1,0 +1,83 @@
+.card {
+    @apply bg-white dark:bg-gray-800 dark:text-white shadow rounded-md p-5 my-5;
+
+    &.card-green {
+        @apply bg-green-400 text-green-100;
+    }
+
+    &.card-red {
+        @apply bg-red-400 text-red-100;
+    }
+
+    &.card-yellow {
+        @apply bg-yellow-400 text-yellow-600;
+    }
+
+    &.card-blue {
+        @apply bg-blue-400 text-blue-100;
+    }
+
+    &.card-gray {
+        @apply bg-gray-400 text-gray-100;
+    }
+
+    &.card-indigo {
+        @apply bg-indigo-400 text-indigo-100;
+    }
+
+    &.card-purple {
+        @apply bg-purple-400 text-purple-100;
+    }
+}
+
+.card-title {
+    @apply text-3xl font-bold pl-2 pt-2;
+}
+
+.card-sub-title {
+    @apply text-sm pl-2 pb-2;
+}
+
+.card-demo {
+    @apply card card-indigo my-5 p-5;
+}
+
+.card-footer {
+    @apply text-xs p-2 rounded-b-md;
+
+    &.card-footer-gray {
+        @apply bg-gray-600 text-white;
+    }
+
+    &.card-footer-red {
+        @apply bg-red-600 text-white;
+    }
+
+    &.card-footer-yellow {
+        @apply bg-yellow-600 text-white;
+    }
+
+    &.card-footer-green {
+        @apply bg-green-600 text-white;
+    }
+
+    &.card-footer-blue {
+        @apply bg-blue-600 text-white;
+    }
+
+    &.card-footer-indigo {
+        @apply bg-indigo-600 text-white;
+    }
+
+    &.card-footer-purple {
+        @apply bg-purple-600 text-white;
+    }
+
+    &.card-footer-pink {
+        @apply bg-pink-600 text-white;
+    }
+}
+
+.central-card {
+    @apply bg-white dark:bg-gray-700 p-10 rounded-lg shadow-lg w-full lg:w-1/2 mx-auto
+}

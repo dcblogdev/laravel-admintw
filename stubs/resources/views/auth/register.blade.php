@@ -1,46 +1,20 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-card>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    @include('errors.success')
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+    <x-form action="{{ route('register') }}">
 
-            <!-- Name -->
-            <div>
-                <x-form.input label="Name" name="name">{{ old('name') }}</x-form.input>
-            </div>
+        <x-form.input type="text" label='Name' name="name">{{ old('name') }}</x-form.input>
+        <x-form.input type="text" label='Email' name="email">{{ old('email') }}</x-form.input>
+        <x-form.input type="password" label='Password' name='password'></x-form.input>
+        <x-form.input type="password" label='Confirm Password' name='confirmPassword'></x-form.input>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-form.input label="Email" name="email">{{ old('email') }}</x-form.input>
-            </div>
+        <p>Already can an account? <a class="text-primary" href="{{ route('login') }}">Login</a></p>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-form.input type="password" label="Password" name="password"></x-form.input>
-            </div>
+        <x-button>Save Password</x-button>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-form.input type="password" label="Comfirm Password" name="password_confirmation"></x-form.input>
-            </div>
+    </x-form>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <button class="ml-4 btn btn-blue">
-                    {{ __('Register') }}
-                </button>
-            </div>
-        </form>
-    </x-auth-card>
+</x-auth-card>
 </x-guest-layout>

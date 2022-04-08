@@ -46,7 +46,7 @@
             {{ $required }}
             {{ $attributes->merge(['class' => 'mt-1 block w-full dark:bg-gray-500 dark:text-gray-200 dark:placeholder-gray-200 border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm']) }}>
         @error($name)
-            <p class="text-red-500">{{ $message }}</p>
+            <p class="error">{{ $message }}</p>
         @enderror
     </div>
 </div>

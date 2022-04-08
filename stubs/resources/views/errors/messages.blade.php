@@ -1,8 +1,8 @@
 @include('flash::message')
 
 @if (session('message'))
-    <div class="">??
-        {{ session('messsage') }}
+    <div class="">
+        {{ session('message') }}
     </div>
 @endif
 
@@ -13,17 +13,7 @@
 @endif
 
 @if (session('status'))
-    <div class="alert alert-yellow">
+    <div class="alert alert-primary">
         {{ session('status') }}
     </div>
-@endif
-
-@if (isset($errors))
-    @if (count($errors) > 0)
-        <div class="alert alert-red">
-            @foreach ($errors->all() as $error)
-                {{ $error }}</br>
-            @endforeach
-        </div>
-    @endif
 @endif
