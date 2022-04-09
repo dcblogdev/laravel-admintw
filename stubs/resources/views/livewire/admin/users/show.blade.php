@@ -1,9 +1,9 @@
 @section('title', 'Profile')
 <div>
-   <div>
+   <p>
        <a href="{{ route('admin.users.index') }}">Users</a>
        <span class="dark:text-gray-200">- {{ $user->name }}</span>
-   </div>
+   </p>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-6">
         <div>

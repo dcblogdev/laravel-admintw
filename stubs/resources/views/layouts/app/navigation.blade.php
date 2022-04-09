@@ -44,9 +44,6 @@
 
         @if(is_admin())
             <x-nav.group-item route="admin.settings" icon="far fa-circle">System Settings</x-nav.group-item>
-        @endif
-
-        @if(is_admin())
             <x-nav.group-item route="admin.settings.roles.index" icon="far fa-circle">Roles</x-nav.group-item>
         @endif
     </x-nav.group>

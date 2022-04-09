@@ -18,6 +18,10 @@ p {
     @apply py-2 text-gray-600 dark:text-indigo-300;
 }
 
+p a {
+    @apply text-primary dark:text-indigo-300;
+}
+
 table {
     @apply w-full table-auto shadow-md rounded;
 }
@@ -48,8 +52,4 @@ tbody td a {
 
 hr {
     @apply border-t border-gray-300;
-}
-
-#main a {
-    @apply text-primary dark:text-indigo-200;
 }
