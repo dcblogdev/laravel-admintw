@@ -10,10 +10,13 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('scripts')
     <livewire:styles/>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 </head>
 <body>
 
-<div x-data="{ sidebarOpen: false }">
+<div x-data="{ sidebarOpen: false }" x-cloak>
     <div class="flex min-h-screen">
 
         @auth
