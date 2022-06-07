@@ -1,15 +1,12 @@
-<p align="center"><img src="https://raw.githubusercontent.com/dcblogdev/laravel-admintw/main/images/edit-user.png"></p>
-<p align="center"><img src="https://raw.githubusercontent.com/dcblogdev/laravel-admintw/main/images/login.png"></p>
+<p align="center"><img src="https://laraveladmintw.com/images/admin-tw-settings.png"></p>
 
 ## Laravel AdminTW
 
-Laravel AdminTW is a free theme built on top of Laravel Breeze, main reason for this theme is a sidebar layout rather than top navigation.
+Laravel AdminTW is minimal Laravel Livewire theme styled with TailwindCSS.
 
-AdminTW is minimal theme presenting a clean sidebar and top bar and open areas for content to be displayed.
+Laravel AdminTW supports both light and dark mode based on the users OS.
 
-AdminTW supports both light and dark mode based on the users OS.
-
-Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP) in addition to Laravel's default tests.
+Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP).
 
 ## Install
 
@@ -24,10 +21,24 @@ Then install using the command:
 php artisan admintw:install
 ```
 
+>Ensure you've updated .env before migrating.
+
 Migrate the database
 
 ```
 php artisan migrate
+```
+
+Seed the database
+
+```
+php artisan db:seed
+```
+
+Link Storage to public
+
+```
+php artisan storage:link
 ```
 
 To compile your assets:
@@ -42,19 +53,9 @@ Run the tests by running PestPHP
 vendor/bin/pest
 ```
 
-## Styles
+## Documentation
 
-Default styling is applied to these elements: H1,H2,H3, p, table, thead tr, tbody tr, th, td, hr.
-
-Custom classes
-
-Input elements should use .input
-
-Alerts should use .alert for base style then alert-colour for the colour:
-```css
-<div class="alert alert-blue"></div>
-```
-
+Complete docs at [laraveladmintw.com](https://laraveladmintw.com/docs)
 
 ## Contributing
 
