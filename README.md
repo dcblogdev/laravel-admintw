@@ -55,7 +55,7 @@ vendor/bin/pest
 
 ## Documentation
 
-Complete docs at [laraveladmintw.com](https://laraveladmintw.com/docs)
+Complete docs at [laraveladmintw.com](https://laraveladmintw.com)
 
 ## Contributing
 
