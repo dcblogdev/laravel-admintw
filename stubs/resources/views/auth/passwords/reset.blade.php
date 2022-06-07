@@ -1,4 +1,5 @@
 <x-guest-layout>
+@section('title', 'Reset Password')
 <x-auth-card>
 
 	@include('errors.messages')
@@ -20,7 +21,7 @@
 		<x-form.input name="password" label="Password" type="password"></x-form.input>
 		<x-form.input name="password_confirmation" label="Confirm password" type="password"></x-form.input>
 
-		<p><x-button type="submit" class="w-full justify-center">Update Password</x-button></p>
+		<p><x-button type="submit" class="justify-center w-full">Update Password</x-button></p>
 
 		<p><a href="{{ route('login') }}" class="float-right">Login</a></p>
 

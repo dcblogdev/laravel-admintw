@@ -1,4 +1,5 @@
 <x-guest-layout>
+@section('title', 'Login')
 <x-auth-card>
 
 	<x-form action="{{ route('login') }}">
@@ -10,10 +11,12 @@
 
 		<div class="flex justify-between">
 			<a href="{{ route('password.request') }}">Forgot your password?</a>
-			<a href="{{ route('register') }}">Register</a>
+			@if (Route::has('register'))
+                <a href="{{ route('register') }}">Register</a>
+            @endif
 		</div>
 
-		<p><button type="submit" class="btn btn-primary w-full justify-center">Login</button></p>
+		<p><button type="submit" class="justify-center w-full btn btn-primary">Login</button></p>
 
 	</x-form>
 

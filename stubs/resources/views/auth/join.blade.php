@@ -1,4 +1,5 @@
 <x-guest-layout>
+@section('title', 'Join')
 <x-auth-card>
 
     @include('errors.success')

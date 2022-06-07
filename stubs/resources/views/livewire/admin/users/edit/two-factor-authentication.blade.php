@@ -9,14 +9,14 @@
                 <p><b>Why do I need this?</b></p>
 
                 <p>Passwords can get stolen – especially if you use the same password for multiple sites.
-                Adding Two-Step Verification means that even if your password gets stolen, your CRM account will remain secure.</p>
+                Adding Two-Step Verification means that even if your password gets stolen, your account will remain secure.</p>
 
                 <p><b>How does it work?</b></p>
 
                 <p>After you turn on Two-Step Verification for your account, signing in will be a little different:
                     You'll enter your password, as usual.</p>
 
-                <p>Next open your Authenticator app (1Password) and copy the code number into the form and submit.</p>
+                <p>Next open your Authenticator app and copy the code number into the form and submit.</p>
             @endif
         </x-slot>
         <x-slot name="right">
@@ -27,8 +27,8 @@
                     <p>Your 2-Factor Authentication is in place, to remove this click the button below.</p>
                     <x-button wire:click="remove">Turn off 2FA</x-button>
                 @else
-                    <p>Authenticator apps generate random codes that you can use to sign in. They do not have access to your CRM password or account information.</p>
-                    <p>We recommend using 1Password.</p>
+                    <p>Authenticator apps generate random codes that you can use to sign in. They do not have access to your password or account information.</p>
+                    <p>1Password is a good authenticator app as is Authy.</p>
 
                     <p><img src='{{ $inlineUrl }}'></p>
 
