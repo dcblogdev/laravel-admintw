@@ -92,7 +92,7 @@ class TwoFaController extends Controller
             'type'         => '2FA Setup'
         ]);
 
-        Session::forget('2fasetup');
+        Session::forget('2fa-setup');
 
         return redirect(route('admin'));
     }

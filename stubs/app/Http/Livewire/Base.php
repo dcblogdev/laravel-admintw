@@ -4,12 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\AuditTrail;
 use App\Models\Roles\Permission;
-use App\Models\Setting;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Schema;
 use Livewire\Component;
 
 class Base extends Component
@@ -43,15 +40,6 @@ class Base extends Component
 
                 redirect(route('login'));
             }
-
-            if (session('2fa-login') === true && url()->current() !== url('app/twofa')) {
-                redirect('admin/twofa');
-            }
-
-            if (session('2fa-setup') === true && url()->current() !== url('app/twofasetup')) {
-                redirect('admin/twofasetup');
-            }
-
         } else {
             redirect(route('login'));
         }

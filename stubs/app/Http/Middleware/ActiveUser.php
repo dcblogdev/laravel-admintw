@@ -13,19 +13,18 @@ class ActiveUser
     {
         //if user is not active log the user out
         if (! auth()->user()->is_active) {
-
             flash('Your account has been deactivated. You cannot login.')->warning();
             auth()->logout();
 
             return redirect(route('login'));
         }
 
-        if (session('2fa-login') === true && url()->current() !== url('admin/two-fa')) {
-            return redirect('admin/two-fa');
+        if (session('2fa-login') === true && url()->current() !== url('admin/2fa')) {
+            return redirect('admin/2fa');
         }
 
-        if (session('2fa-setup') === true && url()->current() !== url('admin/two-fa-setup')) {
-            return redirect('admin/two-fa-setup');
+        if (session('2fa-setup') === true && url()->current() !== url('admin/2fa-setup')) {
+            return redirect('admin/2fa-setup');
         }
 
         return $next($request);

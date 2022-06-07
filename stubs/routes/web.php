@@ -41,10 +41,10 @@ Route::middleware(['web', 'guest'])->group(function () {
 
 //authenticated
 Route::middleware(['web', 'auth', 'activeUser', 'IpCheckMiddleware'])->prefix('admin')->group(function () {
-    Route::get('two-fa', [TwoFaController::class, 'index'])->name('2fa');
-    Route::post('two-fa', [TwoFaController::class, 'update'])->name('2fa.update');
-    Route::get('twofa-setup', [TwoFaController::class, 'setup'])->name('2fasetup');
-    Route::post('twofa-setup', [TwoFaController::class, 'setupUpdate'])->name('2fasetup.update');
+    Route::get('2fa', [TwoFaController::class, 'index'])->name('2fa');
+    Route::post('2fa', [TwoFaController::class, 'update'])->name('2fa.update');
+    Route::get('2fa-setup', [TwoFaController::class, 'setup'])->name('2fa-setup');
+    Route::post('2fa-setup', [TwoFaController::class, 'setupUpdate'])->name('2fa-setup.update');
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/', Dashboard::class)->name('admin');

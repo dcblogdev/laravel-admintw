@@ -63,7 +63,8 @@ class LoginController extends Controller
                 'email'     => $request->input('email'),
                 'password'  => $request->input('password'),
                 'is_active' => 1
-            ], $request->filled('remember')
+            ],
+            $request->filled('remember')
         );
     }
 
@@ -160,7 +161,9 @@ class LoginController extends Controller
         $attempts       = 10;
         $lockoutMinites = 10;
         return $this->limiter()->tooManyAttempts(
-            $this->throttleKey($request), $attempts, $lockoutMinites
+            $this->throttleKey($request),
+            $attempts,
+            $lockoutMinites
         );
     }
 }
