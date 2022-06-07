@@ -56,14 +56,6 @@ Alerts should use .alert for base style then alert-colour for the colour:
 ```
 
 
-## Blade Components
-
-To document
-
-## Livewire Components
-
-To document
-
 ## Contributing
 
 Contributions are welcome and will be fully credited.
