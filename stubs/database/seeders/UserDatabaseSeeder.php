@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class UserDatabaseSeeder extends Seeder
-
 {
     public function run()
     {
@@ -24,12 +23,13 @@ class UserDatabaseSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'edit_own_account', 'label' => 'Edit Own Account', 'module' => 'Users']);
         Permission::firstOrCreate(['name' => 'delete_users', 'label' => 'Delete Users', 'module' => 'Users']);
 
-        //create developer
-        $user = User::firstOrCreate(['email' => 'dave@dcblog.dev'], [
-            'name'                 => 'David Carr',
-            'slug'                 => 'david-carr',
-            'email'                => 'dave@dcblog.dev',
-            'password'             => bcrypt('Nutty7430@'),
+        //create developer uncomment to use when seeding
+        /*
+        $user = User::firstOrCreate(['email' => 'user@domain.com'], [
+            'name'                 => 'Username',
+            'slug'                 => 'username',
+            'email'                => 'user@domain.com',
+            'password'             => bcrypt('ChangeMe!'),
             'is_active'            => 1,
             'is_office_login_only' => 0
         ]);
@@ -49,11 +49,6 @@ class UserDatabaseSeeder extends Seeder
             'role_id' => $role->id,
             'user_id' => $user->id
         ]);
-
-        $role = Role::where('name', 'developer')->first();
-        RoleUser::firstOrCreate([
-            'role_id' => $role->id,
-            'user_id' => $user->id
-        ]);
+        */
     }
 }
