@@ -8,6 +8,8 @@ Laravel AdminTW supports both light and dark mode based on the users OS.
 
 Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP).
 
+Watch a video tour on YouTube https://www.youtube.com/watch?v=ehLx-jO1LF0
+
 ## Install
 
 Install a fresh copy of Laravel then use require this package with composer:
