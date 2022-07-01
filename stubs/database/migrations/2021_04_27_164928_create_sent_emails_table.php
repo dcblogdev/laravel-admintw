@@ -9,7 +9,7 @@ class CreateSentEmailsTable extends Migration
     public function up()
     {
         Schema::create('sent_emails', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->date('date')->nullable();
             $table->string('from')->nullable();
             $table->text('to')->nullable();
