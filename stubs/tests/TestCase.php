@@ -44,16 +44,6 @@ abstract class TestCase extends BaseTestCase
     {
         $user = User::factory()->create();
 
-        //generate image
-        $name      = get_initials($user->name);
-        $id        = 'test-user.png';
-        $path      = 'users/';
-        $imagePath = 'some/image/path.jpg';//create_avatar($name, $id, $path);
-
-        //save imagel
-        $user->image = $imagePath;
-        $user->save();
-
         $createdRole = Role::create([
             'name'  => $role,
             'label' => ucwords($role)
