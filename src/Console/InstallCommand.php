@@ -31,7 +31,7 @@ class InstallCommand extends Command
         //copy folders
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/app', base_path('app'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/database', base_path('database'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/public', base_path('database'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/public', base_path('public'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/resources', base_path('resources'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/routes', base_path('routes'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/stubs', base_path('stubs'));
