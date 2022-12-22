@@ -32,7 +32,7 @@ class TwoFactorAuthentication extends Base
 
         $tfa             = new TwoFactorAuth();
         $this->secretKey = $tfa->createSecret();
-        $this->inlineUrl = $tfa->getQRCodeImageAsDataUri(config('admin.name'), $this->secretKey);
+        $this->inlineUrl = $tfa->getQRCodeImageAsDataUri(config('app.name'), $this->secretKey);
     }
 
     public function render(): View

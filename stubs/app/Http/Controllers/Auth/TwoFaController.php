@@ -51,7 +51,7 @@ class TwoFaController extends Controller
     {
         $tfa       = new TwoFactorAuth();
         $secretKey = $tfa->createSecret();
-        $inlineUrl = $tfa->getQRCodeImageAsDataUri(config('admin.name'), $secretKey);
+        $inlineUrl = $tfa->getQRCodeImageAsDataUri(config('app.name'), $secretKey);
 
         return view('auth.twofasetup', compact('secretKey', 'inlineUrl'));
     }

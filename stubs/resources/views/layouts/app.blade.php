@@ -62,7 +62,7 @@
     </div>
 
     <div class="bg-white dark:bg-gray-900 dark:text-gray-300 p-5 flex justify-between text-xs">
-        <div>{{ __('Copyright') }} &copy; {{ date('Y') }} {{ config('admin.name') }}</div>
+        <div>{{ __('Copyright') }} &copy; {{ date('Y') }} {{ config('app.name') }}</div>
     </div>
 
 </div>

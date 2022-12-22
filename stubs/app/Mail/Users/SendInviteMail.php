@@ -21,7 +21,7 @@ class SendInviteMail extends Mailable
     public function build(): SendInviteMail
     {
         return $this->to($this->user->email)
-            ->subject('Invitation to '.config('admin.name'))
+            ->subject('Invitation to '.config('app.name'))
             ->markdown('mail.users.invite');
     }
 }

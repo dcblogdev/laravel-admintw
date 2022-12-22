@@ -4,7 +4,7 @@
 
     @include('errors.success')
 
-    <p>{{ $user->invite->name }} has invited you to join {{ config('admin.name') }}.</p>
+    <p>{{ $user->invite->name }} has invited you to join {{ config('app.name') }}.</p>
 
     <x-form action="{{ route('join.update', ['id' => $user->id]) }}" method="put">
 
