@@ -40,6 +40,12 @@ Then install using the command:
 php artisan admintw:install
 ```
 
+Run composer
+
+```bash
+composer update
+```
+
 >Ensure you've updated .env before migrating.
 
 Migrate the database
