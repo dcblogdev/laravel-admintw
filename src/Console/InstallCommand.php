@@ -26,7 +26,7 @@ class InstallCommand extends Command
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         //copy folders
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/app', base_path('app'));
@@ -37,18 +37,18 @@ class InstallCommand extends Command
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/stubs', base_path('stubs'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/tests', base_path('tests'));
 
-        // Tailwind / Webpack...
         copy(__DIR__.'/../../stubs/composer.json', base_path('composer.json'));
         copy(__DIR__.'/../../stubs/phpunit.xml', base_path('phpunit.xml'));
         copy(__DIR__.'/../../stubs/package.json', base_path('package.json'));
+        copy(__DIR__.'/../../stubs/postcss.config.js', base_path('postcss.config.js'));
         copy(__DIR__.'/../../stubs/tailwind.config.js', base_path('tailwind.config.js'));
-        copy(__DIR__.'/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
+        copy(__DIR__.'/../../stubs/vite.config.js', base_path('vite.config.js'));
 
         if (file_exists(base_path('resources/views/welcome.blade.php'))) {
             unlink(base_path('resources/views/welcome.blade.php'));
         }
 
         $this->info('Admin theme installed successfully.');
-        $this->info('Please run "composer update" then "npm install && npm run dev" command to build your assets.');
+        $this->info('Please run "composer update" then "npm install && npm run build" command to build your assets.');
     }
 }

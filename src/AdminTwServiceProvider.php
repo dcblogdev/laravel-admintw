@@ -12,7 +12,7 @@ class AdminTwServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
 
     }
@@ -22,7 +22,7 @@ class AdminTwServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         if (! $this->app->runningInConsole()) {
             return;
@@ -38,7 +38,7 @@ class AdminTwServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [Console\InstallCommand::class];
     }
