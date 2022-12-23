@@ -48,6 +48,10 @@ class InstallCommand extends Command
             unlink(base_path('resources/views/welcome.blade.php'));
         }
 
+        if (file_exists(base_path('resources/css/app.css'))) {
+            unlink(base_path('resources/css/app.css'));
+        }
+
         $this->info('Admin theme installed successfully.');
         $this->info('Please run "composer update" then "npm install && npm run build" command to build your assets.');
     }

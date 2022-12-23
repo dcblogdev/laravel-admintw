@@ -48,16 +48,10 @@ composer update
 
 >Ensure you've updated .env before migrating.
 
-Migrate the database
+Migrate and seed the database
 
 ```
-php artisan migrate
-```
-
-Seed the database
-
-```
-php artisan db:seed
+php artisan db:build
 ```
 
 Link Storage to public
