@@ -8,7 +8,7 @@ import * as FilePond from 'filepond';
 window.FilePond = FilePond;
 
 import Prism from 'prismjs';
-require('prismjs/plugins/normalize-whitespace/prism-normalize-whitespace');
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import 'prismjs/themes/prism-tomorrow.css'; // see other themes in the prism docs
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
