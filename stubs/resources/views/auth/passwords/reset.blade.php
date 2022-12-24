@@ -8,7 +8,7 @@
 		<x-form.input name="token" type="hidden" label="none">{{ $token }}</x-form.input>
 
 		<p>Ensure your account is using a long, random password to stay secure.</p>
-		<p>Use a password manager, we recommend using 1Password for creating and storing passwords or <a href="https://passwordsgenerator.net/" target="blank" class="link link-blue">passwordsgenerator.net</a></p>
+		<p>Use a password manager, we recommend using 1Password for creating and storing passwords or <a href="https://1password.com/password-generator/" target="blank">1password.com/password-generator</a></p>
 
 		<div class="alert alert-primary">
 			<p class="text-white">New password must be at least 8 characters in length<br>

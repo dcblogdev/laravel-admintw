@@ -10,6 +10,13 @@
             <div class="card">
                 <x-form wire:submit.prevent="update" method="put">
 
+                    <div class="alert alert-primary">
+                        <p class="text-white">New password must be at least 8 characters in length<br>
+                        at least one lowercase letter<br>
+                        at least one uppercase letter<br>
+                        at least one digit</p>
+                    </div>
+
                     <x-form.input wire:model="newPassword" type="password" label='New Password' name='newPassword'></x-form.input>
                     <x-form.input wire:model="confirmPassword" type="password" label='Confirm Password' name='confirmPassword'></x-form.input>
 

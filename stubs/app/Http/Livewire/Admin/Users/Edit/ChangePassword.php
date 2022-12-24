@@ -31,7 +31,7 @@ class ChangePassword extends Base
         return [
             'newPassword'     => [
                 'required',
-                Password::min(16)
+                Password::min(8)
                     ->mixedCase()
                     ->letters()
                     ->numbers()
