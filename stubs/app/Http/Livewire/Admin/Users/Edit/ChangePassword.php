@@ -71,6 +71,8 @@ class ChangePassword extends Base
             'type'         => 'Update'
         ]);
 
+        $this->reset(['newPassword', 'confirmPassword']);
+
         flash('Password Updated!')->success();
     }
 }

@@ -15,7 +15,7 @@
 
                     <x-button>Change Password</x-button>
 
-                    @include('errors.success')
+                    @include('errors.messages')
 
                 </x-form>
             </div>
