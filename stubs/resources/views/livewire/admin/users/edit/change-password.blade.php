@@ -3,7 +3,7 @@
         <x-slot name="left">
             <h3>Change Password</h3>
             <p>Ensure your account is using a long, random password to stay secure.</p>
-            <p>Use a password manager, we recommend using 1Password for creating and storing passwords or <a href="https://passwordsgenerator.net/" target="blank">passwordsgenerator.net</a></p>
+            <p>Use a password manager, we recommend using 1Password for creating and storing passwords or <a href="https://1password.com/password-generator/" target="blank">1password.com/password-generator</a></p>
         </x-slot>
         <x-slot name="right">
 
