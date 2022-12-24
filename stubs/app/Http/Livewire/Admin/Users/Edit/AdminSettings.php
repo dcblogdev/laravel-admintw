@@ -24,8 +24,8 @@ class AdminSettings extends Base
 
     public function mount(): void
     {
-        $this->isActive          = (int) $this->user->is_active;
-        $this->isOfficeLoginOnly = (int) $this->user->is_office_login_only;
+        $this->isActive          = (bool) $this->user->is_active;
+        $this->isOfficeLoginOnly = (bool) $this->user->is_office_login_only;
     }
 
     public function render(): View
@@ -38,8 +38,8 @@ class AdminSettings extends Base
     protected function rules(): array
     {
         return [
-            'isOfficeLoginOnly' => 'integer',
-            'isActive'          => 'integer'
+            'isOfficeLoginOnly' => 'bool',
+            'isActive'          => 'bool'
         ];
     }
 
@@ -58,6 +58,7 @@ class AdminSettings extends Base
         if (is_admin()) {
             $this->user->is_office_login_only = $this->isOfficeLoginOnly ? 1 : 0;
             $this->user->is_active            = $this->isActive ? 1 : 0;
+            $this->user->save();
 
             add_user_log([
                 'title'        => "updated ".$this->user->name."'s admin settings",
@@ -68,9 +69,7 @@ class AdminSettings extends Base
             ]);
         }
 
-        $this->user->save();
-
-        flash('App Settings Updated!')->success();
+        flash('Settings Updated!')->success();
         $this->emit('refreshProfile');
     }
 }
