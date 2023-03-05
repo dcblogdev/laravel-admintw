@@ -7,7 +7,6 @@ Laravel AdminTW is a TALL admin theme.
 Includes:
 - 2FA
 - Audit Trails
-- Sent emails
 - System Settings
 - Multiple Users
 - Roles and Permissions
@@ -17,15 +16,8 @@ Laravel AdminTW supports both light and dark mode based on the users OS.
 
 Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP).
 
-- [Video Tour](#video-tour)
 - [Install](#install)
 - [Documentation](#documentation)
-
-
-## Video Tour
-<a href="https://www.youtube.com/watch?v=ehLx-jO1LF0"><img src="images/video.png"></a>
-
-or watch on [YouTube](https://www.youtube.com/watch?v=ehLx-jO1LF0)
 
 ## Install
 
