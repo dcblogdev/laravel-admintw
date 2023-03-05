@@ -1,14 +1,14 @@
 <div>
     <div class="card">
 
-        <h3>Login Logo</h3>
+        <h3>{{ __('Login Logo') }}</h3>
 
         <x-form wire:submit.prevent="update" method="put">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
 
-                    <h2>Light Mode Logo</h2>
+                    <h2>{{ __('Light Mode Logo') }}</h2>
 
                     <div class="mt-1 border-2 border-gray-300 border-dashed rounded-md px-6 pt-5 pb-6 flex justify-center">
                         <div class="space-y-1 text-center">
@@ -17,17 +17,17 @@
                             </svg>
                             <div class="flex text-sm text-center text-gray-600">
                                 <label for="loginLogo" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                    <span>Upload a file</span>
+                                    <span>{{ __('Upload a file') }}</span>
                                     <input wire:model="loginLogo" id="loginLogo" name="loginLogo" type="file" class="sr-only">
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-500">PNG, JPG, GIF</p>
+                            <p class="text-xs text-gray-500">{{ __('PNG, JPG, GIF') }}</p>
                         </div>
                     </div>
 
                     <div class="bg-gray-400">
                         @if ($loginLogo)
-                            <p>Photo Preview:</p>
+                            <p>{{ __('Photo Preview') }}:</p>
                             <p><img src="{{ $loginLogo->temporaryUrl() }}"></p>
                         @elseif(storage_exists($existingLoginLogo))
                             <p><img src="{{ storage_url($existingLoginLogo) }}"></p>
@@ -46,17 +46,17 @@
                             </svg>
                             <div class="flex text-sm text-center text-gray-600">
                                 <label for="loginLogoDark" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                    <span>Upload a file</span>
+                                    <span>{{ __('Upload a file') }}</span>
                                     <input wire:model="loginLogoDark" id="loginLogoDark" name="loginLogoDark" type="file" class="sr-only">
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-500">PNG, JPG, GIF</p>
+                            <p class="text-xs text-gray-500">{{ __('PNG, JPG, GIF') }}</p>
                         </div>
                     </div>
 
                     <div class="bg-gray-400">
                         @if ($loginLogoDark)
-                            <p>Photo Preview:</p>
+                            <p>{{ __('Photo Preview') }}:</p>
                             <p><img src="{{ $loginLogoDark->temporaryUrl() }}"></p>
                         @elseif(storage_exists($existingLoginLogoDark))
                             <p><img src="{{ storage_url($existingLoginLogoDark) }}"></p>
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <x-button>Save</x-button>
+            <x-button>{{ __('Save') }}</x-button>
 
         </x-form>
 

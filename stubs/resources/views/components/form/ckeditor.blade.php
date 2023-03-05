@@ -22,7 +22,7 @@
 @endif
 <div wire:ignore class="mt-5">
     @if ($label !='none')
-        <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span class="text-red-600">*</span>@endif</label>
+        <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
     @endif
     <textarea
         x-data

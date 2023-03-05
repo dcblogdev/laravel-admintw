@@ -23,7 +23,7 @@
 
 <div class="mb-5">
     @if ($label !='none')
-        <label for='{{ $name }}' class='block mb-2 font-bold text-sm text-gray-600 dark:text-gray-200'>{{ $label }} @if ($required != '') <span class="text-red-600">*</span>@endif</label>
+        <label for='{{ $name }}' class='block mb-2 font-bold text-sm text-gray-600 dark:text-gray-200'>{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
     @endif
     <select name='{{ $name }}' id='{{ $name }}' {{ $required }} {{ $attributes->merge(['class' => 'border border-gray-300 dark:bg-gray-500 dark:text-gray-200 p-1 w-full rounded']) }}>
     @if ($placeholder != '')

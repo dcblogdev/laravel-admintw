@@ -1,7 +1,7 @@
 <div>
     <div class="card">
 
-        <h3>Application Logo</h3>
+        <h3>{{ __('Application Logo') }}</h3>
 
         @include('errors.messages')
 
@@ -9,7 +9,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <h2>Light Mode Logo</h2>
+                    <h2>{{ __('Light Mode Logo') }}</h2>
 
                     <div class="mt-1 border-2 border-gray-300 border-dashed rounded-md px-6 pt-5 pb-6 flex justify-center">
                         <div class="space-y-1 text-center">
@@ -18,17 +18,17 @@
                             </svg>
                             <div class="flex text-sm text-center text-gray-600">
                                 <label for="applicationLogo" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                    <span>Upload a file</span>
+                                    <span>{{ __('Upload a file') }}</span>
                                     <input wire:model="applicationLogo" id="applicationLogo" name="applicationLogo" type="file" class="sr-only">
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-500">PNG, JPG, GIF</p>
+                            <p class="text-xs text-gray-500">{{ __('PNG, JPG, GIF') }}</p>
                         </div>
                     </div>
 
                     <div class="bg-gray-400">
                         @if ($applicationLogo)
-                            <p>Photo Preview:</p>
+                            <p>{{ __('Photo Preview') }}:</p>
                             <p><img src="{{ $applicationLogo->temporaryUrl() }}"></p>
                         @elseif(storage_exists($existingApplicationLogo))
                             <p><img src="{{ storage_url($existingApplicationLogo) }}"></p>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div>
-                    <h2>Dark Mode Logo</h2>
+                    <h2>{{ __('Dark Mode Logo') }}</h2>
 
                     <div class="mt-1 border-2 border-gray-300 border-dashed rounded-md px-6 pt-5 pb-6 flex justify-center">
                         <div class="space-y-1 text-center">
@@ -47,17 +47,17 @@
                             </svg>
                             <div class="flex text-sm text-center text-gray-600">
                                 <label for="applicationLogoDark" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                    <span>Upload a file</span>
+                                    <span>{{ __('Upload a file') }}</span>
                                     <input wire:model="applicationLogoDark" id="applicationLogoDark" name="applicationLogoDark" type="file" class="sr-only">
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-500">PNG, JPG, GIF</p>
+                            <p class="text-xs text-gray-500">{{ __('PNG, JPG, GIF') }}</p>
                         </div>
                     </div>
 
                     <div class="bg-gray-400">
                         @if ($applicationLogoDark)
-                            <p>Photo Preview:</p>
+                            <p>{{ __('Photo Preview') }}:</p>
                             <p><img src="{{ $applicationLogoDark->temporaryUrl() }}"></p>
                         @elseif(storage_exists($existingApplicationLogoDark))
                             <p><img src="{{ storage_url($existingApplicationLogoDark) }}"></p>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <x-button>Save</x-button>
+            <x-button>{{ __('Save') }}</x-button>
 
         </x-form>
 

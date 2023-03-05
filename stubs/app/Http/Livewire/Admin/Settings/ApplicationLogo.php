@@ -4,34 +4,36 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Settings;
 
-use App\Http\Livewire\Base;
+use function add_user_log;
 use App\Models\Setting;
 use Exception;
+use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
+use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use function add_user_log;
-use function flash;
 use function view;
 
-class ApplicationLogo extends Base
+class ApplicationLogo extends Component
 {
     use WithFileUploads;
 
-    public $applicationLogo             = '';
-    public $existingApplicationLogo     = '';
-    public $applicationLogoDark         = '';
+    public $applicationLogo = '';
+
+    public $existingApplicationLogo = '';
+
+    public $applicationLogoDark = '';
+
     public $existingApplicationLogoDark = '';
 
     public function mount(): void
     {
         parent::mount();
 
-        $this->existingApplicationLogo     = Setting::where('key', 'applicationLogo')->value('value');
+        $this->existingApplicationLogo = Setting::where('key', 'applicationLogo')->value('value');
         $this->existingApplicationLogoDark = Setting::where('key', 'applicationLogoDark')->value('value');
     }
 
@@ -43,8 +45,8 @@ class ApplicationLogo extends Base
     protected function rules(): array
     {
         return [
-            'applicationLogo'     => 'image|mimes:png,jpg,gif|max:5120',
-            'applicationLogoDark' => 'image|mimes:png,jpg,gif|max:5120'
+            'applicationLogo' => 'image|mimes:png,jpg,gif|max:5120',
+            'applicationLogoDark' => 'image|mimes:png,jpg,gif|max:5120',
         ];
     }
 
@@ -72,8 +74,8 @@ class ApplicationLogo extends Base
             }
 
             $token = md5(random_int(1, 10).microtime());
-            $name  = $token.'.png';
-            $img   = Image::make($this->applicationLogo)->encode('png')->resize(200, null, function ($constraint) {
+            $name = $token.'.png';
+            $img = Image::make($this->applicationLogo)->encode('png')->resize(200, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
@@ -89,8 +91,8 @@ class ApplicationLogo extends Base
             }
 
             $token = md5(random_int(1, 10).microtime());
-            $name  = $token.'.png';
-            $img   = Image::make($this->applicationLogoDark)->encode('png')->resize(200, null, function ($constraint) {
+            $name = $token.'.png';
+            $img = Image::make($this->applicationLogoDark)->encode('png')->resize(200, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
@@ -100,11 +102,11 @@ class ApplicationLogo extends Base
         }
 
         add_user_log([
-            'title'        => 'updated Application logo',
-            'link'         => route('admin.settings'),
+            'title' => 'updated Application logo',
+            'link' => route('admin.settings'),
             'reference_id' => auth()->id(),
-            'section'      => 'Settings',
-            'type'         => 'Update'
+            'section' => 'Settings',
+            'type' => 'Update',
         ]);
 
         flash('Application Logo Updated!')->success();

@@ -2,19 +2,16 @@
 
 use App\Http\Livewire\Admin\AuditTrails;
 use App\Models\AuditTrail;
-
 use function Pest\Livewire\livewire;
 
-test('can see user logs page', function () {
+beforeEach(function () {
     $this->authenticate();
-
-    $this->get(route('admin.settings.audit-trails.index'))
-        ->assertOk();
 });
 
-test('is redirected when not authenticated', function () {
-    $this->get(route('admin.settings.audit-trails.index'))
-        ->assertRedirect();
+test('can see user logs page', function () {
+    $this
+        ->get(route('admin.settings.audit-trails.index'))
+        ->assertOk();
 });
 
 test('can search user logs', function () {

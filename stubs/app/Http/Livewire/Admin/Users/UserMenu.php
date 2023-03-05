@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Users;
 
-use App\Http\Livewire\Base;
 use Illuminate\Contracts\View\View;
-
+use Livewire\Component;
 use function view;
 
-class UserMenu extends Base
+class UserMenu extends Component
 {
     protected $listeners = ['refreshUserMenu' => '$refresh'];
 

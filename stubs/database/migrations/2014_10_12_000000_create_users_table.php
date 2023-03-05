@@ -2,11 +2,15 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
@@ -17,8 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->boolean('is_office_login_only')->default(true);
             $table->boolean('is_active')->default(true);
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('last_logged_in_at')->nullable();
-            $table->string('two_fa_active')->default('No');
+            $table->boolean('two_fa_active')->default(false);
             $table->string('two_fa_secret_key')->nullable();
             $table->uuid('invited_by')->nullable();
             $table->timestamp('invited_at')->nullable();
@@ -30,13 +35,16 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
         });
 
-        if (env('APP_ENV') !== 'testing') {
+        if (config('app,env') !== 'testing') {
             DB::statement('ALTER TABLE users ADD FULLTEXT (name, email)');
         }
     }
 
-    public function down()
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
         Schema::dropIfExists('users');
     }
-}
+};

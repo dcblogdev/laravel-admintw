@@ -1,4 +1,4 @@
-@if (can('view_notifications'))
+@can('view_notifications')
 <div x-data="{ isOpen: false }">
 
     <button wire:click="open" @click="isOpen = !isOpen" class="focus:outline-none pt-3">
@@ -23,10 +23,10 @@
 
                         <div class="p-6">
                             <div class="flex items-start justify-between">
-                                <h2 class="text-lg mb-0 font-medium text-gray-900 dark:text-gray-300">Notifications</h2>
+                                <h2 class="text-lg mb-0 font-medium text-gray-900 dark:text-gray-300">{{ __('Notifications') }}</h2>
                                 <div class="ml-3 flex items-center">
                                     <button @click="isOpen = !isOpen" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500">
-                                        <span class="sr-only">Close panel</span>
+                                        <span class="sr-only">{{ __('Close panel') }}</span>
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
@@ -40,7 +40,7 @@
                         <ul class="flex-1 divide-y divide-gray-200 overflow-y-auto">
 
                             @if (count($notifications) === 0)
-                                <li class="p-6">No notifications yet.</li>
+                                <li class="p-6">{{ __('No notifications yet.') }}</li>
                             @else
                                 @foreach($notifications as $notification)
                                 <li class="px-6 py-5 relative">
@@ -80,4 +80,4 @@
     </div>
 
 </div>
-@endif
+@endcan

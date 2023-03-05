@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Livewire\Admin\Roles\Create;
-use App\Models\Roles\Role;
+use App\Models\Role;
 use Livewire\Livewire;
+
+beforeEach(function () {
+    $this->authenticate();
+});
 
 test('can create role', function () {
     Livewire::test(Create::class)
@@ -27,7 +31,7 @@ test('is redirected after role creation', function () {
         ->assertRedirect(route('admin.settings.roles.index'));
 });
 
- test('on cancel dispatch browser event', function () {
+test('on cancel dispatch browser event', function () {
     Livewire::test(Create::class)
         ->call('cancel')
         ->assertDispatchedBrowserEvent('close-modal');

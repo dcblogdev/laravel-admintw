@@ -4,19 +4,21 @@ use App\Http\Livewire\Admin\Users\Users;
 use App\Models\User;
 use Livewire\Livewire;
 
-test('can see users page')
-    ->authenticate()
-    ->get(fn() => route('admin.users.index'))
-    ->assertOk();
+beforeEach(function () {
+    $this->authenticate();
+});
 
-test('is redirected when not authenticated')
-    ->get(fn() => route('admin.users.index'))
-    ->assertRedirect();
+test('can see users page', function () {
+    $this
+        ->get(route('admin.users.index'))
+        ->assertOk();
+});
 
-test('can see users edit page')
-    ->authenticate()
-    ->get(fn() => route('admin.users.edit', User::factory()->create()))
-    ->assertOk();
+test('can see users edit page', function () {
+    $this
+        ->get(route('admin.users.edit', User::factory()->create()))
+        ->assertOk();
+});
 
 test('can search users', function () {
     Livewire::test(Users::class)

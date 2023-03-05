@@ -4,32 +4,37 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Users;
 
-use App\Http\Livewire\Base;
 use App\Mail\Users\SendInviteMail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Livewire\Component;
 use Livewire\WithPagination;
 
-use function abort_if_cannot;
-use function now;
-use function view;
-
-class Users extends Base
+class Users extends Component
 {
     use WithPagination;
 
-    public    $paginate   = '';
-    public    $checked    = [];
-    public    $name       = '';
-    public    $email      = '';
-    public    $joined     = '';
-    public    $sortField  = 'name';
-    public    $sortAsc    = true;
-    public    $openFilter = false;
-    public    $sentEmail  = false;
-    protected $listeners  = ['refreshUsers' => '$refresh'];
+    public $paginate = '';
+
+    public $checked = [];
+
+    public $name = '';
+
+    public $email = '';
+
+    public $joined = '';
+
+    public $sortField = 'name';
+
+    public $sortAsc = true;
+
+    public $openFilter = false;
+
+    public $sentEmail = false;
+
+    protected $listeners = ['refreshUsers' => '$refresh'];
 
     public function render(): View
     {
@@ -40,13 +45,13 @@ class Users extends Base
 
     public function builder()
     {
-        return User::orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        return User::with('roles')->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
     }
 
     public function sortBy(string $field): void
     {
         if ($this->sortField === $field) {
-            $this->sortAsc = !$this->sortAsc;
+            $this->sortAsc = ! $this->sortAsc;
         } else {
             $this->sortAsc = true;
         }
@@ -69,10 +74,10 @@ class Users extends Base
 
         if ($this->joined) {
             $this->openFilter = true;
-            $parts            = explode(' to ', $this->joined);
+            $parts = explode(' to ', $this->joined);
             if (isset($parts[1])) {
                 $from = Carbon::parse($parts[0])->format('Y-m-d');
-                $to   = Carbon::parse($parts[1])->format('Y-m-d');
+                $to = Carbon::parse($parts[1])->format('Y-m-d');
                 $query->whereBetween('created_at', [$from, $to]);
             }
         }
@@ -87,7 +92,7 @@ class Users extends Base
 
     public function deleteUser($id): void
     {
-        abort_if_cannot('delete_user');
+        abort_if_cannot('delete_users');
 
         $this->builder()->findOrFail($id)->delete();
 

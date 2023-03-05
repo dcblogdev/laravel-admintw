@@ -37,15 +37,15 @@
             <div class="flex flex-col p-4">
 
                 <header class="flex flex-col text-center mb-2">
-                    <h2>{{ $title }}</h2>
+                    <h2>{{ $title ?? '' }}</h2>
                 </header>
 
                 <main class="mb-4">
-                    {{ $content }}
+                    {{ $content ?? '' }}
                 </main>
 
                 <footer class="flex justify-center space-x-2 border-t pt-2">
-                    {{ $footer }}
+                    {{ $footer ?? '' }}
                 </footer>
 
             </div>

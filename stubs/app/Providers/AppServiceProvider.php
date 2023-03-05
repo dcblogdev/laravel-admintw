@@ -2,44 +2,42 @@
 
 namespace App\Providers;
 
-use App\Listeners\EmailLogger;
 use App\Models\Setting;
-use Illuminate\Mail\Events\MessageSending;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register(): void
     {
-
+        //
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot(UrlGenerator $url): void
     {
-        Schema::defaultStringLength(191);
-
-        if (config('app.env') !== 'local') {
+        if (app()->environment() !== 'local') {
             $url->forceScheme('https');
         }
 
-        Event::listen(
-            MessageSending::class,
-            EmailLogger::class
-        );
+        Password::defaults(function () {
+            return Password::min(8)
+                ->mixedCase()
+                ->letters()
+                ->numbers()
+                ->uncompromised();
+        });
+
+        Model::shouldBeStrict(!app()->isProduction());
 
         //if key exists
         if (Cache::has('setting_keys')) {

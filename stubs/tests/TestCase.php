@@ -2,58 +2,48 @@
 
 namespace Tests;
 
-use App\Models\Roles\Permission;
-use App\Models\Roles\Role;
-use App\Models\Roles\RoleUser;
+use App\Models\Role;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Testing\TestResponse;
+use Spatie\Permission\Models\Permission;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
-    use RefreshDatabase;
     use WithFaker;
 
-    public function get($uri, array $headers = []): TestResponse
-    {
-        return parent::get(value($uri), $headers);
-    }
-
-    public function authenticate(string $role = 'admin', string $permissionName = ''): TestCase
+    public function authenticate(string $role = 'admin', string $permissionName = ''): self
     {
         $user = $this->prepareUser($role);
 
-        if ($permissionName !== '') {
-            $permission = Permission::factory()->create([
-                'name' => $permissionName
-            ]);
-
-            Gate::define($permission->name, static function () {
+        if ($permissionName) {
+            Gate::define($permissionName, static function () {
                 return true;
             });
         }
 
-        return $this->be($user);
+        return $this->actingAs($user);
     }
 
     protected function prepareUser($role): User
     {
+        $this->prepareRole($role);
+
         $user = User::factory()->create();
-
-        $createdRole = Role::create([
-            'name'  => $role,
-            'label' => ucwords($role)
-        ]);
-
-        RoleUser::create([
-            'role_id' => $createdRole->id,
-            'user_id' => $user->id
-        ]);
+        $user->assignRole($role);
 
         return $user;
+    }
+
+    protected function prepareRole($role): Role
+    {
+        return Role::firstOrCreate(['name' => $role, 'label' => ucwords($role)]);
+    }
+
+    protected function preparePermission($permission): Role
+    {
+        Permission::firstOrCreate(['name' => $permission]);
     }
 }

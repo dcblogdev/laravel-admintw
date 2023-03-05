@@ -1,12 +1,12 @@
-@section('title', 'Edit Role')
+@section('title', __('Edit Role'))
 <div>
-    <div class="mb-5">
-        <a href="{{ route('admin.settings.roles.index') }}">Roles</a>
-        <span class="dark:text-gray-200">- Edit Role</span>
-    </div>
+    <p class="mb-5">
+        <a href="{{ route('admin.settings.roles.index') }}">{{ __('Roles') }}</a>
+        <span class="dark:text-gray-200">- {{ __('Edit Role') }}</span>
+    </p>
 
 
-    <div class="float-right"><span class="text-red-600">*</span> <span class="dark:text-gray-200"> = required</span>
+    <div class="float-right"><span class="error">*</span> <span class="dark:text-gray-200"> = {{ __('required') }}</span>
     </div>
 
     <div class="clearfix"></div>
@@ -16,16 +16,16 @@
         <div class="row">
 
             <div class="md:w-1/2">
-                @if ($role?->label == 'Admin')
-                    <x-form.input wire:model="label" label='Role' name='label' disabled></x-form.input>
+                @if ($role->name === 'admin')
+                    <x-form.input wire:model="label" :label="__('Role')" name='label' disabled />
                 @else
-                    <x-form.input wire:model="label" label='Role' name='label' required></x-form.input>
+                    <x-form.input wire:model="label" :label="__('Role')" name='label' required />
                 @endif
             </div>
 
         </div>
 
-        @if ($role?->name != 'admin')
+        @if ($role->name !== 'admin')
 
             <div class="mx-auto max-w-screen-md">
                     @foreach($modules as $module)
@@ -33,15 +33,15 @@
                         <table>
                             <thead>
                             <tr>
-                                <th class="dark:text-gray-300">Permission</th>
-                                <th class="dark:text-gray-300">Action</th>
+                                <th class="dark:text-gray-300">{{ __('Permission') }}</th>
+                                <th class="dark:text-gray-300">{{ __('Action') }}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach (\App\Models\Roles\Permission::where('module', $module)->orderby('name')->get() as $perm)
+                            @foreach (\App\Models\Permission::where('module', $module)->orderby('name')->get() as $perm)
                                 <tr>
                                     <td>{{ $perm->label }}</td>
-                                    <td><input type="checkbox" wire:model="permission" value="{{ $perm->id }}"></td>
+                                    <td><input type="checkbox" wire:model="permissions" value="{{ $perm->name }}"></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -51,7 +51,7 @@
 
         @endif
 
-        <x-form.submit>Update Role</x-form.submit>
+        <x-form.submit>{{ __('Update Role') }}</x-form.submit>
 
     </x-form>
 

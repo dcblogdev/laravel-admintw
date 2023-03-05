@@ -12,24 +12,21 @@ class IpCheckMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  Request  $request
-     * @param  Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
         if (auth()->check()) {
-
             $approved = [];
             $ips = Setting::where('key', 'ips')->value('value');
             if ($ips !== null) {
                 $ips = json_decode($ips, true);
 
-                foreach($ips as $row) {
+                foreach ($ips as $row) {
                     $approved[] = $row['ip'];
                 }
 
-                if (!in_array($request->ip(), $approved, true) && auth()->user()->is_office_login_only === 1) {
+                if (! in_array($request->ip(), $approved, true) && auth()->user()->is_office_login_only === true) {
                     flash('Sorry, the system cannot be accessed from your location.')->warning();
 
                     Auth::guard()->logout();
@@ -38,7 +35,7 @@ class IpCheckMiddleware
                 }
             }
         }
-        
+
         return $next($request);
     }
 }

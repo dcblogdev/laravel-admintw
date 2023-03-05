@@ -1,25 +1,26 @@
 <x-guest-layout>
-@section('title', 'Login')
-<x-auth-card>
+    <x-auth-card>
+        @section('title', __('Login'))
 
-	<x-form action="{{ route('login') }}">
+    <x-form action="{{ route('login') }}">
 
-		@include('errors.messages')
+        @include('errors.messages')
 
-		<x-form.input name="email" label="Email">{{ old('email') }}</x-form.input>
-		<x-form.input name="password" label="Password" type="password" />
+        <x-form.input name="email" :label="__('Email')">{{ old('email') }}</x-form.input>
+        <x-form.input name="password" :label="__('Password')" type="password" />
 
-		<div class="flex justify-between">
-			<a href="{{ route('password.request') }}">Forgot your password?</a>
-			@if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
+        <div class="flex justify-between">
+            <p><a href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a></p>
+            @if (Route::has('register'))
+                <p><a href="{{ route('register') }}">{{ __('Register') }}</a></p>
             @endif
-		</div>
+        </div>
 
-		<p><button type="submit" class="justify-center w-full btn btn-primary">Login</button></p>
+        <p>
+            <x-form.submit class="justify-center w-full btn btn-primary">Login</x-form.submit>
+        </p>
 
-	</x-form>
-
-</x-auth-card>
+    </x-form>
+    </x-auth-card>
 
 </x-guest-layout>

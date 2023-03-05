@@ -4,27 +4,29 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Users\Edit;
 
-use App\Http\Livewire\Base;
+use function add_user_log;
 use App\Models\User;
+use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
-
-use function add_user_log;
-use function flash;
-use function is_admin;
+use Livewire\Component;
 use function view;
 
-class AdminSettings extends Base
+class AdminSettings extends Component
 {
     public User $user;
-    public      $isOfficeLoginOnly;
-    public      $isActive;
-    public      $roleSelections = [];
-    protected   $listeners      = ['refreshAdminSettings' => 'mount'];
+
+    public $isOfficeLoginOnly;
+
+    public $isActive;
+
+    public $roleSelections = [];
+
+    protected $listeners = ['refreshAdminSettings' => 'mount'];
 
     public function mount(): void
     {
-        $this->isActive          = (bool) $this->user->is_active;
+        $this->isActive = (bool) $this->user->is_active;
         $this->isOfficeLoginOnly = (bool) $this->user->is_office_login_only;
     }
 
@@ -39,7 +41,7 @@ class AdminSettings extends Base
     {
         return [
             'isOfficeLoginOnly' => 'bool',
-            'isActive'          => 'bool'
+            'isActive' => 'bool',
         ];
     }
 
@@ -55,17 +57,17 @@ class AdminSettings extends Base
     {
         $this->validate();
 
-        if (is_admin()) {
+        if (hasRole('admin')) {
             $this->user->is_office_login_only = $this->isOfficeLoginOnly ? 1 : 0;
-            $this->user->is_active            = $this->isActive ? 1 : 0;
+            $this->user->is_active = $this->isActive ? 1 : 0;
             $this->user->save();
 
             add_user_log([
-                'title'        => "updated ".$this->user->name."'s admin settings",
+                'title' => 'updated '.$this->user->name."'s admin settings",
                 'reference_id' => $this->user->id,
-                'link'         => route('admin.users.edit', ['user' => $this->user->id]),
-                'section'      => 'Users',
-                'type'         => 'Update'
+                'link' => route('admin.users.edit', ['user' => $this->user->id]),
+                'section' => 'Users',
+                'type' => 'Update',
             ]);
         }
 

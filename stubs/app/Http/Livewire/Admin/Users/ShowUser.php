@@ -2,23 +2,17 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
-use App\Http\Livewire\Base;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
-use function abort;
-use function cannot;
-use function view;
-
-class ShowUser extends Base
+class ShowUser extends Component
 {
     public User $user;
 
     public function render(): View
     {
-        if (cannot('view_users_profiles')) {
-            abort(403, "You cannot view user profiles");
-        }
+        abort_if_cannot('view_users_profiles');
 
         return view('livewire.admin.users.show');
     }

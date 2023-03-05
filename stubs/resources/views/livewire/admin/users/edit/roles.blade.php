@@ -1,8 +1,8 @@
 <div>
     <x-2col>
         <x-slot name="left">
-            <h3>Roles</h3>
-            <p>Turn roles on and off, disabled roles will disable the users permissions.</p>
+            <h3>{{ __('Roles') }}</h3>
+            <p>{{ __('Turn roles on and off, disabled roles will disable the users permissions.') }}</p>
         </x-slot>
         <x-slot name="right">
 
@@ -13,7 +13,7 @@
                         <p><input type="checkbox" wire:model="roleSelections" value="{{ $role->id }}"> {{ $role->label }}</p>
                     @endforeach
 
-                    <x-button class="mt-5">Update Roles</x-button>
+                    <x-button class="mt-5">{{ __('Update Roles') }}</x-button>
 
                     @include('errors.messages')
 

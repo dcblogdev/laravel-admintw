@@ -4,27 +4,27 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Settings;
 
-use App\Http\Livewire\Base;
+use function add_user_log;
 use App\Models\Setting;
+use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
+use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use function add_user_log;
-use function flash;
 use function view;
 
-class ApplicationSettings extends Base
+class ApplicationSettings extends Component
 {
     use WithFileUploads;
 
-    public $siteName    = '';
+    public $siteName = '';
+
     public $isForced2Fa = '';
 
     public function mount(): void
     {
-        $this->siteName    = Setting::where('key', 'app.name')->value('value');
+        $this->siteName = Setting::where('key', 'app.name')->value('value');
         $this->isForced2Fa = Setting::where('key', 'is_forced_2fa')->value('value');
     }
 
@@ -36,7 +36,7 @@ class ApplicationSettings extends Base
     protected function rules(): array
     {
         return [
-            'siteName' => 'required|string'
+            'siteName' => 'required|string',
         ];
     }
 
@@ -61,11 +61,11 @@ class ApplicationSettings extends Base
         Setting::updateOrCreate(['key' => 'is_forced_2fa'], ['value' => $this->isForced2Fa]);
 
         add_user_log([
-            'title'        => 'updated application settings',
-            'link'         => route('admin.settings'),
+            'title' => 'updated application settings',
+            'link' => route('admin.settings'),
             'reference_id' => auth()->id(),
-            'section'      => 'Settings',
-            'type'         => 'Update'
+            'section' => 'Settings',
+            'type' => 'Update',
         ]);
 
         flash('Application Settings Updated!')->success();

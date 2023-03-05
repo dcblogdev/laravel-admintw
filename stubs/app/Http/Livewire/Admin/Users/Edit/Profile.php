@@ -4,34 +4,37 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Users\Edit;
 
-use App\Http\Livewire\Base;
+use function add_user_log;
 use App\Models\User;
+use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
+use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use function add_user_log;
-use function flash;
 use function view;
 
-class Profile extends Base
+class Profile extends Component
 {
     use WithFileUploads;
 
     public User $user;
-    public      $name      = '';
-    public      $email     = '';
-    public      $image     = '';
-    protected   $listeners = ['refreshProfile' => 'mount'];
+
+    public $name = '';
+
+    public $email = '';
+
+    public $image = '';
+
+    protected $listeners = ['refreshProfile' => 'mount'];
 
     public function mount(): void
     {
         parent::mount();
 
-        $this->name  = $this->user->name;
+        $this->name = $this->user->name;
         $this->email = $this->user->email;
     }
 
@@ -43,14 +46,14 @@ class Profile extends Base
     protected function rules(): array
     {
         return [
-            'name'  => 'required|string',
+            'name' => 'required|string',
             'image' => 'nullable|image|mimes:png,jpg,gif|max:5120',
             'email' => 'required|email',
         ];
     }
 
     protected array $messages = [
-        'name.required' => 'Name is required'
+        'name.required' => 'Name is required',
     ];
 
     /**
@@ -69,8 +72,8 @@ class Profile extends Base
             Storage::disk('public')->delete($this->user->image);
 
             $token = md5(random_int(1, 10).microtime());
-            $name  = $token.'.jpg';
-            $img   = Image::make($this->image)->encode('jpg')->resize(100, null, function ($constraint) {
+            $name = $token.'.jpg';
+            $img = Image::make($this->image)->encode('jpg')->resize(100, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
@@ -80,17 +83,17 @@ class Profile extends Base
             $this->user->image = 'users/'.$name;
         }
 
-        $this->user->name  = $this->name;
-        $this->user->slug  = Str::slug($this->name);
+        $this->user->name = $this->name;
+        $this->user->slug = Str::slug($this->name);
         $this->user->email = $this->email;
         $this->user->save();
 
         add_user_log([
-            'title'        => "updated ".$this->name."'s profile",
+            'title' => 'updated '.$this->name."'s profile",
             'reference_id' => $this->user->id,
-            'link'         => route('admin.users.edit', ['user' => $this->user->id]),
-            'section'      => 'Users',
-            'type'         => 'Update'
+            'link' => route('admin.users.edit', ['user' => $this->user->id]),
+            'section' => 'Users',
+            'type' => 'Update',
         ]);
 
         flash('Profile Updated!')->success();

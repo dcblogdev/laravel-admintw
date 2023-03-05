@@ -2,16 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
-use App\Http\Livewire\Base;
 use App\Models\User;
-use Illuminate\Contracts\View\View;
-
-use function abort;
 use function auth;
-use function cannot;
+use Illuminate\Contracts\View\View;
+use Livewire\Component;
 use function view;
 
-class EditUser extends Base
+class EditUser extends Component
 {
     public User $user;
 
@@ -19,8 +16,8 @@ class EditUser extends Base
     {
         parent::mount();
 
-        if ($this->user->id !== auth()->id() && cannot('edit_users')) {
-            abort(403, "You cannot edit other people's accounts");
+        if ($this->user->id !== auth()->id()) {
+            abort_if_cannot('edit_users');
         }
     }
 

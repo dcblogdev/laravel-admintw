@@ -4,24 +4,28 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin\Roles;
 
-use App\Http\Livewire\Base;
-use App\Models\Roles\Role;
+use App\Models\Role;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 use Livewire\WithPagination;
-
 use function view;
 
-class Roles extends Base
+class Roles extends Component
 {
     use WithPagination;
 
-    public $paginate  = '';
-    public $query     = '';
+    public $paginate = '';
+
+    public $query = '';
+
     public $sortField = 'name';
-    public $sortAsc   = true;
+
+    public $sortAsc = true;
 
     public function render(): View
     {
+        abort_if_cannot('view_roles');
+
         return view('livewire.admin.roles.index');
     }
 
@@ -33,7 +37,7 @@ class Roles extends Base
     public function sortBy(string $field): void
     {
         if ($this->sortField === $field) {
-            $this->sortAsc = !$this->sortAsc;
+            $this->sortAsc = ! $this->sortAsc;
         } else {
             $this->sortAsc = true;
         }

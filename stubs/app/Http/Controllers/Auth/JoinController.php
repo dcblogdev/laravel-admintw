@@ -29,29 +29,25 @@ class JoinController extends Controller
         $user = User::findOrFail($id);
 
         $request->validate([
-            'newPassword'     => [
+            'newPassword' => [
                 'required',
                 'string',
-                Password::min(8)
-                    ->mixedCase()
-                    ->letters()
-                    ->numbers()
-                    ->uncompromised()
+                Password::default(),
             ],
-            'confirmPassword' => 'required|same:newPassword'
+            'confirmPassword' => 'required|same:newPassword',
         ], [
-            'newPassword.required'      => 'New password is required',
+            'newPassword.required' => 'New password is required',
             'newPassword.uncompromised' => 'The given new password has appeared in a data leak by https://haveibeenpwned.com please choose a different new password. ',
-            'confirmPassword.required'  => 'Confirm password is required',
-            'confirmPassword.same'      => 'Confirm password and new password must match',
+            'confirmPassword.required' => 'Confirm password is required',
+            'confirmPassword.same' => 'Confirm password and new password must match',
         ]);
 
-        $user->name              = $request->input('name');
-        $user->password          = Hash::make($request->input('newPassword'));
-        $user->is_active         = 1;
-        $user->invite_token      = null;
+        $user->name = $request->input('name');
+        $user->password = Hash::make($request->input('newPassword'));
+        $user->is_active = 1;
+        $user->invite_token = null;
         $user->last_logged_in_at = now();
-        $user->joined_at         = now();
+        $user->joined_at = now();
         $user->save();
 
         $isForced2Fa = Setting::where('key', 'is_forced_2fa')->value('value');
@@ -60,15 +56,15 @@ class JoinController extends Controller
         }
 
         AuditTrail::create([
-            'user_id'      => $user->id,
+            'user_id' => $user->id,
             'reference_id' => $user->id,
-            'title'        => "Joined completed",
-            'section'      => 'Auth',
-            'type'         => 'join'
+            'title' => 'Joined completed',
+            'section' => 'Auth',
+            'type' => 'join',
         ]);
 
         auth()->loginUsingId($user->id, true);
 
-        return redirect('admin');
+        return redirect(route('dashboard'));
     }
 }

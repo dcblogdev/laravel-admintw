@@ -4,31 +4,29 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin;
 
-use App\Http\Livewire\Base;
 use App\Models\User;
-use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
-use function add_user_log;
-use function view;
-
-class Search extends Base
+class Search extends Component
 {
-    public string $query         = '';
-    public array  $models        = [
-        User::class
+    public string $query = '';
+
+    public array  $models = [
+        User::class,
     ];
+
     public array  $searchResults = [];
 
-    public function render(): View
+    public function render()
     {
         $this->searchResults = [];
 
         if (strlen($this->query) > 2) {
             foreach ($this->models as $model) {
-                $query   = new $model();
-                $fields  = $query->getModel()->searchable;
-                $fields  = implode(',', $fields);
-                $search  = str_replace('@', '', $this->query);
+                $query = new $model();
+                $fields = $query->getModel()->searchable;
+                $fields = implode(',', $fields);
+                $search = str_replace('@', '', $this->query);
                 $results = $query->selectRaw('*, MATCH ('.$fields.') AGAINST (? IN BOOLEAN MODE)', ['*'.$search.'*'])
                     ->whereRaw('MATCH ('.$fields.') AGAINST (? IN BOOLEAN MODE)', ['*'.$search.'*'])
                     ->take(10)
@@ -36,20 +34,12 @@ class Search extends Base
 
                 foreach ($results as $result) {
                     $this->searchResults[] = [
-                        'label'   => $result[$query->getModel()->label],
-                        'route'   => $query->getModel()->route($result->id),
-                        'section' => $result->section
+                        'label' => $result[$query->getModel()->label],
+                        'route' => $query->getModel()->route($result->id),
+                        'section' => $result->section,
                     ];
                 }
             }
-
-            add_user_log([
-                'title'        => "Searched: ".$this->query,
-                'link'         => route('admin.settings'),
-                'reference_id' => auth()->id(),
-                'section'      => 'Search',
-                'type'         => 'Search'
-            ]);
         }
 
         return view('livewire.admin.search');

@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Factories;
 
 use App\Models\Notification;
@@ -17,8 +18,7 @@ class NotificationFactory extends Factory
         return [
             'title' => $this->faker->name(),
             'assigned_from_user_id' => $user1->id,
-            'assigned_to_user_id' => $user2->id
+            'assigned_to_user_id' => $user2->id,
         ];
     }
 }
-

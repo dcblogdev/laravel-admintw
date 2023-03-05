@@ -12,12 +12,11 @@ class AuditTrailsFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'        => $this->faker->uuid(),
-            'reference_id'   => $this->faker->uuid(),
-            'title'          => $this->faker->title(),
-            'section'        => $this->faker->title(),
-            'type'           => $this->faker->title(),
+            'user_id' => $this->faker->uuid(),
+            'reference_id' => $this->faker->uuid(),
+            'title' => $this->faker->title(),
+            'section' => $this->faker->title(),
+            'type' => $this->faker->title(),
         ];
     }
 }
-

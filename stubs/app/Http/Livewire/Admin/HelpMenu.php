@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Admin;
 
-use App\Http\Livewire\Base;
 use Illuminate\Contracts\View\View;
-
+use Livewire\Component;
 use function view;
 
-class HelpMenu extends Base
+class HelpMenu extends Component
 {
     public function render(): View
     {

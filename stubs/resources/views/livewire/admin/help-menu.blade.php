@@ -13,7 +13,7 @@
         @click.away="isOpen = false"
         class="absolute w-48 origin-top-right right-14">
         <div class="relative z-30 bg-white border border-gray-100 shadow-xs rounded-b-md dark:bg-gray-700">
-            <x-dropdown-link href="http://laraveladmintw.com/docs">Theme Docs</x-dropdown-link>
+            <x-dropdown-link href="http://laraveladmintw.com/docs">{{ __('Theme Docs') }}</x-dropdown-link>
         </div>
 
     </div>

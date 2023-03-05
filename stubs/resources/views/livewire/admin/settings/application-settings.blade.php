@@ -2,13 +2,13 @@
 
     <div class="card">
 
-        <h3 class="mb-4">Application Settings</h3>
+        <h3 class="mb-4">{{ __('Application Settings') }}</h3>
 
         <x-form wire:submit.prevent="update" method="put">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <x-form.input wire:model="siteName" name="siteName" label="Site Name" />
+                <x-form.input wire:model="siteName" name="siteName" :label="__('Site Name')" />
 
                 <fieldset>
 
@@ -20,11 +20,11 @@
                             </div>
                             <label for="isOfficeLoginOnly" class="ml-3 flex flex-col cursor-pointer">
                                 <span class="block text-sm font-medium text-gray-900 dark:text-gray-300">
-                                    Enforce 2Fa
+                                    {{ __('Enforce 2Fa') }}
                                 </span>
                                 <span class="block text-sm text-gray-500 dark:text-gray-200">
-                                    Force 2 factor authentication for all users on login.
-                                    Users can only login at pre-approved IP addresses.
+                                    {{ __('Force 2 factor authentication for all users on login.') }}
+                                    {{ __('Users can only login at pre-approved IP addresses.') }}
                                 </span>
                             </label>
                         </div>
@@ -34,7 +34,7 @@
 
             </div>
 
-            <x-button>Update Application Settings</x-button>
+            <x-button>{{ __('Update Application Settings') }}</x-button>
 
         </x-form>
 

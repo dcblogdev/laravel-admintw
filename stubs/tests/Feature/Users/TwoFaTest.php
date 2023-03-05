@@ -2,7 +2,12 @@
 
 use App\Models\User;
 
-test('can see two fa')
-    ->authenticate()
-    ->get(fn() => route('admin.users.edit', User::factory()->create()))
-    ->assertSeeLivewire('admin.users.edit.two-factor-authentication');
+beforeEach(function () {
+    $this->authenticate();
+});
+
+test('can set property', function () {
+    $this
+        ->get(route('admin.users.edit', User::factory()->create()))
+        ->assertSeeLivewire('admin.users.edit.two-factor-authentication');
+});
