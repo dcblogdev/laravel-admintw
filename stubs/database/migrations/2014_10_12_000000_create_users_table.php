@@ -35,7 +35,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        if (config('app,env') !== 'testing') {
+        if (config('app.env') !== 'testing') {
             DB::statement('ALTER TABLE users ADD FULLTEXT (name, email)');
         }
     }
