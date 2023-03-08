@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamp('last_logged_in_at')->nullable();
             $table->boolean('two_fa_active')->default(false);
             $table->string('two_fa_secret_key')->nullable();
-            $table->uuid('invited_by')->nullable();
+            $table->foreignUuid('invited_by')->nullable()->constrained('users', 'id')->onDelete('cascade');
             $table->timestamp('invited_at')->nullable();
             $table->timestamp('joined_at')->nullable();
             $table->string('invite_token')->nullable();

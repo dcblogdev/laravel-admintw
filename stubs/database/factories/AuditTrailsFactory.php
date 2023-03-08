@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\AuditTrail;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AuditTrailsFactory extends Factory
@@ -12,7 +13,7 @@ class AuditTrailsFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => $this->faker->uuid(),
+            'user_id' => User::factory()->create()->id,
             'reference_id' => $this->faker->uuid(),
             'title' => $this->faker->title(),
             'section' => $this->faker->title(),

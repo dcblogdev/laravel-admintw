@@ -10,10 +10,10 @@ class CreateAuditTrailsTable extends Migration
     {
         Schema::create('audit_trails', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id')->nullable();
+            $table->foreignUuid('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->string('title');
             $table->text('link')->nullable();
-            $table->uuid('reference_id')->nullable();
+            $table->foreignUuid('reference_id')->nullable();
             $table->string('section');
             $table->string('type');
             $table->timestamps();
