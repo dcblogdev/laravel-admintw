@@ -1,4 +1,4 @@
-<p align="center"><img src="https://laraveladmintw.com/images/admin-tw-settings.png"></p>
+<p align="center"><img src="https://laraveladmintw.com/images/v3/admintw.png"></p>
 
 ## Laravel AdminTW
 
