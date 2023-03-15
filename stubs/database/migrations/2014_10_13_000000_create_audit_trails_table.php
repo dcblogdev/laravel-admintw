@@ -13,7 +13,7 @@ class CreateAuditTrailsTable extends Migration
             $table->foreignUuid('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->string('title');
             $table->text('link')->nullable();
-            $table->foreignUuid('reference_id')->nullable();
+            $table->uuid('reference_id')->nullable();
             $table->string('section');
             $table->string('type');
             $table->timestamps();
