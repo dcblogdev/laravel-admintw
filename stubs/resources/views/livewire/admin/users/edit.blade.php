@@ -1,7 +1,6 @@
-@section('title', __('Edit'))
 <div>
     <p>
-        <a href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
+        <a wire:navigate href="{{ route('admin.users.index') }}">{{ __('Users') }}</a>
         <span class="dark:text-gray-200">- {{ __('Edit User') }}</span>
    </p>
 

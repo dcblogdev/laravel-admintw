@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Users;
+namespace App\Livewire\Admin\Users;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('User Profile')]
 class ShowUser extends Component
 {
     public User $user;

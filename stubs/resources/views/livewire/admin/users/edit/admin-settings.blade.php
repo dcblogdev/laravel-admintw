@@ -6,7 +6,7 @@
         <x-slot name="right">
             <div class="card">
 
-                <x-form wire:submit.prevent="update" method="put">
+                <x-form wire:submit="update" method="put">
 
                     <fieldset>
 

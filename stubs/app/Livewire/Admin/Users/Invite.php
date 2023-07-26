@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Users;
+namespace App\Livewire\Admin\Users;
 
 use App\Mail\Users\SendInviteMail;
 use App\Models\Role;
@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Invite extends Component
 {
+    use WithPagination;
     public $name = '';
 
     public $email = '';
@@ -95,6 +97,6 @@ class Invite extends Component
     public function cancel(): void
     {
         $this->reset();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('close-modal');
     }
 }

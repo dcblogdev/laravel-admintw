@@ -1,6 +1,4 @@
 <div>
-    @section('title', __('Dashboard'))
-
     <h1>{{ __('Dashboard') }}</h1>
 
     <div class="card">

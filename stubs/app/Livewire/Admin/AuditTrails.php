@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Users;
+namespace App\Livewire\Admin;
 
+use Livewire\Attributes\Title;
 use function abort_if_cannot;
 use App\Models\AuditTrail;
 use App\Models\User;
@@ -13,13 +14,16 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use function view;
 
-class Activity extends Component
+#[Title('Audit Trails')]
+class AuditTrails extends Component
 {
     use WithPagination;
 
-    public User $user;
+    public $paginate = '';
 
-    public $paginate = 10;
+    public $checked = [];
+
+    public $user_id = 0;
 
     public $title = '';
 
@@ -29,7 +33,7 @@ class Activity extends Component
 
     public $created_at = '';
 
-    public $sortField = 'id';
+    public $sortField = 'created_at';
 
     public $sortAsc = false;
 
@@ -37,18 +41,18 @@ class Activity extends Component
 
     public function render(): View
     {
-        abort_if_cannot('view_users_activity');
+        abort_if_cannot('view_audit_trails');
 
         $types = AuditTrail::groupby('type')->pluck('type');
         $sections = AuditTrail::groupby('section')->pluck('section');
+        $users = User::isActive()->orderby('name')->get();
 
-        return view('livewire.admin.users.activity', compact('sections', 'types'))->layout('layouts.app');
+        return view('livewire.admin.audit-trails', compact('sections', 'types', 'users'));
     }
 
     public function builder()
     {
-        return AuditTrail::where('user_id', $this->user?->id)->orderBy($this->sortField,
-            $this->sortAsc ? 'asc' : 'desc');
+        return AuditTrail::with('user')->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
     }
 
     public function sortBy($field): void
@@ -68,6 +72,10 @@ class Activity extends Component
 
         if ($this->title) {
             $query->where('title', 'like', '%'.$this->title.'%');
+        }
+
+        if ($this->user_id) {
+            $query->where('user_id', '=', $this->user_id);
         }
 
         if ($this->section) {
@@ -93,9 +101,6 @@ class Activity extends Component
 
     public function resetFilters(): void
     {
-        $this->title = null;
-        $this->section = null;
-        $this->type = null;
-        $this->created_at = null;
+        $this->reset();
     }
 }

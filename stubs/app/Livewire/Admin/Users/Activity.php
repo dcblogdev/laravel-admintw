@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin;
+namespace App\Livewire\Admin\Users;
 
 use function abort_if_cannot;
 use App\Models\AuditTrail;
@@ -13,15 +13,13 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use function view;
 
-class AuditTrails extends Component
+class Activity extends Component
 {
     use WithPagination;
 
-    public $paginate = '';
+    public User $user;
 
-    public $checked = [];
-
-    public $user_id = 0;
+    public $paginate = 10;
 
     public $title = '';
 
@@ -31,7 +29,7 @@ class AuditTrails extends Component
 
     public $created_at = '';
 
-    public $sortField = 'created_at';
+    public $sortField = 'id';
 
     public $sortAsc = false;
 
@@ -39,18 +37,18 @@ class AuditTrails extends Component
 
     public function render(): View
     {
-        abort_if_cannot('view_audit_trails');
+        abort_if_cannot('view_users_activity');
 
         $types = AuditTrail::groupby('type')->pluck('type');
         $sections = AuditTrail::groupby('section')->pluck('section');
-        $users = User::isActive()->orderby('name')->get();
 
-        return view('livewire.admin.audit-trails', compact('sections', 'types', 'users'));
+        return view('livewire.admin.users.activity', compact('sections', 'types'));
     }
 
     public function builder()
     {
-        return AuditTrail::with('user')->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        return AuditTrail::where('user_id', $this->user?->id)->orderBy($this->sortField,
+            $this->sortAsc ? 'asc' : 'desc');
     }
 
     public function sortBy($field): void
@@ -70,10 +68,6 @@ class AuditTrails extends Component
 
         if ($this->title) {
             $query->where('title', 'like', '%'.$this->title.'%');
-        }
-
-        if ($this->user_id) {
-            $query->where('user_id', '=', $this->user_id);
         }
 
         if ($this->section) {
@@ -99,6 +93,9 @@ class AuditTrails extends Component
 
     public function resetFilters(): void
     {
-        $this->reset();
+        $this->title = null;
+        $this->section = null;
+        $this->type = null;
+        $this->created_at = null;
     }
 }

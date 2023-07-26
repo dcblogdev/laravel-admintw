@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Users\Edit;
+namespace App\Livewire\Admin\Users\Edit;
 
 use App\Models\Role;
 use App\Models\User;
@@ -24,7 +24,7 @@ class Roles extends Component
     {
         $roles = Role::orderby('name')->get();
 
-        return view('livewire.admin.users.edit.roles', compact('roles'))->layout('layouts.app');
+        return view('livewire.admin.users.edit.roles', compact('roles'));
     }
 
     public function update(): bool

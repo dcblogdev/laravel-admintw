@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Livewire\Admin;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Dashboard')]
 class Dashboard extends Component
 {
     public function render()

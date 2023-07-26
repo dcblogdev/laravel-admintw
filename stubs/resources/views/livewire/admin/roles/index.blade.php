@@ -1,4 +1,3 @@
-@section('title', __('Roles'))
 <div>
     <div class="flex justify-between">
 
@@ -21,7 +20,7 @@
     <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4">
 
         <div class="col-span-2">
-            <x-form.input type="search" id="roles" name="query" wire:model="query" label="none" :placeholder="__('Search Roles')" />
+            <x-form.input type="search" id="roles" name="query" wire:model.live="query" label="none" :placeholder="__('Search Roles')" />
         </div>
 
     </div>
@@ -30,7 +29,7 @@
         <thead>
         <tr>
             <th>
-                <a href="#" wire:click.prevent="sortBy('name')">{{ __('Name') }}</a>
+                <a href="#" wire:click="sortBy('name')">{{ __('Name') }}</a>
             </th>
             <th>
             {{ __('Action') }}
@@ -45,7 +44,7 @@
                     <div class="flex space-x-2">
 
                         @can('edit_roles')
-                            <a href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</a>
+                            <a wire:navigate href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</a>
                         @endcan
 
                         @if ($role->name !== 'admin')

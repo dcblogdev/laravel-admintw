@@ -30,25 +30,25 @@
 </div>
 
 @can('view_dashboard')
-    <x-nav.link route="dashboard" icon="fas fa-home">{{ __('Dashboard') }}</x-nav.link>
+    <x-nav.link route="dashboard" icon="fas fa-home" wire:navigate>{{ __('Dashboard') }}</x-nav.link>
 @endcan
 
 @if(can('view_system_settings') || can('view_roles') || can('view_audit_trails') || can('view_sent_emails'))
     <x-nav.group label="Settings" route="admin.settings" icon="fas fa-cogs">
         @can('view_audit_trails')
-            <x-nav.group-item route="admin.settings.audit-trails.index" icon="far fa-circle">Audit Trails</x-nav.group-item>
+            <x-nav.group-item route="admin.settings.audit-trails.index" icon="far fa-circle" wire:navigate>Audit Trails</x-nav.group-item>
         @endcan
 
         @can('view_roles')
-            <x-nav.group-item route="admin.settings.roles.index" icon="far fa-circle">Roles</x-nav.group-item>
+            <x-nav.group-item route="admin.settings.roles.index" icon="far fa-circle" wire:navigate>Roles</x-nav.group-item>
         @endcan
 
         @can('view_system_settings')
-            <x-nav.group-item route="admin.settings" icon="far fa-circle">System Settings</x-nav.group-item>
+            <x-nav.group-item route="admin.settings" icon="far fa-circle" wire:navigate>System Settings</x-nav.group-item>
         @endcan
     </x-nav.group>
 @endif
 
 @can('view_users')
-    <x-nav.link route="admin.users.index" icon="fas fa-users">Users</x-nav.link>
+    <x-nav.link route="admin.users.index" icon="fas fa-users" wire:navigate>Users</x-nav.link>
 @endcan

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Settings;
+namespace App\Livewire\Admin\Settings;
 
 use function add_user_log;
 use App\Models\Setting;
@@ -31,8 +31,6 @@ class ApplicationLogo extends Component
 
     public function mount(): void
     {
-        parent::mount();
-
         $this->existingApplicationLogo = Setting::where('key', 'applicationLogo')->value('value');
         $this->existingApplicationLogoDark = Setting::where('key', 'applicationLogoDark')->value('value');
     }

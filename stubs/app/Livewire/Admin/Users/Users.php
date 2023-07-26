@@ -2,16 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Users;
+namespace App\Livewire\Admin\Users;
 
 use App\Mail\Users\SendInviteMail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+#[Title('Users')]
 class Users extends Component
 {
     use WithPagination;
@@ -96,7 +98,7 @@ class Users extends Component
 
         $this->builder()->findOrFail($id)->delete();
 
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('close-modal');
     }
 
     public function resendInvite($id): void

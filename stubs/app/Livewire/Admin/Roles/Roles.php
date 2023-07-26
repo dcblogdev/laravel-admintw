@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Roles;
+namespace App\Livewire\Admin\Roles;
 
 use App\Models\Role;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
-use function view;
 
+#[Title('Roles')]
 class Roles extends Component
 {
     use WithPagination;
@@ -60,6 +61,6 @@ class Roles extends Component
     {
         $this->builder()->findOrFail($id)->delete();
 
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('close-modal');
     }
 }

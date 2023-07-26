@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Users\Edit;
+namespace App\Livewire\Admin\Users\Edit;
 
 use function add_user_log;
 use App\Models\User;
@@ -30,8 +30,6 @@ class TwoFactorAuthentication extends Component
      */
     public function mount(): void
     {
-        parent::mount();
-
         $tfa = new TwoFactorAuth();
         $this->secretKey = $tfa->createSecret();
         $this->inlineUrl = $tfa->getQRCodeImageAsDataUri(config('app.name'), $this->secretKey);

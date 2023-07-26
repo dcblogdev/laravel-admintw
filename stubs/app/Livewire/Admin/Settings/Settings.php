@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Settings;
+namespace App\Livewire\Admin\Settings;
 
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use function view;
 
+#[Title('Settings')]
 class Settings extends Component
 {
     public function render(): View

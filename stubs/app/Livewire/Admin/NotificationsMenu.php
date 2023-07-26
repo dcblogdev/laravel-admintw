@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin;
+namespace App\Livewire\Admin;
 
 use App\Models\Notification;
 use function auth;
@@ -19,8 +19,6 @@ class NotificationsMenu extends Component
 
     public function mount(): void
     {
-        parent::mount();
-
         $this->notifications = Notification::where('assigned_to_user_id', auth()->id())->take(20)->get();
         $this->unseenCount = Notification::where('assigned_to_user_id', auth()->id())->where('viewed', 0)->count();
     }

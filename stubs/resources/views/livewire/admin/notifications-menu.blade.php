@@ -46,7 +46,7 @@
                                 <li class="px-6 py-5 relative">
                                     <div class="group flex justify-between items-center">
                                         @if (!empty($notification->link))
-                                            <a href="{{ $notification->link }}" class="-m-1 p-1 block">
+                                            <a wire:navigate href="{{ $notification->link }}" class="-m-1 p-1 block">
                                         @endif
 
                                             <div class="absolute inset-0 group-hover:bg-gray-50 dark:group-hover:bg-gray-500" aria-hidden="true"></div>

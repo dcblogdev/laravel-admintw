@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Livewire\Admin\NotificationsMenu;
-use function Pest\Livewire\livewire;
+use App\Livewire\Admin\NotificationsMenu;
+use Livewire\Livewire;
 
 beforeEach(function () {
     $this->authenticate();
 });
 
 test('can see notification', function() {
-    livewire(NotificationsMenu::class)
+    Livewire::test(NotificationsMenu::class)
         ->assertSet('unseenCount', 0);
 });

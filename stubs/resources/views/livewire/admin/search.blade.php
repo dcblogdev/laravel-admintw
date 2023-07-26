@@ -7,7 +7,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
             </div>
-            <input wire:model.debounce.500ms="query" type="search" class="w-full py-2 rounded-md pl-10 bg-white dark:bg-gray-700 dark:text-gray-300 focus:outline-none" :placeholder="__('Search')">
+            <input wire:model.live="query" type="search" class="w-full py-2 rounded-md pl-10 bg-white dark:bg-gray-700 dark:text-gray-300 focus:outline-none" placeholder="{{__('Search') }}">
         </div>
     </div>
 
@@ -16,7 +16,7 @@
 
             @foreach($searchResults as $result)
                     <li class="p-1">
-                        <a href="{{ $result['route'] }}" class="flex items-center px-4 py-4 hover:bg-gray-200 dark:hover:bg-gray-600 transition ease-in-out duration-150">{{ $result['section'] }}: {{ $result['label'] }}</a>
+                        <a wire:navigate href="{{ $result['route'] }}" class="flex items-center px-4 py-4 hover:bg-gray-200 dark:hover:bg-gray-600 transition ease-in-out duration-150">{{ $result['section'] }}: {{ $result['label'] }}</a>
                     </li>
             @endforeach
 

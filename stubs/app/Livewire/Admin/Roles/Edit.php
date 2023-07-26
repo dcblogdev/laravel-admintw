@@ -2,26 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Roles;
+namespace App\Livewire\Admin\Roles;
 
-use function add_user_log;
 use App\Models\Permission;
 use App\Models\Role;
-use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Title;
 use Livewire\Component;
-use function redirect;
-use function view;
 
+#[Title('Edit Role')]
 class Edit extends Component
 {
-    public ?Role $role = null;
-
+    public Role $role;
     public $label = '';
-
     public $permissions = [];
 
     protected function rules(): array

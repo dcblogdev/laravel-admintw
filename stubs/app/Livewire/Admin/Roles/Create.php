@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Roles;
+namespace App\Livewire\Admin\Roles;
 
 use App\Models\Role;
 use Illuminate\Contracts\View\View;
@@ -10,9 +10,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Create extends Component
 {
+    use WithPagination;
     public $role = '';
 
     protected array $rules = [
@@ -63,6 +65,6 @@ class Create extends Component
     public function cancel(): void
     {
         $this->reset();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('close-modal');
     }
 }

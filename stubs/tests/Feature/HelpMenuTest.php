@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Livewire\Admin\HelpMenu;
-use function Pest\Livewire\livewire;
+use App\Livewire\Admin\HelpMenu;
+use Livewire\Livewire;
 
 beforeEach(function () {
     $this->authenticate();
@@ -14,6 +14,6 @@ test('can see help menu', function () {
 });
 
 test('can see help menu item', function() {
-    livewire(HelpMenu::class)
+    Livewire::test(HelpMenu::class)
         ->assertSee('Theme Docs');
 });

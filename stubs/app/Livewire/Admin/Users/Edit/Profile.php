@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Users\Edit;
+namespace App\Livewire\Admin\Users\Edit;
 
+use Livewire\Attributes\Title;
 use function add_user_log;
 use App\Models\User;
 use function flash;
@@ -16,6 +17,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use function view;
 
+#[Title('User Profile')]
 class Profile extends Component
 {
     use WithFileUploads;
@@ -32,8 +34,6 @@ class Profile extends Component
 
     public function mount(): void
     {
-        parent::mount();
-
         $this->name = $this->user->name;
         $this->email = $this->user->email;
     }

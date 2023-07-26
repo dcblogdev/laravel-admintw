@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire\Admin\Settings;
+namespace App\Livewire\Admin\Settings;
 
 use function add_user_log;
 use App\Models\Setting;

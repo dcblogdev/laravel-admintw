@@ -17,11 +17,11 @@
             <div class="relative z-30 rounded-b-md bg-white border border-gray-100 dark:bg-gray-700 shadow-xs">
 
                 @can('view_users_profiles')
-                    <x-dropdown-link :href="route('admin.users.show', auth()->user())">{{ __('View Profile') }}</x-dropdown-link>
+                    <x-dropdown-link :href="route('admin.users.show', auth()->user())" wire:navigate>{{ __('View Profile') }}</x-dropdown-link>
                 @endcan
 
                 @can('edit_own_account')
-                    <x-dropdown-link :href="route('admin.users.edit', auth()->user())">{{ __('Edit Account') }}</x-dropdown-link>
+                    <x-dropdown-link :href="route('admin.users.edit', auth()->user())" wire:navigate>{{ __('Edit Account') }}</x-dropdown-link>
                 @endcan
 
                 <hr>
