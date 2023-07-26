@@ -10,14 +10,13 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
-        "internachi/modular": "^1.11",
         "intervention/image": "^2.7",
         "laracasts/flash": "^3.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "lasserafn/php-initial-avatar-generator": "^4.2",
-        "livewire/livewire": "^2.11",
+        "livewire/livewire": "^3.0@beta",
         "robthree/twofactorauth": "^1.8",
         "spatie/laravel-permission": "^5.9"
     },
@@ -28,11 +27,8 @@
         "laravel/pint": "^1.5",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.4",
-        "pestphp/pest": "^1.22",
-        "pestphp/pest-plugin-laravel": "^1.4",
-        "pestphp/pest-plugin-livewire": "^1.0",
-        "pestphp/pest-plugin-parallel": "^1.2",
+        "nunomaduro/collision": "^7.0",
+        "pestphp/pest": "^2.0",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
