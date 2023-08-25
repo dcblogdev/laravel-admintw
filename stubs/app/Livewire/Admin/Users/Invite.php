@@ -17,6 +17,7 @@ use Livewire\WithPagination;
 class Invite extends Component
 {
     use WithPagination;
+
     public $name = '';
 
     public $email = '';
@@ -90,8 +91,7 @@ class Invite extends Component
 
         flash('User invited')->success();
 
-        //$this->reset();
-        $this->emit('refreshUsers');
+        $this->dispatch('refreshUsers');
     }
 
     public function cancel(): void

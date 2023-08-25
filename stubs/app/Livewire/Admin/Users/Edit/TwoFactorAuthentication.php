@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Users\Edit;
 
-use function add_user_log;
 use App\Models\User;
-use function config;
-use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use RobThree\Auth\TwoFactorAuth;
 use RobThree\Auth\TwoFactorAuthException;
+
+use function add_user_log;
+use function config;
+use function flash;
 use function view;
 
 class TwoFactorAuthentication extends Component

@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Settings;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+
 use function view;
 
 #[Title('Settings')]

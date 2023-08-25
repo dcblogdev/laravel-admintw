@@ -4,18 +4,15 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin;
 
-use App\Models\User;
 use Livewire\Component;
 
 class Search extends Component
 {
     public string $query = '';
 
-    public array  $models = [
-        User::class,
-    ];
+    public array $models = [];
 
-    public array  $searchResults = [];
+    public array $searchResults = [];
 
     public function render()
     {

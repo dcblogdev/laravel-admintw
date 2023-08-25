@@ -13,7 +13,7 @@ test('can see help menu', function () {
         ->assertSeeLivewire(HelpMenu::class);
 });
 
-test('can see help menu item', function() {
+test('can see help menu item', function () {
     Livewire::test(HelpMenu::class)
         ->assertSee('Theme Docs');
 });

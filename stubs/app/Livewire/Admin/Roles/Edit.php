@@ -17,7 +17,9 @@ use Livewire\Component;
 class Edit extends Component
 {
     public Role $role;
+
     public $label = '';
+
     public $permissions = [];
 
     protected function rules(): array

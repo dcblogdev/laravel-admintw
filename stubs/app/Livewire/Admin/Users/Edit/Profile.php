@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Users\Edit;
 
-use Livewire\Attributes\Title;
-use function add_user_log;
 use App\Models\User;
-use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+
+use function add_user_log;
+use function flash;
 use function view;
 
 #[Title('User Profile')]
@@ -24,13 +25,11 @@ class Profile extends Component
 
     public User $user;
 
-    public $name = '';
+    public string $name = '';
 
-    public $email = '';
+    public string $email = '';
 
     public $image = '';
-
-    protected $listeners = ['refreshProfile' => 'mount'];
 
     public function mount(): void
     {
@@ -98,7 +97,6 @@ class Profile extends Component
 
         flash('Profile Updated!')->success();
 
-        $this->emit('refreshAdminSettings');
-        $this->emit('refreshUserMenu');
+        $this->dispatch('refreshUserMenu');
     }
 }

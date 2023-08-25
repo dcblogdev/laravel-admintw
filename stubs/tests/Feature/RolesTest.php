@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Role;
 use App\Livewire\Admin\Roles\Create;
+use App\Models\Role;
 use Livewire\Livewire;
 
 beforeEach(function () {

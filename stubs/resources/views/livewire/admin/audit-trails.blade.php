@@ -107,5 +107,4 @@
         </div>
 
         {{ $this->userlogs()->links() }}
-
 </div>

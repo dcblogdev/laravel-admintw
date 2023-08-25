@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
                 ->uncompromised();
         });
 
-        Model::shouldBeStrict(!app()->isProduction());
+        Model::shouldBeStrict(! app()->isProduction());
 
         //if key exists
         if (Cache::has('setting_keys')) {
@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
                 config()->set([$key => Cache::get($key)]);
             }
         } else {
-            if (!Cache::has('setting_keys') && Schema::hasTable('settings')) { //if cache key does not exist
+            if (! Cache::has('setting_keys') && Schema::hasTable('settings')) { //if cache key does not exist
                 //get all rows
                 $settings = Setting::all();
 
@@ -57,8 +57,8 @@ class AppServiceProvider extends ServiceProvider
 
                 //loop over rows
                 foreach ($settings as $setting) {
-                    $key    = $setting->key;
-                    $value  = $setting->value;
+                    $key = $setting->key;
+                    $value = $setting->value;
                     $keys[] = $key;
 
                     //remember setting

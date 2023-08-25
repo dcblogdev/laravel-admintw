@@ -30,7 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public string $section = 'Users';
 
-    public array  $searchable = ['name', 'email'];
+    public array $searchable = ['name', 'email'];
 
     /**
      * The attributes that should be cast.

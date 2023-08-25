@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Settings;
 
-use function add_user_log;
 use App\Models\Setting;
-use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+
+use function add_user_log;
+use function flash;
 use function view;
 
 class ApplicationSettings extends Component

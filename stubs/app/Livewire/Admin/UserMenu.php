@@ -6,6 +6,7 @@ namespace App\Livewire\Admin;
 
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+
 use function view;
 
 class UserMenu extends Component
@@ -14,6 +15,6 @@ class UserMenu extends Component
 
     public function render(): View
     {
-        return view('livewire.admin.user-menu');
+        return view('livewire.admin.users.user-menu');
     }
 }

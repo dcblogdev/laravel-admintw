@@ -10,7 +10,7 @@ class Dashboard extends Component
 {
     public function render()
     {
-        abort_unless(auth()->user()->can('view_dashboard'), 403);
+        abort_if_cannot('view_dashboard');
 
         return view('livewire.admin.dashboard');
     }

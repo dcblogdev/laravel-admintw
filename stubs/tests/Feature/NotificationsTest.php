@@ -7,7 +7,7 @@ beforeEach(function () {
     $this->authenticate();
 });
 
-test('can see notification', function() {
+test('can see notification', function () {
     Livewire::test(NotificationsMenu::class)
         ->assertSet('unseenCount', 0);
 });

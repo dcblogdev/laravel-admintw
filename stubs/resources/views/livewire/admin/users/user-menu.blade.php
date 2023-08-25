@@ -1,7 +1,7 @@
 @auth
     <div x-data="{ isOpen: false }">
         <div>
-            <button @click="isOpen = !isOpen" class="text-gray-900 pt-3 focus:outline-none">
+            <button @click="isOpen = !isOpen" class="text-gray-900 pt-2 focus:outline-none">
                 @if (storage_exists(auth()->user()->image))
                     <img src="{{ storage_url(auth()->user()->image) }}" width="30" class="h-6 w-6 rounded-full">
                 @else

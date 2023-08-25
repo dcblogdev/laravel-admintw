@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin;
 
-use Livewire\Attributes\Title;
-use function abort_if_cannot;
 use App\Models\AuditTrail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+
+use function abort_if_cannot;
 use function view;
 
 #[Title('Audit Trails')]

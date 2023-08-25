@@ -18,23 +18,30 @@ class Users extends Component
 {
     use WithPagination;
 
-    public $paginate = '';
+    public string $paginate = '';
 
-    public $checked = [];
+    public array $checked = [];
 
-    public $name = '';
+    public string $name = '';
 
-    public $email = '';
+    public string $email = '';
 
-    public $joined = '';
+    public string $joined = '';
 
-    public $sortField = 'name';
+    public string $sortField = 'name';
 
-    public $sortAsc = true;
+    public bool $sortAsc = true;
 
-    public $openFilter = false;
+    public bool $openFilter = false;
 
-    public $sentEmail = false;
+    public bool $sentEmail = false;
+
+    protected array $queryString = [
+        'paginate' => ['except' => ''],
+        'name' => ['except' => ''],
+        'email' => ['except' => ''],
+        'joined' => ['except' => ''],
+    ];
 
     protected $listeners = ['refreshUsers' => '$refresh'];
 

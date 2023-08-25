@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace App\Livewire\Admin;
 
 use App\Models\Notification;
-use function auth;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+
+use function auth;
 use function now;
 use function view;
 

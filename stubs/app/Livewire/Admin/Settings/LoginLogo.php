@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Settings;
 
-use function add_user_log;
 use App\Models\Setting;
 use Exception;
-use function flash;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +13,9 @@ use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+
+use function add_user_log;
+use function flash;
 use function view;
 
 class LoginLogo extends Component
@@ -68,7 +69,7 @@ class LoginLogo extends Component
         if ($this->loginLogo !== '') {
             $loginLogo = Setting::where('key', 'loginLogo')->value('value');
             if ($loginLogo !== '') {
-//                Storage::disk('public')->delete($loginLogo);
+                //                Storage::disk('public')->delete($loginLogo);
             }
 
             $token = md5(random_int(1, 10).microtime());
@@ -85,7 +86,7 @@ class LoginLogo extends Component
         if ($this->loginLogoDark !== '') {
             $loginLogoDark = Setting::where('key', 'loginLogoDark')->value('value');
             if ($loginLogoDark !== '') {
-//                Storage::disk('public')->delete($loginLogoDark);
+                //                Storage::disk('public')->delete($loginLogoDark);
             }
 
             $token = md5(random_int(1, 10).microtime());
