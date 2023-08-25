@@ -2,16 +2,14 @@
 
 use App\Http\Controllers\Auth\TwoFaController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Livewire\Admin\AuditTrails;
-use App\Http\Livewire\Admin\Dashboard;
-use App\Http\Livewire\Admin\Roles\Edit;
-use App\Http\Livewire\Admin\Roles\Roles;
-use App\Http\Livewire\Admin\SentEmails\SentEmails;
-use App\Http\Livewire\Admin\SentEmails\SentEmailsBody;
-use App\Http\Livewire\Admin\Settings\Settings;
-use App\Http\Livewire\Admin\Users\EditUser;
-use App\Http\Livewire\Admin\Users\ShowUser;
-use App\Http\Livewire\Admin\Users\Users;
+use App\Livewire\Admin\AuditTrails;
+use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Roles\Edit;
+use App\Livewire\Admin\Roles\Roles;
+use App\Livewire\Admin\Settings\Settings;
+use App\Livewire\Admin\Users\EditUser;
+use App\Livewire\Admin\Users\ShowUser;
+use App\Livewire\Admin\Users\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
