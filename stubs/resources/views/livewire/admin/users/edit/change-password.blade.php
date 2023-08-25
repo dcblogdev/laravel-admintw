@@ -8,7 +8,7 @@
         <x-slot name="right">
 
             <div class="card">
-                <x-form wire:submit.prevent="update" method="put">
+                <x-form wire:submit="update" method="put">
 
                     <div class="alert alert-primary">
                         <p class="text-white">{{ __('New password must be at least 8 characters in length') }}<br>

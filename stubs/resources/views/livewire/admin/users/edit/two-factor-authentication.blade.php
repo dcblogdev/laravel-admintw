@@ -35,7 +35,7 @@
 
                     <x-form.input wire:model="code" :label="__('Code')" name='code' />
 
-                    <x-form wire:submit.prevent="update" method="put">
+                    <x-form wire:submit="update" method="put">
 
                     <x-button>{{ __('Turn on 2FA') }}</x-button>
 

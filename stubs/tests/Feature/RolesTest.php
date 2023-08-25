@@ -1,7 +1,7 @@
 <?php
 
+use App\Livewire\Admin\Roles\Create;
 use App\Models\Role;
-use App\Http\Livewire\Admin\Roles\Create;
 use Livewire\Livewire;
 
 beforeEach(function () {
@@ -38,7 +38,7 @@ test('is redirected after role creation', function () {
 test('on cancel dispatch browser event', function () {
     Livewire::test(Create::class)
         ->call('cancel')
-        ->assertDispatchedBrowserEvent('close-modal');
+        ->assertDispatched('close-modal');
 });
 
 test('can see edit role', function () {

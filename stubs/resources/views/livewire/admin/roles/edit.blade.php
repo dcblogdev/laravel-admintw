@@ -1,17 +1,17 @@
-@section('title', __('Edit Role'))
 <div>
     <p class="mb-5">
-        <a href="{{ route('admin.settings.roles.index') }}">{{ __('Roles') }}</a>
+        <a wire:navigate href="{{ route('admin.settings.roles.index') }}">{{ __('Roles') }}</a>
         <span class="dark:text-gray-200">- {{ __('Edit Role') }}</span>
     </p>
 
-
-    <div class="float-right"><span class="error">*</span> <span class="dark:text-gray-200"> = {{ __('required') }}</span>
+    <div class="float-right">
+        <span class="error">*</span>
+        <span class="dark:text-gray-200"> = {{ __('required') }}</span>
     </div>
 
     <div class="clearfix"></div>
 
-    <x-form wire:submit.prevent="update" method="put">
+    <x-form wire:submit="update" method="put">
 
         <div class="row">
 

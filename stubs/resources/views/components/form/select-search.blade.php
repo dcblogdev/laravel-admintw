@@ -9,7 +9,7 @@
 <div
     x-data="AlpineSelect({
         data: {{ json_encode($data) }},
-        selected:  @entangle($attributes->wire('model')),
+        selected:  @entangle($attributes->wire('model')).live,
         placeholder: '{{ $placeholder }}',
         multiple: {{ isset($attributes['multiple']) ? 'true':'false' }},
         disabled: {{ isset($attributes['disabled']) ? 'true':'false' }},

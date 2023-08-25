@@ -5,7 +5,7 @@
         <div class="mb-5 grid sm:grid-cols-1 md:grid-cols-3 gap-4">
 
             <div class="col-span-2">
-                <x-form.input type="search" id="title" name="title" wire:model="title" label="none" :placeholder="__('Search Actions')" />
+                <x-form.input type="search" id="title" name="title" wire:model.live="title" label="none" :placeholder="__('Search Actions')" />
             </div>
 
         </div>
@@ -44,21 +44,21 @@
                     wire:ignore.self>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 
-                    <x-form.select id="section" name="section" label="Section" wire:model="section">
+                    <x-form.select id="section" name="section" label="Section" wire:model.live="section">
                         <option value="">{{ __('Select') }}</option>
                         @foreach($sections as $section)
                             <option value="{{ $section }}">{{ $section }}</option>
                         @endforeach
                     </x-form.select>
 
-                    <x-form.select id="type" name="type" label="Type" wire:model="type">
+                    <x-form.select id="type" name="type" label="Type" wire:model.live="type">
                         <option value="">{{ __('Select') }}</option>
                         @foreach($types as $type)
                             <option value="{{ $type }}">{{ $type }}</option>
                         @endforeach
                     </x-form.select>
 
-                    <x-form.daterange id="created_at" name="created_at" :label="__('Created Date Range')" wire:model.lazy="created_at" />
+                    <x-form.daterange id="created_at" name="created_at" :label="__('Created Date Range')" wire:model.live="created_at" />
 
                 </div>
             </div>

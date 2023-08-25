@@ -2,10 +2,10 @@
 
 namespace App\Mail\Users;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User;
 
 class SendInviteMail extends Mailable
 {

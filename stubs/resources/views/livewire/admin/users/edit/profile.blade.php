@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <x-form wire:submit.prevent="" method="put">
+        <x-form wire:submit="" method="put">
 
             <x-form.input wire:model="name" :label="__('Name')" name='name' required />
             <x-form.input wire:model="email" :label="__('Email')" name='email' required />

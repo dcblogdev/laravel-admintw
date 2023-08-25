@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\Admin\Users\Users;
+use App\Livewire\Admin\Users\Users;
 use App\Models\User;
 use Livewire\Livewire;
 

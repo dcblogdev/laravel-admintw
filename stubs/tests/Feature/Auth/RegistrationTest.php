@@ -55,5 +55,5 @@ test('users can register', function () {
         'password' => $password,
         'confirmPassword' => $password,
     ])->assertValid()
-    ->assertRedirect();
+        ->assertRedirect();
 });

@@ -1,7 +1,7 @@
 @auth
     <div x-data="{ isOpen: false }">
         <div>
-            <button @click="isOpen = !isOpen" class="text-gray-900 pt-3 focus:outline-none">
+            <button @click="isOpen = !isOpen" class="text-gray-900 pt-2 focus:outline-none">
                 @if (storage_exists(auth()->user()->image))
                     <img src="{{ storage_url(auth()->user()->image) }}" width="30" class="h-6 w-6 rounded-full">
                 @else
@@ -17,11 +17,11 @@
             <div class="relative z-30 rounded-b-md bg-white border border-gray-100 dark:bg-gray-700 shadow-xs">
 
                 @can('view_users_profiles')
-                    <x-dropdown-link :href="route('admin.users.show', auth()->user())">{{ __('View Profile') }}</x-dropdown-link>
+                    <x-dropdown-link :href="route('admin.users.show', auth()->user())" wire:navigate>{{ __('View Profile') }}</x-dropdown-link>
                 @endcan
 
                 @can('edit_own_account')
-                    <x-dropdown-link :href="route('admin.users.edit', auth()->user())">{{ __('Edit Account') }}</x-dropdown-link>
+                    <x-dropdown-link :href="route('admin.users.edit', auth()->user())" wire:navigate>{{ __('Edit Account') }}</x-dropdown-link>
                 @endcan
 
                 <hr>

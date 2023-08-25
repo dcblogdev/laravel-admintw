@@ -16,7 +16,7 @@ test('users can authenticate using the login screen', function () {
             'email' => $user->email,
             'password' => 'password',
         ])
-    ->assertRedirect(route('dashboard'));
+        ->assertRedirect(route('dashboard'));
 
     $this->assertAuthenticated();
 });

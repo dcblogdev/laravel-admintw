@@ -1,11 +1,10 @@
-@section('title', __('Audit Trail'))
 <div>
     <h1>{{ __('Audit Trails') }}</h1>
 
         <div class="mt-5 grid sm:grid-cols-1 md:grid-cols-3 gap-4">
 
             <div class="col-span-2">
-                <x-form.input type="search" id="title" name="title" wire:model="title" label="none" :placeholder="__('Search Actions')" />
+                <x-form.input type="search" id="title" name="title" wire:model.live="title" label="none" :placeholder="__('Search Actions')" />
             </div>
         </div>
 
@@ -37,28 +36,28 @@
                     wire:ignore.self>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 
-                    <x-form.select id="user_id" name="user_id" :label="__('User')" wire:model="user_id">
+                    <x-form.select id="user_id" name="user_id" :label="__('User')" wire:model.live="user_id">
                         <option value="">Select</option>
                         @foreach($users as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
                     </x-form.select>
 
-                    <x-form.select id="section" name="section" :label="__('Section')" wire:model="section">
+                    <x-form.select id="section" name="section" :label="__('Section')" wire:model.live="section">
                         <option value="">Select</option>
                         @foreach($sections as $section)
                             <option value="{{ $section }}">{{ $section }}</option>
                         @endforeach
                     </x-form.select>
 
-                    <x-form.select id="type" name="type" :label="__('Type')" wire:model="type">
+                    <x-form.select id="type" name="type" :label="__('Type')" wire:model.live="type">
                         <option value="">Select</option>
                         @foreach($types as $type)
                             <option value="{{ $type }}">{{ $type }}</option>
                         @endforeach
                     </x-form.select>
 
-                    <x-form.daterange id="created_at" name="created_at" :label="__('Created Date Range')" wire:model.lazy="created_at" />
+                    <x-form.daterange id="created_at" name="created_at" :label="__('Created Date Range')" wire:model.live="created_at" />
                 </div>
             </div>
 
@@ -108,5 +107,4 @@
         </div>
 
         {{ $this->userlogs()->links() }}
-
 </div>
