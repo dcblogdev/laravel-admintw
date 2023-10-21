@@ -39,7 +39,7 @@ test('can render form with a delete method', function () {
 test('when using post form has a CSRF token input', function () {
     test()
         ->blade('<x-form></x-form>')
-        ->assertSee('<input type="hidden" name="_token" value="">', false);
+        ->assertSee('<input type="hidden" name="_token" value="" autocomplete="off">', false);
 });
 
 test('when using get form has not got a CSRF token input', function () {
