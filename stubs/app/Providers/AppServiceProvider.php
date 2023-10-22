@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
                 config()->set([$key => Cache::get($key)]);
             }
         } else {
-            if (! Cache::has('setting_keys') && Schema::hasTable('settings')) { //if cache key does not exist
+            if (Schema::hasTable('settings')) { //if cache key does not exist
                 //get all rows
                 $settings = Setting::all();
 

@@ -79,6 +79,7 @@ class ApplicationLogo extends Component
             });
             $img->stream();
 
+            // @phpstan-ignore-next-line
             Storage::disk('public')->put('logo/'.$name, $img);
             Setting::updateOrCreate(['key' => 'applicationLogo'], ['value' => 'logo/'.$name]);
         }
@@ -96,6 +97,7 @@ class ApplicationLogo extends Component
             });
             $img->stream();
 
+            // @phpstan-ignore-next-line
             Storage::disk('public')->put('logo/'.$name, $img);
             Setting::updateOrCreate(['key' => 'applicationLogoDark'], ['value' => 'logo/'.$name]);
         }

@@ -59,8 +59,8 @@ class AdminSettings extends Component
         $this->validate();
 
         if (hasRole('admin')) {
-            $this->user->is_office_login_only = $this->isOfficeLoginOnly ? 1 : 0;
-            $this->user->is_active = $this->isActive ? 1 : 0;
+            $this->user->is_office_login_only = (bool) $this->isOfficeLoginOnly;
+            $this->user->is_active = (bool) $this->isActive;
             $this->user->save();
 
             add_user_log([

@@ -1,5 +1,5 @@
 <?php
 
-test('can load welcome', function(){
-   $this->get('/')->assertOk();
+test('can load welcome', function () {
+    $this->get('/')->assertOk();
 });

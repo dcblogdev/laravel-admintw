@@ -6,7 +6,9 @@ namespace App\Livewire\Admin\Users;
 
 use App\Mail\Users\SendInviteMail;
 use App\Models\User;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
@@ -52,7 +54,7 @@ class Users extends Component
         return view('livewire.admin.users.index');
     }
 
-    public function builder()
+    public function builder(): Builder
     {
         return User::with('roles')->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
     }
@@ -68,7 +70,7 @@ class Users extends Component
         $this->sortField = $field;
     }
 
-    public function users()
+    public function users(): LengthAwarePaginator
     {
         $query = $this->builder();
 
@@ -91,7 +93,7 @@ class Users extends Component
             }
         }
 
-        return $query->paginate($this->paginate);
+        return $query->paginate((int) $this->paginate);
     }
 
     public function resetFilters(): void
@@ -99,7 +101,7 @@ class Users extends Component
         $this->reset();
     }
 
-    public function deleteUser($id): void
+    public function deleteUser(string $id): void
     {
         abort_if_cannot('delete_users');
 
@@ -108,9 +110,9 @@ class Users extends Component
         $this->dispatch('close-modal');
     }
 
-    public function resendInvite($id): void
+    public function resendInvite(string $id): void
     {
-        $user = $this->builder()->findOrFail($id);
+        $user = User::findOrFail($id);
         Mail::send(new SendInviteMail($user));
 
         $user->invited_at = now();

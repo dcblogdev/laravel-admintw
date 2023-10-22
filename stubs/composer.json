@@ -29,6 +29,7 @@
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
+        "nunomaduro/larastan": "^2.0",
         "pestphp/pest": "^2.00",
         "pestphp/pest-plugin-type-coverage": "^2.0",
         "spatie/laravel-ignition": "^2.0"
@@ -50,6 +51,7 @@
     },
     "scripts": {
         "pint": "vendor/bin/pint",
+        "phpstan": "vendor/bin/phpstan",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

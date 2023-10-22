@@ -48,7 +48,7 @@ class Activity extends Component
 
     public function builder()
     {
-        return AuditTrail::where('user_id', $this->user?->id)->orderBy($this->sortField,
+        return AuditTrail::where('user_id', $this->user->id)->orderBy($this->sortField,
             $this->sortAsc ? 'asc' : 'desc');
     }
 

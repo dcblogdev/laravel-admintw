@@ -81,7 +81,7 @@ class TwoFaController extends Controller
         ]);
 
         $user = User::findOrFail(auth()->id());
-        $user->two_fa_active = 'Yes';
+        $user->two_fa_active = true;
         $user->two_fa_secret_key = $request->input('secretKey');
         $user->save();
 

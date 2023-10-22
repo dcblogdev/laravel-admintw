@@ -79,6 +79,7 @@ class LoginLogo extends Component
             });
             $img->stream();
 
+            // @phpstan-ignore-next-line
             Storage::disk('public')->put('logo/'.$name, $img);
             Setting::updateOrCreate(['key' => 'loginLogo'], ['value' => 'logo/'.$name]);
         }
@@ -86,7 +87,7 @@ class LoginLogo extends Component
         if ($this->loginLogoDark !== '') {
             $loginLogoDark = Setting::where('key', 'loginLogoDark')->value('value');
             if ($loginLogoDark !== '') {
-                //                Storage::disk('public')->delete($loginLogoDark);
+                Storage::disk('public')->delete($loginLogoDark);
             }
 
             $token = md5(random_int(1, 10).microtime());
@@ -96,6 +97,7 @@ class LoginLogo extends Component
             });
             $img->stream();
 
+            // @phpstan-ignore-next-line
             Storage::disk('public')->put('logo/'.$name, $img);
             Setting::updateOrCreate(['key' => 'loginLogoDark'], ['value' => 'logo/'.$name]);
         }

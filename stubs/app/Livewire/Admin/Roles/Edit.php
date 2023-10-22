@@ -18,9 +18,9 @@ class Edit extends Component
 {
     public Role $role;
 
-    public $label = '';
+    public string $label = '';
 
-    public $permissions = [];
+    public array $permissions = [];
 
     protected function rules(): array
     {
@@ -47,6 +47,7 @@ class Edit extends Component
 
         if (isset($this->role->permissions)) {
             foreach ($this->role->permissions as $perm) {
+                // @phpstan-ignore-next-line
                 $this->permissions[] = $perm->name;
             }
         }
@@ -65,6 +66,7 @@ class Edit extends Component
     {
         $this->validate();
 
+        // @phpstan-ignore-next-line
         $this->role->label = $this->label;
         $this->role->name = strtolower(str_replace(' ', '_', $this->label));
 

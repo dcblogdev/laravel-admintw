@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\HasUuid;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -30,13 +31,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public string $section = 'Users';
 
+    /**
+     * @var string[]
+     */
     public array $searchable = ['name', 'email'];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_logged_in_at' => 'datetime',
@@ -45,7 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'last_activity' => 'datetime',
     ];
 
-    public function route($id): string
+    public function route(string $id): string
     {
         return route('admin.users.show', ['user' => $id]);
     }
@@ -55,7 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return UserFactory::new();
     }
 
-    public function scopeIsActive($query)
+    public function scopeIsActive(Builder $query): Builder
     {
         return $query->where('is_active', 1);
     }

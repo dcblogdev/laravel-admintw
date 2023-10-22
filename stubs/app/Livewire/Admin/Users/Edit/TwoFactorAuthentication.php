@@ -73,7 +73,7 @@ class TwoFactorAuthentication extends Component
     {
         $this->validate();
 
-        $this->user->two_fa_active = 'Yes';
+        $this->user->two_fa_active = true;
         $this->user->two_fa_secret_key = $this->secretKey;
         $this->user->save();
 
@@ -90,7 +90,7 @@ class TwoFactorAuthentication extends Component
 
     public function remove(): void
     {
-        $this->user->two_fa_active = 'No';
+        $this->user->two_fa_active = false;
         $this->user->two_fa_secret_key = null;
         $this->user->save();
 

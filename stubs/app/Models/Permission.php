@@ -13,11 +13,6 @@ class Permission extends SpatiePermission
 
     public $incrementing = false;
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'id' => 'string',
     ];

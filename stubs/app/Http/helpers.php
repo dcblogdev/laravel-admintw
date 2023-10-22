@@ -47,7 +47,7 @@ if (! function_exists('add_user_log')) {
 }
 
 if (! function_exists('get_initials')) {
-    function get_initials(string $name): ?string
+    function get_initials(string $name): string
     {
         $words = explode(' ', $name);
         $initials = null;
