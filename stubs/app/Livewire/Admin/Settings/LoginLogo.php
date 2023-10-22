@@ -22,13 +22,13 @@ class LoginLogo extends Component
 {
     use WithFileUploads;
 
-    public $loginLogo = '';
+    public mixed $loginLogo = '';
 
-    public $existingLoginLogo = '';
+    public mixed $existingLoginLogo = '';
 
-    public $loginLogoDark = '';
+    public mixed $loginLogoDark = '';
 
-    public $existingLoginLogoDark = '';
+    public mixed $existingLoginLogoDark = '';
 
     public function mount(): void
     {
@@ -52,7 +52,7 @@ class LoginLogo extends Component
     /**
      * @throws ValidationException
      */
-    public function updated($propertyName): void
+    public function updated(mixed $propertyName): void
     {
         $this->validateOnly($propertyName);
     }
@@ -69,7 +69,7 @@ class LoginLogo extends Component
         if ($this->loginLogo !== '') {
             $loginLogo = Setting::where('key', 'loginLogo')->value('value');
             if ($loginLogo !== '') {
-                //                Storage::disk('public')->delete($loginLogo);
+                Storage::disk('public')->delete($loginLogo);
             }
 
             $token = md5(random_int(1, 10).microtime());

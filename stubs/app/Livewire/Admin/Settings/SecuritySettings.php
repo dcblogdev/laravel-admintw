@@ -16,7 +16,7 @@ use function view;
 
 class SecuritySettings extends Component
 {
-    public $ips = [];
+    public array $ips = [];
 
     protected array $rules = [
         'ips.*.ip' => 'required|ip',
@@ -48,7 +48,7 @@ class SecuritySettings extends Component
         ];
     }
 
-    public function remove($index): void
+    public function remove(mixed $index): void
     {
         unset($this->ips[$index]);
     }
@@ -56,7 +56,7 @@ class SecuritySettings extends Component
     /**
      * @throws ValidationException
      */
-    public function updated($propertyName): void
+    public function updated(mixed $propertyName): void
     {
         $this->validateOnly($propertyName);
     }

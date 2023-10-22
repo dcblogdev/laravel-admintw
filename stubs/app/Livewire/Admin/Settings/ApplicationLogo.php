@@ -7,6 +7,7 @@ namespace App\Livewire\Admin\Settings;
 use App\Models\Setting;
 use Exception;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
@@ -22,13 +23,13 @@ class ApplicationLogo extends Component
 {
     use WithFileUploads;
 
-    public $applicationLogo = '';
+    public mixed $applicationLogo = '';
 
-    public $existingApplicationLogo = '';
+    public mixed $existingApplicationLogo = '';
 
-    public $applicationLogoDark = '';
+    public mixed $applicationLogoDark = '';
 
-    public $existingApplicationLogoDark = '';
+    public mixed $existingApplicationLogoDark = '';
 
     public function mount(): void
     {
@@ -52,7 +53,7 @@ class ApplicationLogo extends Component
     /**
      * @throws ValidationException
      */
-    public function updated($propertyName): void
+    public function updated(mixed $propertyName): void
     {
         $this->validateOnly($propertyName);
     }

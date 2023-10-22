@@ -6,6 +6,7 @@ namespace App\Livewire\Admin;
 
 use App\Models\Notification;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 use function auth;
@@ -14,9 +15,9 @@ use function view;
 
 class NotificationsMenu extends Component
 {
-    public $notifications;
+    public Collection $notifications;
 
-    public $unseenCount = 0;
+    public int $unseenCount = 0;
 
     public function mount(): void
     {
