@@ -5,7 +5,7 @@ use App\Models\User;
 test('login screen can be rendered', function () {
     $this
         ->get(route('login'))
-        ->assertStatus(200);
+        ->assertOk();
 });
 
 test('users can authenticate using the login screen', function () {
@@ -30,6 +30,16 @@ test('users can not authenticate with invalid password', function () {
             'password' => 'wrong-password',
         ])
         ->assertInvalid();
+
+    $this->assertGuest();
+});
+
+test('can logout', function () {
+    $this->authenticate();
+
+    $this
+        ->post(route('logout'))
+        ->assertRedirect('/');
 
     $this->assertGuest();
 });

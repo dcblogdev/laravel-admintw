@@ -8,10 +8,6 @@ beforeEach(function () {
     $this->authenticate();
 });
 
-test('can see roles page with admin role', function () {
-    $this->get(route('admin.settings.roles.index'))->assertOk();
-});
-
 test('can create role', function () {
     Livewire::test(Create::class)
         ->set('role', 'Editor')
@@ -28,20 +24,16 @@ test('cannot create role without role', function () {
         ->assertHasErrors(['role' => 'required']);
 });
 
-test('is redirected after role creation', function () {
+test('Can dispatch after role creation', function () {
     Livewire::test(Create::class)
         ->set('role', 'Editor')
         ->call('store')
-        ->assertRedirect(route('admin.settings.roles.index'));
+        ->assertDispatched('refreshRoles')
+        ->assertDispatched('close-modal');
 });
 
 test('on cancel dispatch browser event', function () {
     Livewire::test(Create::class)
         ->call('cancel')
         ->assertDispatched('close-modal');
-});
-
-test('can see edit role', function () {
-    $role = Role::where('name', 'admin')->first();
-    $this->get(route('admin.settings.roles.edit', $role))->assertOk();
 });

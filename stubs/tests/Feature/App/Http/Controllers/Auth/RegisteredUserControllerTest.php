@@ -9,8 +9,8 @@ test('can see register page', function () {
 
 test('users cannot register with invalid password', function () {
     $this->post(route('register'), [
-        'name' => $this->faker->name(),
-        'email' => $this->faker->email(),
+        'name' => fake()->name(),
+        'email' => fake()->email(),
         'password' => '',
     ]);
 
@@ -22,7 +22,7 @@ test('users cannot register with existing email', function () {
     $password = 'ght73A3!$^DS';
 
     $this->post(route('register'), [
-        'name' => $this->faker->name(),
+        'name' => fake()->name(),
         'email' => $user->email,
         'password' => $password,
         'confirmPassword' => $password,
@@ -36,7 +36,7 @@ test('users cannot register without matching password', function () {
     $password = 'ght73A3!$^DS';
 
     $this->post(route('register'), [
-        'name' => $this->faker->name(),
+        'name' => fake()->name(),
         'email' => $user->email,
         'password' => $password,
         'confirmPassword' => 'other',
@@ -48,12 +48,17 @@ test('users cannot register without matching password', function () {
 test('users can register', function () {
     Role::firstOrCreate(['name' => 'admin', 'label' => 'Admin']);
     $password = 'ght73A3!$^DS';
+    $email = fake()->email();
 
     $this->post(route('register'), [
-        'name' => $this->faker->name(),
-        'email' => $this->faker->email,
+        'name' => fake()->name(),
+        'email' => $email,
         'password' => $password,
         'confirmPassword' => $password,
     ])->assertValid()
         ->assertRedirect();
+
+    $user = User::where('email', $email)->first();
+
+    expect($user->hasRole('admin'))->toBeTrue();
 });

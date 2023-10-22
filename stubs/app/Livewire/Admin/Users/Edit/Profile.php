@@ -67,12 +67,14 @@ class Profile extends Component
     {
         $this->validate();
 
-        if ($this->image !== '') {
-            Storage::disk('public')->delete($this->user->image);
+        if ($this->image !== '' && $this->image !== null) {
+            if ($this->user->image !== null) {
+                Storage::disk('public')->delete($this->user->image);
+            }
 
             $token = md5(random_int(1, 10).microtime());
             $name = $token.'.jpg';
-            $img = Image::make($this->image)->encode('jpg')->resize(100, null, function ($constraint) {
+            $img = Image::make($this->image)->encode('jpg')->resize(100, null, function (object $constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
@@ -97,6 +99,7 @@ class Profile extends Component
 
         flash('Profile Updated!')->success();
 
+        $this->dispatch('refreshAdminSettings');
         $this->dispatch('refreshUserMenu');
     }
 }

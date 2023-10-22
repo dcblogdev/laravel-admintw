@@ -23,6 +23,8 @@ class Roles extends Component
 
     public $sortAsc = true;
 
+    protected $listeners = ['refreshRoles' => '$refresh'];
+
     public function render(): View
     {
         abort_if_cannot('view_roles');

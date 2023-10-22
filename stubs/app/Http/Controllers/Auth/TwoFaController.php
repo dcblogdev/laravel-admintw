@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TwoFaUpdateRequest;
 use App\Models\AuditTrail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -16,19 +17,21 @@ use RobThree\Auth\TwoFactorAuth;
 
 class TwoFaController extends Controller
 {
-    public function index(): View
+    public function index(): View|RedirectResponse
     {
+        if (session('2fa-login') !== true) {
+            return redirect(route('dashboard'));
+        }
+
         return view('auth.twofa');
     }
 
-    public function update(Request $request): Redirector|RedirectResponse
+    public function update(TwoFaUpdateRequest $request): Redirector|RedirectResponse
     {
-        $request->validate([
-            'code' => 'required|string|min:6',
-        ]);
+        $validated = $request->validated();
 
         $tfa = new TwoFactorAuth();
-        $valid = $tfa->verifyCode(auth()->user()->two_fa_secret_key, $request->input('code'));
+        $valid = $tfa->verifyCode(auth()->user()->two_fa_secret_key, $validated['code']);
 
         if ($valid === false) {
             AuditTrail::create([
@@ -47,22 +50,20 @@ class TwoFaController extends Controller
         return redirect(route('dashboard'));
     }
 
-    public function setup(): View
+    public function setup(TwoFactorAuth $twoFactorAuth): View
     {
-        $tfa = new TwoFactorAuth();
-        $secretKey = $tfa->createSecret();
-        $inlineUrl = $tfa->getQRCodeImageAsDataUri(config('app.name'), $secretKey);
+        $secretKey = $twoFactorAuth->createSecret();
+        $inlineUrl = $twoFactorAuth->getQRCodeImageAsDataUri(config('app.name'), $secretKey);
 
         return view('auth.twofasetup', compact('secretKey', 'inlineUrl'));
     }
 
-    public function setupUpdate(Request $request): Redirector|RedirectResponse
+    public function setupUpdate(Request $request, TwoFactorAuth $twoFactorAuth): Redirector|RedirectResponse
     {
         $request->validate([
             'code' => [
-                'required', 'min:6', function ($attribute, $value, $fail) use ($request) {
-                    $tfa = new TwoFactorAuth();
-                    $valid = $tfa->verifyCode($request->input('secretKey'), $request->input('code'));
+                'required', 'min:6', function (string $attribute, string $value, callable $fail) use ($request, $twoFactorAuth) {
+                    $valid = $twoFactorAuth->verifyCode($request->input('secretKey'), $request->input('code'));
 
                     if ($valid === false) {
                         AuditTrail::create([

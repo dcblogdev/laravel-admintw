@@ -5,15 +5,11 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 
-test('email verification screen can be rendered', function () {
-    $user = User::factory()->create([
-        'email_verified_at' => null,
-    ]);
+test('when email verified redirect to dashboard', function () {
+    $this->authenticate();
 
-    $this
-        ->actingAs($user)
-        ->get(route('verification.notice'))
-        ->assertStatus(200);
+    $this->post(route('verification.send'))
+        ->assertRedirect(route('dashboard'));
 });
 
 test('email can be verified', function () {
@@ -34,7 +30,7 @@ test('email can be verified', function () {
     Event::assertDispatched(Verified::class);
 
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
-    $response->assertRedirect(route('dashboard').'?verified=1');
+    $response->assertRedirect(route('dashboard', 'verified=1'));
 });
 
 test('email is not verified with invalid hash', function () {
@@ -51,4 +47,13 @@ test('email is not verified with invalid hash', function () {
     $this->actingAs($user)->get($verificationUrl);
 
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
+});
+
+test('when email is not verified redirect back', function () {
+    $this->authenticate();
+
+    auth()->user()->update(['email_verified_at' => null]);
+
+    $this->post(route('verification.send'))
+        ->assertRedirect('/');
 });

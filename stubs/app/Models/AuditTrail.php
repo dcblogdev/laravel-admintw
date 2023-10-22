@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AuditTrail extends Model
 {
-    use SoftDeletes;
     use HasFactory;
     use HasUuid;
+    use SoftDeletes;
 
     protected $guarded = [];
 
