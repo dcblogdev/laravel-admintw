@@ -1,5 +1,9 @@
 <p align="center"><img src="https://laraveladmintw.com/images/v3/admintw.png"></p>
 
+## Community
+
+There is a Discord community. https://discord.gg/VYau8hgwrm For quick help, ask questions in the appropriate channel.
+
 ## Laravel AdminTW
 
 Laravel AdminTW is a TALL admin theme.
