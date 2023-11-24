@@ -36,6 +36,8 @@ Then install using the command:
 php artisan admintw:install
 ```
 
+Set database and emails settings inside `.env`
+
 Run composer
 
 ```bash
@@ -59,7 +61,7 @@ php artisan storage:link
 To compile your assets:
 
 ```bash
-npm install && npm run dev
+npm install && npm run build
 ```
 
 Run the tests by running PestPHP
