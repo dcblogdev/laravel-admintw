@@ -16,13 +16,13 @@
             <ul class="absolute z-50 bg-white dark:bg-gray-500 dark:text-gray-200 border border-gray-300 dark:border-gray-400 w-96 rounded-md mt-2 text-gray-700 text-sm divide-y divide-gray-200">
 
                 @foreach($searchResults as $result)
-                        <li class="p-1">
-                            <a wire:navigate href="{{ $result['route'] }}" class="flex items-center px-4 py-4 hover:bg-gray-200 dark:hover:bg-gray-600 transition ease-in-out duration-150">{{ $result['section'] }}: {{ $result['label'] }}</a>
-                        </li>
+                    <li class="p-1">
+                        <a wire:navigate href="{{ $result['route'] }}" class="flex items-center px-4 py-4 hover:bg-gray-200 dark:hover:bg-gray-600 transition ease-in-out duration-150">{{ $result['section'] }}: {{ $result['label'] }}</a>
+                    </li>
                 @endforeach
 
                 @if (count($searchResults) === 0)
-                        <li class="p-1">{{ __('No results') }}</li>
+                    <li class="p-1">{{ __('No results') }}</li>
                 @endif
             </ul>
         @endif
