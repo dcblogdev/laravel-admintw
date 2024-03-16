@@ -1,0 +1,55 @@
+.alert {
+    @apply rounded-md shadow-md text-sm font-medium p-4 my-5;
+
+    &.alert-gray {
+        @apply bg-gray-500 text-gray-200;
+    }
+
+    &.alert-red {
+        @apply bg-red-500 text-red-200;
+    }
+
+    &.alert-danger {
+        @apply bg-red-500 text-red-200;
+    }
+
+    &.alert-yellow {
+        @apply bg-yellow-500 text-yellow-600;
+    }
+
+    &.alert-warning {
+        @apply bg-yellow-500 text-yellow-200;
+    }
+
+    &.alert-green {
+        @apply bg-green-500 text-green-200;
+    }
+
+    &.alert-success {
+        @apply bg-green-500 text-green-200;
+    }
+
+    &.alert-blue {
+        @apply bg-blue-500 text-blue-100;
+    }
+
+    &.alert-info {
+        @apply bg-blue-500 text-blue-200;
+    }
+
+    &.alert-indigo {
+        @apply bg-indigo-500 text-indigo-200;
+    }
+
+    &.alert-purple {
+        @apply bg-purple-500 text-purple-200;
+    }
+
+    &.alert-pink {
+        @apply bg-pink-500 text-pink-200;
+    }
+
+    &.alert-primary {
+        @apply bg-primary text-gray-200;
+    }
+}

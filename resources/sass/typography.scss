@@ -1,0 +1,91 @@
+h1 {
+    @apply text-4xl text-gray-900 dark:text-gray-300;
+}
+
+h2 {
+    @apply py-2 text-3xl text-gray-900 dark:text-gray-300;
+}
+
+h3 {
+    @apply py-2 text-2xl text-gray-900 dark:text-gray-300;
+}
+
+h4 {
+    @apply py-2 text-xl text-gray-900 dark:text-gray-300;
+}
+
+p {
+    @apply py-2 text-gray-600 dark:text-gray-300;
+}
+
+p a {
+    @apply text-sky-600 dark:text-sky-300;
+}
+
+hr {
+    @apply border-t border-gray-300;
+}
+
+/** Tables */
+
+table {
+    @apply w-full table-auto rounded mb-5;
+}
+
+thead tr {
+    @apply px-6 py-3 text-left text-xs font-medium bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-200 uppercase;
+}
+
+thead th {
+    @apply px-2 py-3;
+}
+
+thead tr a {
+    @apply text-sky-600 dark:text-sky-300;
+}
+
+tbody tr {
+    @apply bg-white dark:bg-gray-800 dark:border-gray-700 border-b border-gray-200;
+}
+
+tbody td {
+    @apply px-2 py-4 whitespace-nowrap text-left text-gray-700 dark:text-gray-300;
+}
+
+tbody td a {
+    @apply text-sky-600 dark:text-sky-300;
+}
+
+/** Checkboxes */
+
+input[type="checkbox"] {
+  appearance: none;
+  @apply text-sky-600 dark:text-sky-300;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  @apply bg-sky-600 dark:bg-sky-300;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:disabled {
+  --form-control-color: var(--form-control-disabled);
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}

@@ -1,30 +1,83 @@
 {
-    "name": "dcblogdev/laravel-admintw",
-    "description": "Tailwind admin theme & starter pack for Laravel.",
-    "type": "library",
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
     "license": "MIT",
-    "authors": [
-        {
-            "name": "David Carr",
-            "email": "dave@dcblog.dev"
-        }
-    ],
-    "homepage": "https://github.com/dcblogdev/laravel-admintw",
     "require": {
-        "php": "^8.1",
-        "illuminate/filesystem": "^10.0",
-        "illuminate/support": "^10.0"
+        "php": "^8.2",
+        "intervention/image": "^2.7",
+        "laracasts/flash": "^3.2",
+        "laravel/breeze": "^2.0",
+        "laravel/framework": "^11.0",
+        "laravel/tinker": "^2.9",
+        "lasserafn/php-initial-avatar-generator": "^4.3",
+        "livewire/livewire": "^3.4",
+        "robthree/twofactorauth": "^2.1",
+        "spatie/laravel-permission": "^6.4"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.0",
+        "fakerphp/faker": "^1.23",
+        "larastan/larastan": "^2.9",
+        "laravel/pint": "^1.13",
+        "laravel/sail": "^1.26",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "pestphp/pest-plugin-type-coverage": "^2.8",
+        "spatie/laravel-ignition": "^2.4"
     },
     "autoload": {
         "psr-4": {
-            "Dcblogdev\\AdminTw\\": "src/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "app/Http/helpers.php"
+        ]
+    },
+    "scripts": {
+        "pint": "vendor/bin/pint",
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ]
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "Dcblogdev\\AdminTw\\AdminTwServiceProvider"
-            ]
+            "dont-discover": []
         }
-    }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
