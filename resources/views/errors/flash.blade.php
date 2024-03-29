@@ -1,0 +1,2 @@
+
+@include('flash::message')

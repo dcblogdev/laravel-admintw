@@ -1,0 +1,21 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'flatpickr/dist/flatpickr.css';
+@import 'filepond/dist/filepond.min.css';
+
+@import 'components/alert';
+@import 'components/button';
+@import 'components/card';
+@import 'components/link';
+@import 'form';
+@import 'typography';
+@import 'utility';
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+}
