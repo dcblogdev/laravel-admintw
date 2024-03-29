@@ -2,9 +2,6 @@
 
 > From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.0.0.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/dcblogdev/laravel-admintw.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/laravel-admintw)
-[![Total Downloads](https://img.shields.io/packagist/dt/dcblogdev/laravel-admintw.svg?style=flat-square)](https://packagist.org/packages/dcblogdev/laravel-admintw)
-
 Laravel AdminTW is a Laravel Starter Kit | TALL admin theme.
 
 <p align="center"><img src="https://laraveladmintw.com/images/v3/admintw.png"></p>
