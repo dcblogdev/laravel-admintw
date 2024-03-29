@@ -54,13 +54,6 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        add_user_log([
-            'title' => 'registered '.$user->name,
-            'reference_id' => $user->id,
-            'section' => 'Auth',
-            'type' => 'Register',
-        ]);
-
         $user->sendEmailVerificationNotification();
         flash('Please check your email for a verification link.')->info();
 
