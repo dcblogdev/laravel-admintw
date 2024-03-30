@@ -4,7 +4,7 @@
 
 Laravel AdminTW is a Laravel Starter Kit | TALL admin theme.
 
-<p><img src="https://laraveladmintw.com/images/v3/admintw.png"></p>
+<p><img src="https://laraveladmintw.com/images/docsv5/settings-light.png"></p>
 
 AdminTw is built on top of Laravel, Livewire, and Tailwind CSS.
 
