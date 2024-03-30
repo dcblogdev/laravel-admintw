@@ -20,6 +20,12 @@ Includes:
 
 1. Clone the repository
 
+Copy the `.env.example` file to `.env`:
+
+```
+cp .env.example .env
+```
+
 Set database and emails settings inside `.env`
 
 2. Run `composer install`
