@@ -4,16 +4,16 @@
             <button class="btn btn-primary" @click="on = true">{{ __('Invite User') }}</button>
         </x-slot>
 
-        <x-slot name="title">{{ __('Invite User') }}</x-slot>
+        <x-slot name="modalTitle">{{ __('Invite User') }}</x-slot>
 
         <x-slot name="content">
 
             @include('errors.success')
 
-            <x-form.input tabindex="1" wire:model.live="name" :label="__('Name')" name="name" required />
-            <x-form.input tabindex="3" wire:model.live="email" :label="__('Email')" name="email" required />
+            <x-form.input tabindex="1" wire:model="name" :label="__('Name')" name="name" required />
+            <x-form.input tabindex="3" wire:model="email" :label="__('Email')" name="email" required />
 
-            <h4>{{ __('Roles') }}</h4>
+            <p class="font-bold">{{ __('Roles') }}</p>
 
             @error('rolesSelected')
                 <p class="error">{{ $message }}</p>
@@ -21,7 +21,7 @@
 
             @foreach($roles as $role)
                 <x-form.checkbox
-                    wire:model.live="rolesSelected"
+                    wire:model="rolesSelected"
                     id="{{ $role->id }}"
                     value="{{ $role->id }}"
                     label="{{ $role->label }}"
