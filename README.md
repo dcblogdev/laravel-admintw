@@ -30,7 +30,7 @@ Set database and emails settings inside `.env`
 
 2. Run `composer install`
 3. Run `npm install && npm run build`
-4. run `php artisan key:generate  `
+4. run `php artisan key:generate`
 5. run `php artisan storage:link`
 6. Run `php artisan migrate --seed`
 7. Run `php artisan serve`
