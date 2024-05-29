@@ -68,7 +68,7 @@
             </thead>
             <tbody>
             @foreach($this->users() as $user)
-                <tr>
+                <tr wire:key="{{ $user->id }}">
                     <td class="flex">
                         <div>
                             @if (storage_exists($user->image))

@@ -78,7 +78,7 @@
                 </thead>
                 <tbody>
                 @foreach($this->userlogs() as $log)
-                    <tr>
+                    <tr wire:key="{{ $log->id }}">
                         <td>{{ $log->title }}</td>
                         <td>{{ $log->section }}</td>
                         <td>{{ $log->type }}</td>

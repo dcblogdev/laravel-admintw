@@ -3,7 +3,8 @@
     'id'    => '',
     'label' => '',
     'value' => '',
-    'selected' => ''
+    'selected' => '',
+    'class' => 'block cursor-pointer',
 ])
 
 @php
@@ -25,7 +26,15 @@ if ($id === '') {
     @endphp
 @endif
 
-<div>
-    <input type='checkbox' name='{{ $name }}' id='{{ $id }}' value='{{ $value }}' @if ($selected === $value) checked='checked' @endif {{ $attributes }}>
-    <label for='{{ $id }}'>{{ $label }}</label>
-</div>
+<label for='{{ $id }}' wire:key="{{ $id }}" class="{{ $class }}">
+    <div class="flex gap-2">
+    <input
+        type="checkbox"
+        name='{{ $name }}'
+        id='{{ $id }}'
+        value='{{ $value }}'
+        @if ($selected === $value) checked='checked' @endif {{ $attributes }}
+    >
+        {{ $label }}
+    </div>
+</label>

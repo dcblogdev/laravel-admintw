@@ -19,7 +19,7 @@
             </tr>
             @foreach($ips as $index => $row)
                 @error("ips.$index.ip")
-                    <tr>
+                    <tr wire:key="{{ $index }}">
                         <td colspan="3">
                             <span class="error">{{ $message }}</span>
                         </td>
@@ -28,7 +28,7 @@
                 <tr>
                     <td><x-form.input wire:model.live="ips.{{ $index }}.ip" label="none">{{ $row['ip'] }}</x-form.input></td>
                     <td><x-form.input wire:model.live="ips.{{ $index }}.comment" label="none">{{ $row['comment'] }}</x-form.input></td>
-                    <td class="flex justify-center pt-2"><button type="button" wire:click="remove({{ $index }})" class="error">X</button></td>
+                    <td class="flex justify-center pt-2"><button type="button" wire:click="remove({{ $index }})" wire:confirm="Are you sure?" class="error">X</button></td>
                 </tr>
             @endforeach
         </table>

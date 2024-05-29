@@ -20,16 +20,12 @@
             @enderror
 
             @foreach($roles as $role)
-                <label class="block cursor-pointer">
-                    <div class="flex gap-2">
-                    <input
-                        type="checkbox"
-                        wire:model="rolesSelected"
-                        value="{{ $role->name }}"
-                    >
-                        {{ $role->label }}
-                    </div>
-                </label>
+                <x-form.checkbox
+                    wire:model.live="rolesSelected"
+                    id="{{ $role->id }}"
+                    value="{{ $role->id }}"
+                    label="{{ $role->label }}"
+                />
             @endforeach
 
         </x-slot>

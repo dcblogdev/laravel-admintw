@@ -40,7 +40,7 @@
         </thead>
         <tbody>
         @foreach($this->roles() as $role)
-            <tr>
+            <tr wire:key="{{ $role->id }}">
                 <td>{{ $role->label }}</td>
                     <td>
                         <div class="flex space-x-2">

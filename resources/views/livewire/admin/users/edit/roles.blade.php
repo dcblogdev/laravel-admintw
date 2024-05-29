@@ -10,16 +10,12 @@
                 <x-form wire:submit="update" method="put">
 
                     @foreach($roles as $role)
-                        <label class="block cursor-pointer">
-                            <div class="flex gap-2">
-                            <input
-                                type="checkbox"
-                                wire:model.live="roleSelections"
-                                value="{{ $role->id }}"
-                            >
-                                {{ $role->label }}
-                            </div>
-                        </label>
+                        <x-form.checkbox
+                            wire:model.live="roleSelections"
+                            id="{{ $role->id }}"
+                            value="{{ $role->id }}"
+                            label="{{ $role->label }}"
+                        />
                     @endforeach
 
                     <x-button class="mt-5">{{ __('Update Roles') }}</x-button>

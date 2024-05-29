@@ -44,7 +44,7 @@
                                         <li class="p-6">{{ __('No notifications yet.') }}</li>
                                     @else
                                         @foreach($notifications as $notification)
-                                        <li class="px-6 py-5 relative">
+                                        <li wire:key="{{ $notification->id }}" class="px-6 py-5 relative">
                                             <div class="group flex justify-between items-center">
                                                 @if (!empty($notification->link))
                                                     <x-a href="{{ $notification->link }}" class="-m-1 p-1 block">
