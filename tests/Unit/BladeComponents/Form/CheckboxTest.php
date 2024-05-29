@@ -2,7 +2,7 @@
 
 test('can render checkbox', function () {
     test()->blade('<x-form.checkbox />')
-        ->assertSee("type='checkbox'", false);
+        ->assertSee('type="checkbox"', false);
 });
 
 test('can render checkbox with label', function () {
