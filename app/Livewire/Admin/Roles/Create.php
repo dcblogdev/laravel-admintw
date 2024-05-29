@@ -8,14 +8,10 @@ use App\Models\Role;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class Create extends Component
 {
-    use withPagination;
-
     public string $role = '';
 
     /**
@@ -27,24 +23,9 @@ class Create extends Component
             'role' => [
                 'required',
                 'string',
-                Rule::unique('roles', 'label'),
+                Rule::unique('roles'),
             ],
         ];
-    }
-
-    /**
-     * @var array<string, string>
-     */
-    protected array $messages = [
-        'role.required' => 'Role is required',
-    ];
-
-    /**
-     * @throws ValidationException
-     */
-    public function updated(string $propertyName): void
-    {
-        $this->validateOnly($propertyName);
     }
 
     public function render(): View
@@ -72,6 +53,8 @@ class Create extends Component
             'section' => 'Roles',
             'type' => 'created',
         ]);
+
+        $this->reset();
 
         $this->dispatch('refreshRoles');
         $this->dispatch('close-modal');
