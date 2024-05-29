@@ -18,9 +18,9 @@
 
             <div class="md:w-1/2">
                 @if ($role->name === 'admin')
-                    <x-form.input wire:model.live="label" :label="__('Role')" name='label' disabled />
+                    <x-form.input wire:model="label" :label="__('Role')" name='label' disabled />
                 @else
-                    <x-form.input wire:model.live="label" :label="__('Role')" name='label' required />
+                    <x-form.input wire:model="label" :label="__('Role')" name='label' required />
                 @endif
             </div>
 

@@ -11,14 +11,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
-use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Title('Edit Role')]
 class Edit extends Component
 {
-    public ?Role $role = null;
+    public Role $role;
 
     public string $label = '';
 
@@ -48,9 +47,9 @@ class Edit extends Component
         'label.required' => 'Role is required',
     ];
 
-    public function mount(Role $role): void
+    public function mount(): void
     {
-        $this->role = Role::where('id', $role->id)->firstOrFail();
+        $this->role = Role::where('id', $this->role->id)->firstOrFail();
 
         $this->label = $this->role->label ?? '';
 
@@ -69,14 +68,6 @@ class Edit extends Component
         $modules = Permission::select('module')->distinct()->orderBy('module')->pluck('module');
 
         return view('livewire.admin.roles.edit', compact('modules'));
-    }
-
-    /**
-     * @throws ValidationException
-     */
-    public function updated(string $propertyName): void
-    {
-        $this->validateOnly($propertyName);
     }
 
     public function update(): Redirector|RedirectResponse
@@ -103,6 +94,6 @@ class Edit extends Component
 
         flash('Role updated')->success();
 
-        return redirect()->route('admin.settings.roles.index');
+        return to_route('admin.settings.roles.index');
     }
 }
