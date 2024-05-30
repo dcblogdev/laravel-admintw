@@ -26,8 +26,8 @@
                     </tr>
                 @enderror
                 <tr>
-                    <td><x-form.input wire:model.live="ips.{{ $index }}.ip" label="none">{{ $row['ip'] }}</x-form.input></td>
-                    <td><x-form.input wire:model.live="ips.{{ $index }}.comment" label="none">{{ $row['comment'] }}</x-form.input></td>
+                    <td><x-form.input wire:model="ips.{{ $index }}.ip" label="none">{{ $row['ip'] }}</x-form.input></td>
+                    <td><x-form.input wire:model="ips.{{ $index }}.comment" label="none">{{ $row['comment'] }}</x-form.input></td>
                     <td class="flex justify-center pt-2"><button type="button" wire:click="remove({{ $index }})" wire:confirm="Are you sure?" class="error">X</button></td>
                 </tr>
             @endforeach

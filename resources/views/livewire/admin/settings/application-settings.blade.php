@@ -8,7 +8,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <x-form.input wire:model.live="siteName" name="siteName" :label="__('Site Name')" />
+                <x-form.input wire:model="siteName" name="siteName" :label="__('Site Name')" />
 
                 <fieldset>
 
@@ -16,7 +16,7 @@
 
                         <div class="relative border rounded-tl-md rounded-tr-md p-4 flex border-gray-200">
                             <div class="flex items-center h-5">
-                                <input wire:model.live="isForced2Fa" id="isForced2Fa" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300">
+                                <input wire:model="isForced2Fa" id="isForced2Fa" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300">
                             </div>
                             <label for="isOfficeLoginOnly" class="ml-3 flex flex-col cursor-pointer">
                                 <span class="block text-sm font-medium text-gray-900 dark:text-gray-300">

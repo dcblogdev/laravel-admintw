@@ -17,8 +17,8 @@
                         {{ __('at least one digit') }}</p>
                     </div>
 
-                    <x-form.input wire:model.live="newPassword" type="password" :label="__('New Password')" name='newPassword' />
-                    <x-form.input wire:model.live="confirmPassword" type="password" :label="__('Confirm Password')" name='confirmPassword' />
+                    <x-form.input wire:model="newPassword" type="password" :label="__('New Password')" name='newPassword' />
+                    <x-form.input wire:model="confirmPassword" type="password" :label="__('Confirm Password')" name='confirmPassword' />
 
                     <x-button>{{ __('Change Password') }}</x-button>
 

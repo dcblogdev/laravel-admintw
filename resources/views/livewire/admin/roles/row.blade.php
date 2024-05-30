@@ -4,7 +4,7 @@
         <div class="flex space-x-2">
 
             @can('edit_roles')
-                <a href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</a>
+                <x-a href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</x-a>
             @endcan
 
             @if ($role->name !== 'admin')

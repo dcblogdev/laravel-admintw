@@ -11,7 +11,7 @@
 
                     @foreach($roles as $role)
                         <x-form.checkbox
-                            wire:model.live="roleSelections"
+                            wire:model="roleSelections"
                             id="{{ $role->id }}"
                             value="{{ $role->id }}"
                             label="{{ $role->label }}"

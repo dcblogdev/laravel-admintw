@@ -1,7 +1,7 @@
 @use(App\Models\Permission)
 <div>
     <p class="mb-5">
-        <a class="link" href="{{ route('admin.settings.roles.index') }}">{{ __('Roles') }}</a>
+        <x-a class="link" href="{{ route('admin.settings.roles.index') }}">{{ __('Roles') }}</x-a>
         <span class="dark:text-gray-200">- {{ __('Edit Role') }}</span>
     </p>
 

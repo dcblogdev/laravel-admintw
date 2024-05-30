@@ -11,9 +11,9 @@
 
         <x-form wire:submit="update" method="put">
 
-            <x-form.input wire:model.live="name" :label="__('Name')" name='name' required />
-            <x-form.input wire:model.live="email" :label="__('Email')" name='email' required />
-            <x-form.input wire:model.live="image" type="file" :label="__('Image')" name='image' />
+            <x-form.input wire:model="name" :label="__('Name')" name='name' required />
+            <x-form.input wire:model="email" :label="__('Email')" name='email' required />
+            <x-form.input wire:model="image" type="file" :label="__('Image')" name='image' />
             @if ($image)
                 {{ __('Photo Preview') }}:
                 <img src="{{ $image->temporaryUrl() }}" width="100px" class="mb-5">
