@@ -7,12 +7,14 @@ namespace App\Livewire\Admin\Users\Edit;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class Roles extends Component
 {
     public User $user;
-    public $roles;
+
+    public Collection $roles;
 
     /**
      * @var array<int>

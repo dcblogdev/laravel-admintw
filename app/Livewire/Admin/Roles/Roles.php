@@ -7,7 +7,6 @@ namespace App\Livewire\Admin\Roles;
 use App\Models\Role;
 use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;

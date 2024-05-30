@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Roles;
 
+use App\Models\Role;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Row extends Component
 {
-    public $role;
+    public Role $role;
 
     public function render(): View
     {
