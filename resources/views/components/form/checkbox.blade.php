@@ -26,15 +26,15 @@ if ($id === '') {
     @endphp
 @endif
 
-<label for='{{ $id }}' wire:key="{{ $id }}" class="{{ $class }}">
+<label aria-label="{{ $label }}" for='{{ $id }}' wire:key="{{ $id }}" class="{{ $class }}">
     <div class="flex gap-2">
-    <input
-        type="checkbox"
-        name='{{ $name }}'
-        id='{{ $id }}'
-        value='{{ $value }}'
-        @if ($selected === $value) checked='checked' @endif {{ $attributes }}
-    >
+        <input
+            type="checkbox"
+            name='{{ $name }}'
+            id='{{ $id }}'
+            value='{{ $value }}'
+            @if ($selected === $value) checked='checked' @endif {{ $attributes }}
+        >
         {{ $label }}
     </div>
 </label>

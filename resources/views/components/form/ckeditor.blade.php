@@ -22,9 +22,10 @@
 @endif
 <div wire:ignore class="mt-5">
     @if ($label !='none')
-        <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
+        <label aria-label="{{ $label }}" for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
     @endif
     <textarea
+        id="{{ $name }}"
         x-data
         x-init="
             editor = CKEDITOR.replace($refs.item);
@@ -34,10 +35,14 @@
         "
         x-ref="item"
         {{ $attributes }}
+        @error($name)
+            aria-invalid="true"
+            aria-description="{{ $message }}"
+        @enderror
     >
         {{ $slot }}
     </textarea>
 </div>
 @error($name)
-    <p class="error">{{ $message }}</p>
+    <p class="error" aria-live="assertive">{{ $message }}</p>
 @enderror

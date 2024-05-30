@@ -2,7 +2,8 @@
     'name'  => '',
     'id'    => '',
     'label' => '',
-    'value' => ''
+    'value' => '',
+    'class' => 'block cursor-pointer',
 ])
 
 @if ($id === '')
@@ -24,7 +25,15 @@
     @endphp
 @endif
 
-<div>
-    <input type='radio' name='{{ $name }}' id='{{ $id }}' value='{{ $value }}' @if ($slot != '') checked="checked" @endif {{ $attributes }}>
-    <label for='{{ $id }}'>{{ $label }}</label>
-</div>
+<label aria-label="{{ $label }}" for='{{ $id }}' wire:key="{{ $id }}" class="{{ $class }}">
+    <div class="flex gap-2">
+        <input
+            type="radio"
+            name='{{ $name }}'
+            id='{{ $id }}'
+            value='{{ $value }}'
+            @if ($slot != '') checked="checked" @endif {{ $attributes }}
+        >
+        {{ $label }}
+    </div>
+</label>
