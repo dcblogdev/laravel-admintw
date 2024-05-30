@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
@@ -42,6 +43,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Model::shouldBeStrict();
+
+        DB::prohibitDestructiveCommands(app()->isProduction());
 
         view()->composer('layouts.app', function () {
             if (auth()->check()) {
