@@ -31,7 +31,9 @@
             name='{{ $name }}'
             id='{{ $id }}'
             value='{{ $value }}'
-            @if ($slot != '') checked="checked" @endif {{ $attributes }}
+            @if ($slot != '') checked="checked" @endif
+            class="rounded-md"
+            {{ $attributes }}
         >
         {{ $label }}
     </div>

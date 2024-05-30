@@ -32,7 +32,9 @@ if ($id === '') {
             name='{{ $name }}'
             id='{{ $id }}'
             value='{{ $value }}'
-            @if ($selected === $value) checked='checked' @endif {{ $attributes }}
+            @if ($selected === $value) checked='checked' @endif
+            class="rounded-md"
+            {{ $attributes }}
         >
         {{ $label }}
     </div>

@@ -14,7 +14,7 @@
 
                             <div class="relative border rounded-tl-md rounded-tr-md p-4 flex border-gray-200">
                                 <div class="flex items-center h-5">
-                                    <input wire:model.live="isOfficeLoginOnly" id="isOfficeLoginOnly" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300" checked="">
+                                    <input wire:model="isOfficeLoginOnly" id="isOfficeLoginOnly" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300 rounded-md">
                                 </div>
                                 <label for="isOfficeLoginOnly" class="ml-3 flex flex-col cursor-pointer">
                                     <span class="block text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -29,7 +29,7 @@
                             @if ($user->id !== auth()->id())
                                 <div class="relative border rounded-tl-md rounded-tr-md p-4 flex border-gray-200">
                                     <div class="flex items-center h-5">
-                                        <input wire:model.live="isActive" id="isActive" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300" checked="">
+                                        <input wire:model="isActive" id="isActive" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300" checked="">
                                     </div>
                                     <label for="isActive" class="ml-3 flex flex-col cursor-pointer">
                                         <span class="block text-sm font-medium text-gray-900 dark:text-gray-300">
