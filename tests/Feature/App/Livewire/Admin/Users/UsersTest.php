@@ -82,7 +82,7 @@ test('can filter', function () {
 
     Livewire::test(Users::class)
         ->set('email', 'demo@demo.com')
-        ->set('created_at', '2023-01-01 to 2023-01-31')
+        ->set('joined', '2023-01-01 to 2023-01-31')
         ->call('users')
         ->assertOk()
         ->assertSet('openFilter', true)

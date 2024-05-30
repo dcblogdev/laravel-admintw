@@ -12,6 +12,7 @@ use Livewire\Component;
 class Roles extends Component
 {
     public User $user;
+    public $roles;
 
     /**
      * @var array<int>
@@ -20,14 +21,13 @@ class Roles extends Component
 
     public function mount(): void
     {
+        $this->roles = Role::orderby('name')->get();
         $this->roleSelections = $this->user->roles->pluck('id')->toArray();
     }
 
     public function render(): View
     {
-        $roles = Role::orderby('name')->get();
-
-        return view('livewire.admin.users.edit.roles', compact('roles'))->layout('layouts.app');
+        return view('livewire.admin.users.edit.roles');
     }
 
     public function update(): bool

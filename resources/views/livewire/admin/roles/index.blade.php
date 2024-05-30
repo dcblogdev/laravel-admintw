@@ -39,54 +39,8 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($this->roles() as $role)
-            <tr wire:key="{{ $role->id }}">
-                <td>{{ $role->label }}</td>
-                    <td>
-                        <div class="flex space-x-2">
-
-                            @can('edit_roles')
-                                <a href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</a>
-                            @endcan
-
-                            @if ($role->name !== 'admin')
-                                @can('delete_roles')
-
-                                    <x-dialog>
-                                        <x-dialog.open>
-                                            <a class="link" href="#">{{ __('Delete') }}</a>
-                                        </x-dialog.open>
-
-
-                                        <x-dialog.panel>
-
-                                            <div class="flex flex-col gap-6" x-data="{ confirmation: '' }">
-                                                <h2 class="font-semibold text-3xl">{{ __('Are you sure you want to delete this role?') }}</h2>
-
-                                                <label class="flex flex-col gap-2">
-                                                    {{ __('Type') }} "{{ $role->name }}" {{ __('to confirm') }}
-                                                    <input x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg" placeholder="CONFIRM">
-                                                </label>
-
-                                                <x-dialog.footer>
-                                                    <x-dialog.close>
-                                                        <button type="button" class="btn mr-5">{{ __('Cancel') }}</button>
-                                                    </x-dialog.close>
-
-                                                    <x-dialog.close>
-                                                        <button :disabled="confirmation !== '{{ $role->name }}'" wire:click="deleteRole('{{ $role->id }}')" type="button" class="btn btn-red text-center disabled:cursor-not-allowed disabled:opacity-50">{{ __('Delete Role') }}</button>
-                                                    </x-dialog.close>
-                                                </x-dialog.footer>
-                                            </div>
-
-                                        </x-dialog.panel>
-
-                                     </x-dialog>
-                                @endcan
-                            @endif
-                        </div>
-                    </td>
-                </tr>
+            @foreach($this->roles() as $role)
+                <livewire:admin.roles.row :$role :key="$role->id" @delete="deleteRole('{{ $role->id }}')" />
             @endforeach
             </tbody>
         </table>

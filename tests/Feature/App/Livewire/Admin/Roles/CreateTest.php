@@ -28,5 +28,5 @@ test('Can dispatch after role creation', function () {
     Livewire::test(Create::class)
         ->set('label', 'Editor')
         ->call('store')
-        ->assertDispatched('refreshRoles');
+        ->assertDispatched('added');
 });
