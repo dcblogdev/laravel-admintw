@@ -18,7 +18,9 @@
                         />
                     @endforeach
 
-                    <x-button class="mt-5">{{ __('Update Roles') }}</x-button>
+                    <div class="mt-5">
+                        <x-button>{{ __('Update Roles') }}</x-button>
+                    </div>
 
                     @include('errors.messages')
 

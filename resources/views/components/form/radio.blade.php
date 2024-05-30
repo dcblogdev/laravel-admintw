@@ -2,8 +2,7 @@
     'name'  => '',
     'id'    => '',
     'label' => '',
-    'value' => '',
-    'class' => 'block cursor-pointer',
+    'value' => ''
 ])
 
 @if ($id === '')
@@ -25,7 +24,7 @@
     @endphp
 @endif
 
-<label aria-label="{{ $label }}" for='{{ $id }}' wire:key="{{ $id }}" class="{{ $class }}">
+<label aria-label="{{ $label }}" for='{{ $id }}' wire:key="{{ $id }}">
     <div class="flex gap-2">
         <input
             type="radio"

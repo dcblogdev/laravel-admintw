@@ -11,7 +11,7 @@
 
         <x-form action="{{ route('password.email') }}">
             <x-form.input type="email" :label="__('Email')" name="email">{{ old('email') }}</x-form.input>
-            <x-form.submit class="justify-center w-full btn btn-primary">{{ __('Email Password Reset Link') }}</x-form.submit>
+            <x-button class="justify-center w-full btn btn-primary">{{ __('Email Password Reset Link') }}</x-button>
         </x-form>
 
     </x-auth-card>

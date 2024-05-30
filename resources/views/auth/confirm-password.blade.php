@@ -11,7 +11,7 @@
 
         <x-form action="{{ route('password.confirm') }}">
             <x-form.input type="password" :label="__('Password')" name="password" />
-            <x-form.submit class="justify-center w-full btn btn-primary">{{ __('Confirm') }}</x-form.submit>
+            <x-button class="justify-center w-full btn btn-primary">{{ __('Confirm') }}</x-button>
         </x-form>
 
     </x-auth-card>

@@ -13,7 +13,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <p><a href="{{ route('login') }}" class="pt-2 mr-5 underline">{{ __('Already registered?') }}</a></p>
-                <x-form.submit>{{ __('Register') }}</x-form.submit>
+                <x-button>{{ __('Register') }}</x-button>
             </div>
 
         </x-form>

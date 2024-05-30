@@ -3,8 +3,7 @@
     'id'    => '',
     'label' => '',
     'value' => '',
-    'selected' => '',
-    'class' => 'block cursor-pointer',
+    'selected' => ''
 ])
 
 @php
@@ -26,8 +25,8 @@ if ($id === '') {
     @endphp
 @endif
 
-<label aria-label="{{ $label }}" for='{{ $id }}' wire:key="{{ $id }}" class="{{ $class }}">
-    <div class="flex gap-2">
+<label aria-label="{{ $label }}" for='{{ $id }}' wire:key="{{ $id }}">
+    <div class="flex items-center gap-2">
         <input
             type="checkbox"
             name='{{ $name }}'

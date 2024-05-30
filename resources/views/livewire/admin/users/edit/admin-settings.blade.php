@@ -45,7 +45,9 @@
                         </div>
                     </fieldset>
 
-                    <x-button class="mt-5">{{ __('Update Settings') }}</x-button>
+                    <div class="mt-5">
+                        <x-button>{{ __('Update Settings') }}</x-button>
+                    </div>
 
                     @include('errors.messages')
 

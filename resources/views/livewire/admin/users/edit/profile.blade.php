@@ -21,7 +21,7 @@
                 <img src="{{ storage_url($user->image) }}" width="100px" class="mb-5">
             @endif
 
-            <x-form.submit>{{ __('Update Profile') }}</x-form.submit>
+            <x-button>{{ __('Update Profile') }}</x-button>
 
             @include('errors.messages')
 

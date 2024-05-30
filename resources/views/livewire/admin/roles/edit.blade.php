@@ -51,7 +51,7 @@
 
         @endif
 
-        <x-form.submit class="mt-5">{{ __('Update Role') }}</x-form.submit>
+        <x-button class="mt-5">{{ __('Update Role') }}</x-button>
 
     </x-form>
 
