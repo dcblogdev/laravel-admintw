@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ $title ?? null }} - {{ config('app.name', 'Laravel') }}</title>
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script defer src="https://unpkg.com/@alpinejs/ui@3.13.2-beta.0/dist/cdn.min.js"></script>
     </head>
     <body class="font-sans antialiased">
 
