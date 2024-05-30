@@ -1,17 +1,23 @@
-<x-modal>
-    <x-slot name="trigger">
-        <x-button @click="on = true">{{ __('Add Role') }}</x-button>
-    </x-slot>
+<x-dialog wire:model="showDialog">
+    <x-dialog.open>
+        <x-button type="button">{{ __('Add Role') }}</x-button>
+    </x-dialog.open>
 
-    <x-slot name="modalTitle">{{ __('Add Role') }}</x-slot>
+    <x-dialog.panel>
 
-    <x-slot name="content">
-        <x-form.input wire:model="role" :label="__('Role')" name="role" required />
-    </x-slot>
+        <h1 class="text-center text-xl pb-5">{{ __('Add Role') }}</h1>
 
-    <x-slot name="footer">
-        <button class="btn" @click="on = false">{{ __('Cancel') }}</button>
-        <x-button wire:click="store">{{ __('Create Role') }}</x-button>
-    </x-slot>
+        <x-form.input autofocus wire:model="label" :label="__('Role')" name="label" required />
 
-</x-modal>
+        <x-dialog.footer>
+            <x-dialog.close>
+                <button class="btn">{{ __('Cancel') }}</button>
+            </x-dialog.close>
+
+            <x-button wire:click="store">{{ __('Create Role') }}</x-button>
+
+        </x-dialog.footer>
+
+    </x-dialog.panel>
+
+</x-dialog>

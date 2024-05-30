@@ -5,7 +5,7 @@
 
         <div>
             @can('add_roles')
-                <livewire:admin.roles.create/>
+                <livewire:admin.roles.create @added="$refresh"/>
             @endcan
         </div>
 
@@ -51,24 +51,37 @@
 
                             @if ($role->name !== 'admin')
                                 @can('delete_roles')
-                                    <x-modal>
-                                        <x-slot name="trigger">
-                                            <a class="link" href="#" @click="on = true">{{ __('Delete') }}</a>
-                                        </x-slot>
 
-                                        <x-slot name="modalTitle">{{ __('Confirm Delete') }}</x-slot>
+                                    <x-dialog>
+                                        <x-dialog.open>
+                                            <a class="link" href="#">{{ __('Delete') }}</a>
+                                        </x-dialog.open>
 
-                                        <x-slot name="content">
-                                            <div class="text-center">
-                                                {{ __('Are you sure you want to role:') }} <b>{{ $role->name }}</b>
+
+                                        <x-dialog.panel>
+
+                                            <div class="flex flex-col gap-6" x-data="{ confirmation: '' }">
+                                                <h2 class="font-semibold text-3xl">{{ __('Are you sure you want to delete this role?') }}</h2>
+
+                                                <label class="flex flex-col gap-2">
+                                                    {{ __('Type') }} "{{ $role->name }}" {{ __('to confirm') }}
+                                                    <input x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg" placeholder="CONFIRM">
+                                                </label>
+
+                                                <x-dialog.footer>
+                                                    <x-dialog.close>
+                                                        <button type="button" class="btn mr-5">{{ __('Cancel') }}</button>
+                                                    </x-dialog.close>
+
+                                                    <x-dialog.close>
+                                                        <button :disabled="confirmation !== '{{ $role->name }}'" wire:click="deleteRole('{{ $role->id }}')" type="button" class="btn btn-red text-center disabled:cursor-not-allowed disabled:opacity-50">{{ __('Delete Role') }}</button>
+                                                    </x-dialog.close>
+                                                </x-dialog.footer>
                                             </div>
-                                        </x-slot>
 
-                                        <x-slot name="footer">
-                                            <button class="btn" @click="on = false">{{ __('Cancel') }}</button>
-                                            <button class="btn btn-red" wire:click="deleteRole('{{ $role->id }}')">{{ __('Delete Role') }}</button>
-                                        </x-slot>
-                                    </x-modal>
+                                        </x-dialog.panel>
+
+                                     </x-dialog>
                                 @endcan
                             @endif
                         </div>
