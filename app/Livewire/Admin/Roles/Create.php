@@ -12,7 +12,9 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public string $role = '';
+    public bool $showDialog = false;
+
+    public string $label = '';
 
     /**
      * @return array<string, array<int, Unique|string>>
@@ -20,11 +22,22 @@ class Create extends Component
     protected function rules(): array
     {
         return [
-            'role' => [
+            'label' => [
                 'required',
                 'string',
                 Rule::unique('roles'),
             ],
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function messages(): array
+    {
+        return [
+            'label.required' => 'The role is required.',
+            'label.unique' => 'The role has already been taken.',
         ];
     }
 
@@ -39,30 +52,26 @@ class Create extends Component
     {
         $this->validate();
 
+        /** @var Role $role */
         $role = Role::create([
-            'label' => $this->role,
-            'name' => strtolower(str_replace(' ', '_', $this->role)),
+            'label' => $this->label,
+            'name' => strtolower(str_replace(' ', '_', $this->label)),
         ]);
 
         flash('Role created')->success();
 
         add_user_log([
-            'title' => 'created role '.$this->role,
-            'link' => route('admin.settings.roles.edit', ['role' => $role->id ?? 0]),
-            'reference_id' => $role->id ?? 0,
+            'title' => 'created role '.$this->label,
+            'link' => route('admin.settings.roles.edit', ['role' => $role->id]),
+            'reference_id' => $role->id,
             'section' => 'Roles',
             'type' => 'created',
         ]);
 
         $this->reset();
 
-        $this->dispatch('refreshRoles');
-        $this->dispatch('close-modal');
-    }
+        $this->showDialog = false;
 
-    public function cancel(): void
-    {
-        $this->reset();
-        $this->dispatch('close-modal');
+        $this->dispatch('added');
     }
 }
