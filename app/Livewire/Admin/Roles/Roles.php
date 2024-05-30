@@ -7,6 +7,7 @@ namespace App\Livewire\Admin\Roles;
 use App\Models\Role;
 use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,11 +25,6 @@ class Roles extends Component
 
     public bool $sortAsc = true;
 
-    /**
-     * @var array<string>
-     */
-    protected $listeners = ['refreshRoles' => '$refresh'];
-
     public function render(): View
     {
         abort_if_cannot('view_roles');
@@ -43,10 +39,7 @@ class Roles extends Component
 
     public function sortBy(string $field): void
     {
-        $this->sortAsc = true;
-
         if ($this->sortField === $field) {
-            // @phpstan-ignore-next-line
             $this->sortAsc = ! $this->sortAsc;
         }
 
@@ -55,19 +48,17 @@ class Roles extends Component
 
     public function roles(): LengthAwarePaginator
     {
-        $query = $this->builder();
-
-        if ($this->name) {
-            $query->where('name', 'like', '%'.$this->name.'%');
-        }
-
-        return $query->paginate($this->paginate);
+        return $this->builder()
+            ->when($this->name, fn ($query) => $query->where('name', 'like', '%'.$this->name.'%'))
+            ->paginate($this->paginate);
     }
 
     public function deleteRole(string $id): void
     {
+        abort_if_cannot('delete_roles');
+
         $this->builder()->findOrFail($id)->delete();
 
-        $this->dispatch('close-modal');
+        $this->reset();
     }
 }
