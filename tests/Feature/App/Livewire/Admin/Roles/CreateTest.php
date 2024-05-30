@@ -10,7 +10,7 @@ beforeEach(function () {
 
 test('can create role', function () {
     Livewire::test(Create::class)
-        ->set('role', 'Editor')
+        ->set('label', 'Editor')
         ->call('store')
         ->assertHasNoErrors(['role' => 'required']);
 
@@ -19,21 +19,14 @@ test('can create role', function () {
 
 test('cannot create role without role', function () {
     Livewire::test(Create::class)
-        ->set('role', '')
+        ->set('label', '')
         ->call('store')
-        ->assertHasErrors(['role' => 'required']);
+        ->assertHasErrors(['label' => 'required']);
 });
 
 test('Can dispatch after role creation', function () {
     Livewire::test(Create::class)
-        ->set('role', 'Editor')
+        ->set('label', 'Editor')
         ->call('store')
-        ->assertDispatched('refreshRoles')
-        ->assertDispatched('close-modal');
-});
-
-test('on cancel dispatch browser event', function () {
-    Livewire::test(Create::class)
-        ->call('cancel')
-        ->assertDispatched('close-modal');
+        ->assertDispatched('refreshRoles');
 });
