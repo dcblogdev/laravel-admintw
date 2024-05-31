@@ -6,6 +6,7 @@ namespace App\Livewire\Admin\Roles;
 
 use App\Models\Role;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -48,7 +49,7 @@ class Roles extends Component
     public function roles(): LengthAwarePaginator
     {
         return $this->builder()
-            ->when($this->name, fn ($query) => $query->where('name', 'like', '%'.$this->name.'%'))
+            ->when($this->name, fn (Builder $query) => $query->where('name', 'like', '%'.$this->name.'%'))
             ->paginate($this->paginate);
     }
 
