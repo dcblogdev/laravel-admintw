@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
 
         DB::prohibitDestructiveCommands(app()->isProduction());
 
-        view()->composer('layouts.app', function () {
+        view()->composer('components.layouts.app', function () {
             if (auth()->check()) {
                 foreach (Setting::all() as $setting) {
                     //override config setting
