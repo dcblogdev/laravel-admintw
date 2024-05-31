@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ $title ?? null }} - {{ config('app.name', 'Laravel') }}</title>
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <title>{{ $title ?? null }} - {{ config('app.name', 'Laravel') }}</title>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script defer src="https://unpkg.com/@alpinejs/ui@3.13.2-beta.0/dist/cdn.min.js"></script>
     </head>
     <body class="font-sans antialiased">
@@ -16,12 +16,12 @@
             @auth
                 <!-- regular sidebar -->
                 <div class="sidebar hidden flex-none w-full md:block md:w-72 px-4 bg-gray-800">
-                    @include('layouts.navigation')
+                    @include('components.layouts.app.navigation')
                 </div>
 
                 <!--sidebar on mobile-->
                 <div x-show="sidebarOpen" class="sidebar min-w-full px-4 bg-gray-800 md:hidden">
-                    @include('layouts.navigation')
+                    @include('components.layouts.app.navigation')
                 </div>
             @endauth
 

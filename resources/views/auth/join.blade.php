@@ -1,6 +1,6 @@
 @section('title', __('Join'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         @include('errors.success')
@@ -19,4 +19,4 @@
         </x-form>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>
