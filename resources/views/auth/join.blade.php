@@ -14,7 +14,7 @@
             <x-form.input type="password" :label="__('Password')" name='newPassword'></x-form.input>
             <x-form.input type="password" :label="__('Confirm Password')" name='confirmPassword'></x-form.input>
 
-            <x-button>{{ __('Save Password') }}</x-button>
+            <button class="btn btn-primary">{{ __('Save Password') }}</button>
 
         </x-form>
 

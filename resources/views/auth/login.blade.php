@@ -18,7 +18,7 @@
             </div>
 
             <p>
-                <x-button class="justify-center w-full btn btn-primary">Login</x-button>
+                <button class="justify-center w-full btn btn-primary">Login</button>
             </p>
 
         </x-form>

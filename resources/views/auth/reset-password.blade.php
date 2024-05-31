@@ -11,7 +11,7 @@
             <x-form.input name="email" :label="__('Email')">{{ $request->input('email') }}</x-form.input>
             <x-form.input type="password" name="password" :label="__('Password')" />
             <x-form.input type="password" name='password_confirmation' :label="__('Confirm Password')" />
-            <x-button>{{ __('Reset Password') }}</x-button>
+            <button class="btn btn-primary">{{ __('Reset Password') }}</button>
 
         </x-form>
 

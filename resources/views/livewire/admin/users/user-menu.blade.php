@@ -39,11 +39,11 @@
                         <ul class="menu overflow-y-auto px-5">
 
                             @can('view_users_profiles')
-                                <x-dropdown-link :href="route('admin.users.show', auth()->user())">{{ __('View Profile') }}</x-dropdown-link>
+                                <x-dropdown.link :href="route('admin.users.show', auth()->user())">{{ __('View Profile') }}</x-dropdown.link>
                             @endcan
 
                             @can('edit_own_account')
-                                <x-dropdown-link :href="route('admin.users.edit', auth()->user())">{{ __('Edit Account') }}</x-dropdown-link>
+                                <x-dropdown.link :href="route('admin.users.edit', auth()->user())">{{ __('Edit Account') }}</x-dropdown.link>
                             @endcan
 
                             <a href="{{ route('logout') }}"
