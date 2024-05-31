@@ -1,6 +1,6 @@
 @section('title', __('Register'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         @include('errors.messages')
@@ -19,4 +19,4 @@
         </x-form>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>

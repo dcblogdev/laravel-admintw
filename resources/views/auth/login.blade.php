@@ -1,6 +1,6 @@
 @section('title', __('Login'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         <x-form action="{{ route('login') }}">
@@ -24,4 +24,4 @@
         </x-form>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>

@@ -1,7 +1,7 @@
 <?php
 
 test('can see tab component', function () {
-    test()->blade('<x-tab name="sections"></x-tab>')->assertSee('sections');
+    test()->blade('<x-tabs name="sections"></x-tabs>')->assertSee('sections');
 });
 
 test('can see tab header', function () {

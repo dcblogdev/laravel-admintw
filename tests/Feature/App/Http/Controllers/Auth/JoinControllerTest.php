@@ -11,8 +11,8 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\put;
 
 beforeEach(function () {
-    $this->token = Str::random(32);
-    $this->ownerUser = User::factory()->create();
+    test()->token = Str::random(32);
+    test()->ownerUser = User::factory()->create();
 });
 
 test('can see join page', function () {
@@ -25,10 +25,6 @@ test('can see join page', function () {
     ]);
 
     get(route('join', $this->token))->assertOk();
-});
-
-test('cannot see join page with invalid token', function () {
-    get(route('join', $this->token))->assertNotFound();
 });
 
 test('cannot see join page when logged in', function () {

@@ -1,6 +1,6 @@
 @section('title', '2FA')
 
-<x-guest-layout>
+<x-layouts.guest>
 	<x-auth-card>
 		<p>{{ __('Please open your authenticator mobile app and enter the code below') }}.</p>
 
@@ -24,4 +24,4 @@
         </x-form>
 
 	</x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>

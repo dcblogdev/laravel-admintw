@@ -1,4 +1,4 @@
-<x-front-layout>
+<x-layouts.front>
     <main class="mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-15 mb-10">
         <div class="text-center">
 
@@ -9,4 +9,4 @@
         </div>
     </main>
 
-</x-front-layout>
+</x-layouts.front>

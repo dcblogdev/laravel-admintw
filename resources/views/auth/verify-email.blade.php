@@ -1,6 +1,6 @@
 @section('title', __('Verify Email'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
@@ -24,4 +24,4 @@
         </div>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>

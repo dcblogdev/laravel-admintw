@@ -1,6 +1,6 @@
 @section('title', __('Confirm Password'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
@@ -15,4 +15,4 @@
         </x-form>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>
