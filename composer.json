@@ -12,7 +12,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
         "laracasts/flash": "^3.2",
-        "laravel/framework": "^11.0",
+        "laravel/framework": "^v11.9.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "lasserafn/php-initial-avatar-generator": "^4.2",
@@ -30,8 +30,7 @@
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^2.23",
         "pestphp/pest-plugin-laravel": "^2.2",
-        "pestphp/pest-plugin-type-coverage": "^2.0",
-        "spatie/laravel-ignition": "^2.4"
+        "pestphp/pest-plugin-type-coverage": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -50,6 +49,9 @@
     },
     "scripts": {
         "pint": "vendor/bin/pint",
+        "stan": "vendor/bin/phpstan analyse",
+        "pest-type-cov": "vendor/bin/pest --type-coverage",
+        "pest-cov": "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
