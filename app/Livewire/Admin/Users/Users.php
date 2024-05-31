@@ -9,7 +9,6 @@ use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
@@ -19,7 +18,6 @@ use Livewire\WithPagination;
 #[Title('Users')]
 class Users extends Component
 {
-    use AuthorizesRequests;
     use WithPagination;
 
     public int $paginate = 25;
