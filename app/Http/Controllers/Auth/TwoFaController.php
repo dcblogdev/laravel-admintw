@@ -30,7 +30,6 @@ class TwoFaController extends Controller
     {
         $validated = $request->validated();
 
-        //@phpstan-ignore-next-line
         $valid = $twoFactorAuth->verifyCode($request->user()->two_fa_secret_key, $validated['code']);
 
         if ($valid === false) {

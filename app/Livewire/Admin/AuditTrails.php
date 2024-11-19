@@ -53,6 +53,9 @@ class AuditTrails extends Component
         return view('livewire.admin.audit-trails', compact('sections', 'types', 'users'));
     }
 
+    /**
+     * @return Builder<AuditTrail>
+     */
     public function builder(): Builder
     {
         return AuditTrail::with('user')->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');

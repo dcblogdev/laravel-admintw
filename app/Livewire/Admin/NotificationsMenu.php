@@ -11,6 +11,9 @@ use Livewire\Component;
 
 class NotificationsMenu extends Component
 {
+    /**
+     * @var Collection<int, Notification>
+     */
     public Collection $notifications;
 
     public int $unseenCount = 0;

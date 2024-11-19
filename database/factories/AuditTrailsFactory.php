@@ -5,6 +5,9 @@ namespace Database\Factories;
 use App\Models\AuditTrail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<AuditTrail>
+ */
 class AuditTrailsFactory extends Factory
 {
     protected $model = AuditTrail::class;
