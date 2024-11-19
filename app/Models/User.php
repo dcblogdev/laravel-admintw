@@ -19,7 +19,10 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
+
+    /** @use HasFactory<UserFactory> */
     use HasFactory;
+
     use HasRoles;
     use HasUuid;
     use Notifiable;
@@ -76,6 +79,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return route('admin.users.show', ['user' => $id]);
     }
 
+    /**
+     * Scope a query to only include active users.
+     *
+     * @param  Builder<User>  $query
+     * @return Builder<User>
+     */
     public function scopeIsActive(Builder $query): Builder
     {
         return $query->where('is_active', 1);
@@ -83,6 +92,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function invite(): HasOne
     {
-        return $this->hasOne(__CLASS__, 'id', 'invited_by');
+        return $this->hasOne(User::class, 'id', 'invited_by');
     }
 }

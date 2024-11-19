@@ -46,6 +46,9 @@ class Roles extends Component
         $this->sortField = $field;
     }
 
+    /**
+     * @return LengthAwarePaginator<Role>
+     */
     public function roles(): LengthAwarePaginator
     {
         return $this->builder()

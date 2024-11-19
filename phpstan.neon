@@ -1,16 +1,19 @@
 includes:
     - vendor/larastan/larastan/extension.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
 parameters:
 
-    paths:
-        - app/
+    inferPrivatePropertyTypeFromConstructor: true
+    checkUninitializedProperties: false
 
-    # Level 9 is the highest level
-    level: 8
+    paths:
+        - app
+        - bootstrap
+        - database/factories
+
+    level: 5
 
     ignoreErrors:
-    - '#Cannot access property \$[a-zA-Z0-9\\_]+ on App\\Models\\User\|null#'
-    - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on App\\Models\\User\|null#'
-
-    checkGenericClassInNonGenericObjectType: false
+    #- '#Cannot access property \$[a-zA-Z0-9\\_]+ on App\\Models\\User\|null#'
+    #- '#Cannot call method [a-zA-Z0-9\\_]+\(\) on App\\Models\\User\|null#'
