@@ -3,7 +3,7 @@
 use App\Http\Requests\TwoFa\TwoFaUpdateRequest;
 
 beforeEach(function () {
-    $this->requestData = new TwoFaUpdateRequest();
+    $this->requestData = new TwoFaUpdateRequest;
 });
 
 test('rules', function () {

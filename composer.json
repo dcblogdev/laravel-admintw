@@ -9,28 +9,28 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.2",
-        "intervention/image": "^2.7",
-        "laracasts/flash": "^3.2",
-        "laravel/framework": "^v11.9.2",
-        "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9",
-        "lasserafn/php-initial-avatar-generator": "^4.2",
-        "livewire/livewire": "^3.3",
-        "robthree/twofactorauth": "^1.8",
-        "spatie/laravel-permission": "^6.2"
+        "guzzlehttp/guzzle": "^7.9.2",
+        "intervention/image": "^2.7.2",
+        "laracasts/flash": "^3.2.3",
+        "laravel/framework": "^11.32.0",
+        "laravel/sanctum": "^4.0.3",
+        "laravel/tinker": "^2.10",
+        "lasserafn/php-initial-avatar-generator": "^4.4",
+        "livewire/livewire": "^3.5.12",
+        "robthree/twofactorauth": "^1.8.2",
+        "spatie/laravel-permission": "^6.10.1"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
+        "fakerphp/faker": "^1.24",
         "kkomelin/laravel-translatable-string-exporter": "^1.22",
-        "larastan/larastan": "^2.8",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
-        "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "pestphp/pest": "^2.23",
-        "pestphp/pest-plugin-laravel": "^2.2",
-        "pestphp/pest-plugin-type-coverage": "^2.0"
+        "larastan/larastan": "^2.9.11",
+        "laravel/pint": "^1.18.1",
+        "laravel/sail": "^1.38",
+        "mockery/mockery": "^1.6.12",
+        "nunomaduro/collision": "^8.5",
+        "pestphp/pest": "^v3.5.1",
+        "pestphp/pest-plugin-laravel": "^v3.0.0",
+        "pestphp/pest-plugin-type-coverage": "^v3.2.0"
     },
     "autoload": {
         "psr-4": {
@@ -48,10 +48,17 @@
         }
     },
     "scripts": {
-        "pint": "vendor/bin/pint",
-        "stan": "vendor/bin/phpstan analyse",
-        "pest-type-cov": "vendor/bin/pest --type-coverage",
-        "pest-cov": "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage",
+        "pint": "pint",
+        "stan": "phpstan analyse",
+        "pest": "pest",
+        "pest-type-coverage": "pest --type-coverage",
+        "pest-coverage": "pest --coverage",
+        "test": [
+            "@pint",
+            "@stan",
+            "@pest-type-coverage",
+            "@pest-coverage"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
