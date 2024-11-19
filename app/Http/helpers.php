@@ -67,7 +67,7 @@ if (! function_exists('get_initials')) {
 if (! function_exists('create_avatar')) {
     function create_avatar(string $name, string $filename, string $path): string
     {
-        $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar();
+        $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar;
         $source = $avatar->background('#000')->color('#fff')->name($name)->generate()->stream();
 
         Storage::disk('public')->put($path.$filename, $source);

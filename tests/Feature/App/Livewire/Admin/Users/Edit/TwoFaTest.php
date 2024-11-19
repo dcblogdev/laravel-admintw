@@ -41,7 +41,7 @@ test('verify code is wrong', function () {
 
 test('cannot use secret as code', function () {
 
-    $tfa = new TwoFactorAuth();
+    $tfa = new TwoFactorAuth;
     $secretKey = $tfa->createSecret();
 
     Livewire::test(TwoFactorAuthentication::class, ['user' => auth()->user()])

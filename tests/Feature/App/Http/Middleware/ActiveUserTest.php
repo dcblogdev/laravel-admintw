@@ -10,8 +10,7 @@ test('redirects when user is not active', function () {
 
     $request = Request::create(route('dashboard'));
 
-    $response = (new ActiveUser())->handle($request, function () {
-    });
+    $response = (new ActiveUser)->handle($request, function () {});
 
     expect($response->getStatusCode())->toBe(302);
 });
@@ -23,8 +22,7 @@ test('redirected when 2fa login session exists', function () {
 
     $request = Request::create(route('dashboard'));
 
-    $response = (new ActiveUser())->handle($request, function () {
-    });
+    $response = (new ActiveUser)->handle($request, function () {});
 
     expect($response->getStatusCode())->toBe(302);
 });
@@ -36,8 +34,7 @@ test('redirected when 2fa setup session exists', function () {
 
     $request = Request::create(route('dashboard'));
 
-    $response = (new ActiveUser())->handle($request, function () {
-    });
+    $response = (new ActiveUser)->handle($request, function () {});
 
     expect($response->getStatusCode())->toBe(302);
 });
