@@ -90,8 +90,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $query->where('is_active', 1);
     }
 
+    /**
+     * @return HasOne<User, User>
+     */
     public function invite(): HasOne
     {
+        /** @phpstan-ignore-next-line */
         return $this->hasOne(User::class, 'id', 'invited_by');
     }
 }

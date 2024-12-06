@@ -13,7 +13,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AuditTrail extends Model
 {
+    /** @use HasFactory<AuditTrailsFactory> */
     use HasFactory;
+
     use HasUuid;
     use SoftDeletes;
 
@@ -31,8 +33,12 @@ class AuditTrail extends Model
         return AuditTrailsFactory::new();
     }
 
+    /**
+     * @return BelongsTo<User, AuditTrail>
+     */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        /** @phpstan-ignore-next-line */
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

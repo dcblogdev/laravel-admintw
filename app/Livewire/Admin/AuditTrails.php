@@ -72,6 +72,9 @@ class AuditTrails extends Component
         $this->sortField = $field;
     }
 
+    /**
+     * @return LengthAwarePaginator<AuditTrail>
+     */
     public function userLogs(): LengthAwarePaginator
     {
         $query = $this->builder();

@@ -80,7 +80,7 @@
                     <td>{{ $user->email }}</td>
                     <td>
                         @if (! empty($user->invite_token))
-                            <small class="dark:text-gray-300">{{ __('Invited') }}<br> {{ date('jS M Y H:i', strtotime($user->invited_at)) }}</small>
+                            <small class="dark:text-gray-300">{{ __('Invited by') }} {{ $user->invite->name }}<br> {{ date('jS M Y H:i', strtotime($user->invited_at)) }}</small>
                         @else
                             {{ $user->created_at !=='' ? date('jS M Y', strtotime($user->created_at)) : '' }}
                         @endif

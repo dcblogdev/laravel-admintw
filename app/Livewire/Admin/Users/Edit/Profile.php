@@ -95,6 +95,7 @@ class Profile extends Component
             $token = md5(random_int(1, 10).microtime());
             $name = $token.'.jpg';
             $img = Image::make($this->image)->encode('jpg')->resize(100, null, function (object $constraint) {
+                /** @phpstan-ignore-next-line */
                 $constraint->aspectRatio();
             });
             $img->stream();

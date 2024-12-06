@@ -12,7 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Notification extends Model
 {
+    /** @use HasFactory<NotificationFactory> */
     use HasFactory;
+
     use HasUuid;
 
     protected $fillable = [
@@ -29,13 +31,21 @@ class Notification extends Model
         return NotificationFactory::new();
     }
 
+    /**
+     * @return BelongsTo<User, Notification>
+     */
     public function assignedTo(): BelongsTo
     {
+        /** @phpstan-ignore-next-line */
         return $this->belongsTo(User::class, 'assigned_to_user_id');
     }
 
+    /**
+     * @return BelongsTo<User, Notification>
+     */
     public function assignedFrom(): BelongsTo
     {
+        /** @phpstan-ignore-next-line */
         return $this->belongsTo(User::class, 'assigned_from_user_id');
     }
 }

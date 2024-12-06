@@ -30,7 +30,7 @@ class TwoFaController extends Controller
     {
         $validated = $request->validated();
 
-        $valid = $twoFactorAuth->verifyCode($request->user()->two_fa_secret_key, $validated['code']);
+        $valid = $twoFactorAuth->verifyCode($request->user()->two_fa_secret_key ?? '', $validated['code']);
 
         if ($valid === false) {
             return back()->withErrors('Code is invalid please try again.');

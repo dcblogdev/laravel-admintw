@@ -15,7 +15,7 @@ class Roles extends Component
     public User $user;
 
     /**
-     * @var Collection <Role>
+     * @var Collection<int, Role>
      */
     public Collection $roles;
 
