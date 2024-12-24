@@ -23,13 +23,14 @@
     "require-dev": {
         "fakerphp/faker": "^1.24",
         "kkomelin/laravel-translatable-string-exporter": "^1.22",
-        "larastan/larastan": "^v3.0.2",
+        "larastan/larastan": "^v2.9.8",
         "laravel/pint": "^1.18.1",
         "laravel/sail": "^1.38",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.5",
-        "pestphp/pest": "^v3.5.1",
-        "pestphp/pest-plugin-laravel": "^3.0"
+        "pestphp/pest": "^2.34.9",
+        "pestphp/pest-plugin-laravel": "^2.4",
+        "pestphp/pest-plugin-type-coverage": "^2.8.4"
     },
     "autoload": {
         "psr-4": {
@@ -47,7 +48,7 @@
         }
     },
     "scripts": {
-        "pint": "pint",
+        "pint": "vendor/bin/pint",
         "stan": "phpstan analyse",
         "pest": "pest",
         "pest-type-coverage": "pest --type-coverage",
