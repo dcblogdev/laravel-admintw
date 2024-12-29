@@ -36,7 +36,7 @@ class Notification extends Model
      */
     public function assignedTo(): BelongsTo
     {
-        /** @phpstan-ignore-next-line */
+        /** @var BelongsTo<User, Notification> */
         return $this->belongsTo(User::class, 'assigned_to_user_id');
     }
 
@@ -45,7 +45,7 @@ class Notification extends Model
      */
     public function assignedFrom(): BelongsTo
     {
-        /** @phpstan-ignore-next-line */
+        /** @var BelongsTo<User, Notification> */
         return $this->belongsTo(User::class, 'assigned_from_user_id');
     }
 }

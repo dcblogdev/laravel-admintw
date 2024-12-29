@@ -38,7 +38,7 @@ class AuditTrail extends Model
      */
     public function user(): BelongsTo
     {
-        /** @phpstan-ignore-next-line */
+        /** @var BelongsTo<User, AuditTrail> */
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
