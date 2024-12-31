@@ -67,7 +67,7 @@ jobs:
                 run: chmod -R 777 storage bootstrap/cache
 
             -   name: PINT
-                run: ./vendor/bin/pint --test
+                run: ./vendor/bin/pint
 
             -   name: Run test suite
                 run: ./vendor/bin/pest --parallel
