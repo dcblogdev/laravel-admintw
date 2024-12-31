@@ -18,21 +18,21 @@
 @endcan
 
 @if(can('view_system_settings') || can('view_roles') || can('view_audit_trails') || can('view_sent_emails'))
-    <x-nav.group label="Settings" route="admin.settings" icon="fas fa-cogs">
+    <x-nav.group label="{{__('Settings')}}" route="admin.settings" icon="fas fa-cogs">
         @can('view_audit_trails')
-            <x-nav.group-item route="admin.settings.audit-trails.index" icon="far fa-circle">Audit Trails</x-nav.group-item>
+            <x-nav.group-item route="admin.settings.audit-trails.index" icon="far fa-circle">{{__('Audit Trails')}}</x-nav.group-item>
         @endcan
 
         @can('view_roles')
-            <x-nav.group-item route="admin.settings.roles.index" icon="far fa-circle">Roles</x-nav.group-item>
+            <x-nav.group-item route="admin.settings.roles.index" icon="far fa-circle">{{__('Roles')}}</x-nav.group-item>
         @endcan
 
         @can('view_system_settings')
-            <x-nav.group-item route="admin.settings" icon="far fa-circle">System Settings</x-nav.group-item>
+            <x-nav.group-item route="admin.settings" icon="far fa-circle">{{__('System Settings')}}</x-nav.group-item>
         @endcan
     </x-nav.group>
 @endif
 
 @can('view_users')
-    <x-nav.link route="admin.users.index" icon="fas fa-users">Users</x-nav.link>
+    <x-nav.link route="admin.users.index" icon="fas fa-users">{{__('Users')}}</x-nav.link>
 @endcan
