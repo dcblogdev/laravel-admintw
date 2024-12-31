@@ -13,7 +13,7 @@
 
     <div class="card">
 
-        <div class="mt-5 mb-5 grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="mt-5 grid sm:grid-cols-1 md:grid-cols-3 gap-4">
 
             <div class="col-span-2">
                 <x-form.input type="search" name="name" wire:model.live="name" label="none" :placeholder="__('Search Users')" />
