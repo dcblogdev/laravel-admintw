@@ -153,7 +153,6 @@ return [
     'ulid' => ':attribute alanı geçerli bir ULID olmalıdır.',
     'uuid' => ':attribute alanı geçerli bir UUID olmalıdır.',
 
-
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
