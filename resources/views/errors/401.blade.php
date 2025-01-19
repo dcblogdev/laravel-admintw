@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layouts.app>
 @section('title', '401')
 
 <h3>401 - You do not have the correct permissions.</h3>
@@ -7,4 +7,4 @@
 
 <h4>{{ $message ?? '' }}</h4>
 
-</x-app-layout>
+</x-layouts.app>
