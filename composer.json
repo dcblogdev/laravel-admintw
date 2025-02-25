@@ -12,7 +12,7 @@
         "guzzlehttp/guzzle": "^7.9.2",
         "intervention/image": "^2.7.2",
         "laracasts/flash": "^3.2.3",
-        "laravel/framework": "^11.36.1",
+        "laravel/framework": "^v12.0.1",
         "laravel/sanctum": "^4.0.7",
         "laravel/tinker": "^2.10",
         "lasserafn/php-initial-avatar-generator": "^4.4",
@@ -22,15 +22,14 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.24.1",
-        "kkomelin/laravel-translatable-string-exporter": "^1.22",
-        "larastan/larastan": "^2.9.12",
+        "larastan/larastan": "^v3.1.0",
         "laravel/pint": "^1.18.3",
         "laravel/sail": "^1.39.1",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.5",
-        "pestphp/pest": "^2.36.0",
-        "pestphp/pest-plugin-laravel": "^2.4",
-        "pestphp/pest-plugin-type-coverage": "^2.8.7"
+        "pestphp/pest": "^v3.7.4",
+        "pestphp/pest-plugin-laravel": "^v3.1.0",
+        "pestphp/pest-plugin-type-coverage": "^v3.3.0"
     },
     "autoload": {
         "psr-4": {
