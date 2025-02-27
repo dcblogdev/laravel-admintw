@@ -11,7 +11,7 @@ beforeEach(function () {
 
 test('can update profile', function () {
 
-    //fake image upload
+    // fake image upload
     Storage::fake('public');
     $image = UploadedFile::fake()->image('avatar.jpg');
 
@@ -70,7 +70,7 @@ test('image can be null', function () {
 
 test('image is deleted when a new image is uploaded', function () {
 
-    //fake image upload
+    // fake image upload
     Storage::fake('public');
 
     $user = auth()->user();

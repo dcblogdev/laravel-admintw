@@ -11,7 +11,7 @@ class ActiveUser
 {
     public function handle(Request $request, Closure $next): mixed
     {
-        //if user is not active log the user out
+        // if user is not active log the user out
         if (! auth()->user()->is_active) {
             flash('Your account has been deactivated. You cannot login.')->warning();
             auth()->logout();
