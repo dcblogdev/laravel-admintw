@@ -20,9 +20,19 @@ Includes:
 
 1. Clone the repository
 
+```bash
+git clone git@github.com:dcblogdev/laravel-admintw.git
+```
+
+Open the project folder
+
+```bash
+cd laravel-admintw
+```
+
 Copy the `.env.example` file to `.env`:
 
-```
+```bash
 cp .env.example .env
 ```
 
