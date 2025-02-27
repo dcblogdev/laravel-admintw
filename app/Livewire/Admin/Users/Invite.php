@@ -64,13 +64,13 @@ class Invite extends Component
             'invited_at' => now(),
         ]);
 
-        //generate image
+        // generate image
         $name = get_initials($user->name);
         $id = $user->id.'.png';
         $path = 'users/';
         $imagePath = create_avatar($name, $id, $path);
 
-        //save image
+        // save image
         $user->image = $imagePath;
         $user->save();
 

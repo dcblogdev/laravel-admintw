@@ -11,8 +11,8 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
 test('login screen can be rendered', function () {
-    get(route('login'))->assertOk();
-});
+get(route('login'))->assertOk();
+    });
 
 test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();

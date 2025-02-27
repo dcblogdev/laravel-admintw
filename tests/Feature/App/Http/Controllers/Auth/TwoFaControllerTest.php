@@ -12,8 +12,8 @@ beforeEach(function () {
 });
 
 test('redirects when 2fa has already been verified', function () {
-    get(route('admin.2fa'))->assertRedirect(route('dashboard'));
-});
+get(route('admin.2fa'))->assertRedirect(route('dashboard'));
+    });
 
 test('renders when 2fa has not been verified', function () {
     session(['2fa-login' => true]);
@@ -65,8 +65,8 @@ test('cannot use invalid 2fa code', function () {
 });
 
 test('can see 2fa setup page', function () {
-    get(route('admin.2fa-setup'))->assertOk();
-});
+get(route('admin.2fa-setup'))->assertOk();
+    });
 
 test('code is required for update', function () {
     post(route('admin.2fa-setup.update'), [])
