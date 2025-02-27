@@ -7,8 +7,8 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
 test('can see register page', function () {
-    get(route('register'))->assertOk();
-});
+get(route('register'))->assertOk();
+    });
 
 test('users cannot register with invalid password', function () {
     post(route('register'), [
@@ -49,7 +49,7 @@ test('users cannot register without matching password', function () {
 });
 
 test('users can register', function () {
-    //Role::firstOrCreate(['name' => 'admin', 'label' => 'Admin']);
+    // Role::firstOrCreate(['name' => 'admin', 'label' => 'Admin']);
     $password = 'ght73A3!$^DS';
     $email = fake()->email();
 

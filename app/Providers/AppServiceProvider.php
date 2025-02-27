@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('components.layouts.app', function () {
             if (auth()->check()) {
                 foreach (Setting::all() as $setting) {
-                    //override config setting
+                    // override config setting
                     config()->set([$setting->key => $setting->value]);
                 }
             }

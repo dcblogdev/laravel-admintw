@@ -40,22 +40,22 @@ class Roles extends Component
         $role = Role::where('name', 'admin')
             ->firstOrFail();
 
-        //if admin role is not in array
+        // if admin role is not in array
         if (! in_array(needle: $role->id, haystack: $this->roleSelections, strict: true)) {
             $adminRolesCount = User::role('admin')->count();
 
-            //when there is only 1 admin role alert user and stop
+            // when there is only 1 admin role alert user and stop
             if ($adminRolesCount === 1 && $this->user->hasRole('admin')) {
                 flash('there must be at least one admin user!')->error();
 
                 return false;
             }
 
-            //@codeCoverageIgnoreStart
+            // @codeCoverageIgnoreStart
             $this->syncRoles();
 
             return false;
-            //@codeCoverageIgnoreEnd
+            // @codeCoverageIgnoreEnd
         }
 
         $this->syncRoles();
@@ -65,7 +65,7 @@ class Roles extends Component
 
     protected function syncRoles(): void
     {
-        //@phpstan-ignore-next-line
+        // @phpstan-ignore-next-line
         $rolesWithTenant = collect($this->roleSelections)->map(function (string $roleId) {
             return [
                 'role_id' => $roleId,

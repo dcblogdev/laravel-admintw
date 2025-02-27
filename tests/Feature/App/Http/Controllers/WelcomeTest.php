@@ -11,17 +11,17 @@ describe('authenticated', function () {
     });
 
     test('can see dashboard text on welcome page when logged in', function () {
-        get('/')->assertSeeText('Dashboard');
-    });
+    get('/')->assertSeeText('Dashboard');
+        });
 
 });
 
 describe('guest', function () {
 
     test('can see login text on welcome page', function () {
-        get('/')
-            ->assertSeeText('Login')
-            ->assertSeeText('Register');
-    });
+    get('/')
+    ->assertSeeText('Login')
+    ->assertSeeText('Register');
+        });
 
 });
