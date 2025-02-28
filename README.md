@@ -2,7 +2,7 @@
 
 > From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.
 
-Laravel AdminTW is a Laravel Starter Kit | TALL admin theme.
+Laravel AdminTW is a Laravel Livewire Starter Kit | TALL admin theme.
 
 <p><img src="https://laraveladmintw.com/images/docsv5/settings-light.png"></p>
 
