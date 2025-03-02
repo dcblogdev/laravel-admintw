@@ -65,3 +65,28 @@ test('users can register', function () {
 
     expect($user->hasRole('admin'))->toBeTrue();
 });
+
+test('users can register and receive only one email verification notification', function () {
+    \Illuminate\Support\Facades\Notification::fake();
+
+    $password = 'ght73A3!$^DS';
+    $email = fake()->email();
+
+    post(route('register'), [
+        'name' => fake()->name(),
+        'email' => $email,
+        'password' => $password,
+        'confirmPassword' => $password,
+    ])->assertValid()
+        ->assertRedirect();
+
+    $user = User::where('email', $email)->first();
+
+    \Illuminate\Support\Facades\Notification::assertSentTo(
+        [$user],
+        \Illuminate\Auth\Notifications\VerifyEmail::class,
+        1
+    );
+
+    expect($user->hasVerifiedEmail())->toBeFalse();
+});
