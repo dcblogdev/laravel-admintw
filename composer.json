@@ -12,7 +12,7 @@
         "guzzlehttp/guzzle": "^7.9.2",
         "intervention/image": "^2.7.2",
         "laracasts/flash": "^3.2.3",
-        "laravel/framework": "^v12.0.1",
+        "laravel/framework": "^12.2.1",
         "laravel/sanctum": "^4.0.7",
         "laravel/tinker": "^2.10",
         "lasserafn/php-initial-avatar-generator": "^4.4",
