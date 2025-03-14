@@ -1,20 +1,23 @@
 ## Laravel AdminTW
 
-> From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.
+> **Note:** From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.
 
-Laravel AdminTW is a Laravel Livewire Starter Kit | TALL admin theme.
+Laravel AdminTW is a **Laravel Livewire Starter Kit** and a **TALL stack admin theme**, designed for rapid development and ease of use.
 
-<p><img src="https://laraveladmintw.com/images/docsv5/settings-light.png"></p>
+![AdminTW](https://laraveladmintw.com/images/docsv5/settings-light.png)
 
-AdminTw is built on top of Laravel, Livewire, and Tailwind CSS.
+AdminTW is built on top of **Laravel, Livewire, and Tailwind CSS**, offering a modern and efficient admin dashboard.
 
-Includes:
-- 2FA
-- Audit Trails
-- System Settings
-- Multiple Users
-- Roles and Permissions
-- Tests
+### **Features**
+- **Two-Factor Authentication (2FA)**
+- **Audit Trails**
+- **System Settings**
+- **Multiple Users Support**
+- **Roles and Permissions Management**
+- **Comprehensive Test Suite (Pest PHP)**
+- **Light & Dark Mode Support** (based on user OS settings)
+- **Tests**
+
 
 ## Installation
 
