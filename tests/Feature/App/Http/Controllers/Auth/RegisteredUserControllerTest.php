@@ -7,8 +7,8 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
 test('can see register page', function () {
-get(route('register'))->assertOk();
-    });
+    get(route('register'))->assertOk();
+});
 
 test('users cannot register with invalid password', function () {
     post(route('register'), [
