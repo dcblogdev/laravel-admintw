@@ -1,33 +1,46 @@
 ## Laravel AdminTW
 
-> From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.
+> **Note:** From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.
 
-Laravel AdminTW is a Laravel Livewire Starter Kit | TALL admin theme.
+Laravel AdminTW is a **Laravel Livewire Starter Kit** and a **TALL stack admin theme**, designed for rapid development and ease of use.
 
-<p><img src="https://laraveladmintw.com/images/docsv5/settings-light.png"></p>
+![AdminTW](https://laraveladmintw.com/images/docsv5/settings-light.png)
 
-AdminTw is built on top of Laravel, Livewire, and Tailwind CSS.
+AdminTW is built on top of **Laravel, Livewire, and Tailwind CSS**, offering a modern and efficient admin dashboard.
 
-Includes:
-- 2FA
-- Audit Trails
-- System Settings
-- Multiple Users
-- Roles and Permissions
-- Tests
+### **Features**
+- **Two-Factor Authentication (2FA)**
+- **Audit Trails**
+- **System Settings**
+- **Multiple Users Support**
+- **Roles and Permissions Management**
+- **Comprehensive Test Suite (Pest PHP)**
+- **Light & Dark Mode Support** (based on user OS settings)
+- **Tests**
 
-## Installation
+
+## **Installation**
+
+### **Using Laravel Installer (Recommended from Laravel Installer version 5.14)**
+
+If you have Laravel Installer **5.14 or later**, you can quickly set up AdminTW with:
+
+```bash
+laravel new my-project --using=dcblogdev/laravel-admintw
+```
+
+### **Manual Installation**
 
 1. Clone the repository
 
 ```bash
-git clone git@github.com:dcblogdev/laravel-admintw.git
+git clone git@github.com:dcblogdev/laravel-admintw.git my-project
 ```
 
 Open the project folder
 
 ```bash
-cd laravel-admintw
+cd my-project
 ```
 
 Copy the `.env.example` file to `.env`:
@@ -38,12 +51,36 @@ cp .env.example .env
 
 Set database and emails settings inside `.env`
 
-2. Run `composer install`
-3. Run `npm install && npm run build`
-4. run `php artisan key:generate`
-5. run `php artisan storage:link`
-6. Run `php artisan migrate --seed`
-7. Run `php artisan serve`
+Install PHP Dependencies
+
+```bash
+composer install
+```
+
+Install JavaScript Dependencies & Build Assets
+```bash
+npm install && npm run build
+```
+
+Generate Application Key
+```bash
+php artisan key:generate
+```
+
+Create Storage Symlink
+```bash
+php artisan storage:link
+```
+
+Run Database Migrations & Seed Data
+```bash
+php artisan migrate --seed
+```
+
+Start the Development Server
+```bash
+php artisan serve
+```
 
 Laravel AdminTW supports both light and dark mode based on the users OS.
 
