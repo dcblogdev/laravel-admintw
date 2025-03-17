@@ -9,10 +9,12 @@ $openState = Route::is($route.'*') ? '{ isOpen: true }' : '{ isOpen: false }';
 @endphp
 
 <div class="block" x-data="{{ $openState }}">
-    <div @click="isOpen = !isOpen" class="flex items-center justify-between px-2 py-2 text-white hover:bg-gray-100 hover:text-gray-900 cursor-pointer rounded-md">
-        <div>
+    <div @click="isOpen = !isOpen" class="flex items-center justify-between px-2 py-2 text-gray-700 hover:bg-blue-50 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-gray-100 dark:text-white cursor-pointer rounded-md">
+        <div class="flex gap-2.5">
             @if ($icon)
-                <i class="{{ $icon }} pr-1"></i>
+                <span class="flex flex-none items-center">
+                    <x-dynamic-component :component="'heroicon-o-' . $icon" class="size-5 text-gray-400 group-hover:text-blue-500 dark:text-gray-500 dark:group-hover:text-gray-300" />
+                </span>
             @endif
             <span>{{ $label }}</span>
         </div>

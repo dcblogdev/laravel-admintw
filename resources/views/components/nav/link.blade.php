@@ -10,8 +10,11 @@
 
 <a @if($navEnabled) wire:navigate @endif
     href="{{ route($route) }}"
-    class="group flex items-center gap-2 rounded-lg px-2.5 text-sm font-medium
-    {{ $isActive ? 'border border-blue-100 dark:border-none bg-blue-50 dark:bg-gray-700 dark:text-white' : 'hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white' }}">
+    class="group flex items-center gap-2 rounded-lg px-2.5 text-sm
+    {{ $isActive
+        ? 'border border-blue-100 bg-blue-50 text-gray-700 dark:border-none dark:bg-gray-700 dark:text-white'
+        : 'hover:bg-blue-50 dark:hover:bg-gray-700 hover:bg-opacity-75 dark:hover:bg-opacity-100 text-gray-700 dark:text-white'
+    }}">
 
     @if ($icon)
         <span class="flex flex-none items-center">
