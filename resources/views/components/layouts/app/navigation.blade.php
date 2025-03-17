@@ -3,10 +3,22 @@
     <x-nav.link route="dashboard" icon="home">{{ __('Dashboard') }}</x-nav.link>
 @endcan
 
+{{--<x-nav.group label="{{__('Settings')}}" route="admin.settings" icon="cog">--}}
+{{--    @can('view_audit_trails')--}}
+{{--        <x-nav.group-item route="admin.settings.audit-trails.index" icon="cog">{{__('Audit Trails')}}</x-nav.group-item>--}}
+{{--    @endcan--}}
+
+{{--    @can('view_roles')--}}
+{{--        <x-nav.group-item route="admin.settings.roles.index" icon="cog">{{__('Roles')}}</x-nav.group-item>--}}
+{{--    @endcan--}}
+
+{{--    @can('view_system_settings')--}}
+{{--        <x-nav.group-item route="admin.settings" icon="cog">{{__('System Settings')}}</x-nav.group-item>--}}
+{{--    @endcan--}}
+{{--</x-nav.group>--}}
+
 @if(can('view_system_settings') || can('view_roles') || can('view_audit_trails'))
-    <div class="px-3 pt-5 pb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
-        {{ __('Settings') }}
-    </div>
+    <x-nav.divider>{{ __('Settings') }}</x-nav.divider>
 @endif
 
 @can('view_audit_trails')
@@ -21,9 +33,7 @@
     <x-nav.link route="admin.settings" icon="cog">{{ __('System Settings') }}</x-nav.link>
 @endcan
 
-<div class="px-3 pt-5 pb-2 text-xs font-semibold tracking-wider text-gray-500 uppercase">
-    {{ __('Account') }}
-</div>
+<x-nav.divider>{{ __('Account') }}</x-nav.divider>
 
 @can('view_users')
     <x-nav.link route="admin.users.index" icon="users">{{ __('Users') }}</x-nav.link>
