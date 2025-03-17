@@ -2,7 +2,7 @@
 
 @source "../views";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --color-primary: #3c8dbc;
   --color-secondary: #F6F6F7;
