@@ -8,5 +8,4 @@
 
         </div>
     </main>
-
 </x-layouts.front>
