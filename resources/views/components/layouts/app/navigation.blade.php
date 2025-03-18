@@ -5,15 +5,15 @@
 
 {{--<x-nav.group label="{{__('Settings')}}" route="admin.settings" icon="cog">--}}
 {{--    @can('view_audit_trails')--}}
-{{--        <x-nav.group-item route="admin.settings.audit-trails.index" icon="cog">{{__('Audit Trails')}}</x-nav.group-item>--}}
+{{--        <x-nav.group-item route="admin.settings.audit-trails.index" icon="identification">{{__('Audit Trails')}}</x-nav.group-item>--}}
 {{--    @endcan--}}
 
 {{--    @can('view_roles')--}}
-{{--        <x-nav.group-item route="admin.settings.roles.index" icon="cog">{{__('Roles')}}</x-nav.group-item>--}}
+{{--        <x-nav.group-item route="admin.settings.roles.index" icon="archive-box">{{__('Roles')}}</x-nav.group-item>--}}
 {{--    @endcan--}}
 
 {{--    @can('view_system_settings')--}}
-{{--        <x-nav.group-item route="admin.settings" icon="cog">{{__('System Settings')}}</x-nav.group-item>--}}
+{{--        <x-nav.group-item route="admin.settings" icon="wrench-screwdriver">{{__('System Settings')}}</x-nav.group-item>--}}
 {{--    @endcan--}}
 {{--</x-nav.group>--}}
 
@@ -30,7 +30,7 @@
 @endcan
 
 @can('view_system_settings')
-    <x-nav.link route="admin.settings" icon="cog">{{ __('System Settings') }}</x-nav.link>
+    <x-nav.link route="admin.settings" icon="wrench-screwdriver">{{ __('System Settings') }}</x-nav.link>
 @endcan
 
 <x-nav.divider>{{ __('Account') }}</x-nav.divider>

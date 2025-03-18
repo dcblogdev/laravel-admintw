@@ -1,7 +1,7 @@
 <x-layouts.app>
 @section('title', '500')
 
-<h3 class="text-center mt-10">500 - There has been an internal server error.</h3>
+<h3 class="text-center mt-10">{{ __('500 - There has been an internal server error.') }}</h3>
 
 @include('errors.messages')
 

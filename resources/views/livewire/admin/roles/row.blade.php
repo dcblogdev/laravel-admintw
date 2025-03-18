@@ -9,7 +9,6 @@
 
             @if ($role->name !== 'admin')
                 @can('delete_roles')
-
                     <x-dialog>
                         <x-dialog.open>
                             <a class="link" href="#">{{ __('Delete') }}</a>
@@ -24,16 +23,16 @@
 
                                     <label class="flex flex-col gap-2">
                                         {{ __('Type') }} "{{ $role->label }}" {{ __('to confirm') }}
-                                        <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg" placeholder="CONFIRM">
+                                        <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
                                     </label>
 
                                     <x-dialog.footer>
                                         <x-dialog.close>
-                                            <button type="button" class="btn mr-5">{{ __('Cancel') }}</button>
+                                            <x-button type="button" variant="gray">{{ __('Cancel') }}</x-button>
                                         </x-dialog.close>
 
                                         <x-dialog.close>
-                                            <button type="submit" :disabled="confirmation !== '{{ $role->label }}'" class="btn btn-red text-center disabled:cursor-not-allowed disabled:opacity-50">{{ __('Delete Role') }}</button>
+                                            <x-button type="submit" variant="red" x-bind:disabled="confirmation !== '{{ $role->label }}'">{{ __('Delete Role') }}</x-button>
                                         </x-dialog.close>
                                     </x-dialog.footer>
 

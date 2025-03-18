@@ -87,7 +87,7 @@
                     </td>
                     <td>
                         @foreach($user->roles as $role)
-                            {{ $role->label }}<br>
+                            <x-badge variant="blue">{{ $role->label }}</x-badge>
                         @endforeach
                     </td>
                     <td>
@@ -113,38 +113,45 @@
                                                 <x-slot name="modalTitle">Send {{ $user->name }} {{ __('another invite email') }}.</x-slot>
                                                 <x-slot name="content"></x-slot>
                                                 <x-slot name="footer">
-                                                    <button @click="on = false">{{ __('Cancel') }}</button>
-                                                    <button class="btn btn-primary" wire:click="resendInvite('{{ $user->id }}')">{{ __('Yes, Send Email') }}</button>
+                                                    <x-button variant="gray" @click="on = false">{{ __('Cancel') }}</x-button>
+                                                    <x-button wire:click="resendInvite('{{ $user->id }}')">{{ __('Yes, Send Email') }}</x-button>
                                                 </x-slot>
                                             @else
                                                 <x-slot name="modalTitle">{{ __('Invite email sent') }}</x-slot>
                                                 <x-slot name="content"></x-slot>
                                                 <x-slot name="footer">
-                                                    <button @click="on = false">{{ __('Close') }}</button>
+                                                    <x-button variant="gray" @click="on = false">{{ __('Close') }}</x-button>
                                                 </x-slot>
                                             @endif
                                         </x-modal>
                                 @endif
 
                                 @if(can('delete_users') && auth()->id() !== $user->id)
+                                    <div x-data="{ confirmation: '' }">
                                     <x-modal>
                                         <x-slot name="trigger">
                                             <a href="#" @click="on = true">{{ __('Delete') }}</a>
                                         </x-slot>
 
-                                        <x-slot name="modalTitle">{{ __('Confirm Delete') }}</x-slot>
-
-                                        <x-slot name="content">
-                                            <div class="text-center">
+                                        <x-slot name="modalTitle">
+                                            <div class="pt-5">
                                                 {{ __('Are you sure you want to delete') }}: <b>{{ $user->name }}</b>
                                             </div>
                                         </x-slot>
 
+                                        <x-slot name="content">
+                                            <label class="flex flex-col gap-2">
+                                                <div>{{ __('Type') }} <span class="font-bold">"{{ $user->name }}"</span> {{ __('to confirm') }}</div>
+                                                <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
+                                            </label>
+                                        </x-slot>
+
                                         <x-slot name="footer">
-                                            <button @click="on = false">{{ __('Cancel') }}</button>
-                                            <button class="btn btn-red" wire:click="deleteUser('{{ $user->id }}')">{{ __('Delete User') }}</button>
+                                            <x-button variant="gray" @click="on = false">{{ __('Cancel') }}</x-button>
+                                            <x-button variant="red" x-bind:disabled="confirmation !== '{{ $user->name }}'" wire:click="deleteUser('{{ $user->id }}')">{{ __('Delete User') }}</x-button>
                                         </x-slot>
                                     </x-modal>
+                                    </div>
                                 @endif
                         </div>
                     </td>

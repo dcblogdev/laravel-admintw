@@ -1,37 +1,17 @@
 @foreach (session('flash_notification', collect())->toArray() as $message)
-    @if($message['level'] === 'danger' || $message['level'] === 'info')
-        <div aria-live="assertive" class="alert alert-{{ $message['level'] }}" role="alert">
-            {!! $message['message'] !!}
-        </div>
-    @else
-        <div aria-live="assertive" x-data="{ show: true }"
-             x-show="show"
-             x-transition
-             x-init="setTimeout(() => show = false, 2000)"
-             class="alert alert-{{ $message['level'] }}"
-             role="alert"
-        >
-            {!! $message['message'] !!}
-        </div>
-    @endif
+    <x-alert variant="{{ $message['level'] }}">{{ $message['message'] }}</x-alert>
 @endforeach
 
 {{ session()->forget('flash_notification') }}
 
 @if (session('message'))
-    <div aria-live="assertive">
-        {{ session('message') }}
-    </div>
+    <x-alert>{{ session('message') }}</x-alert>
 @endif
 
 @if (session('success'))
-    <div aria-live="assertive" class="alert alert-green">
-        {{ session('success') }}
-    </div>
+    <x-alert variant="red">{{ session('success') }}</x-alert>
 @endif
 
 @if (session('status'))
-    <div aria-live="assertive" class="alert alert-primary">
-        {{ session('status') }}
-    </div>
+    <x-alert>{{ session('status') }}</x-alert>
 @endif

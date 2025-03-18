@@ -12,7 +12,7 @@
 
         <x-dialog.footer>
             <x-dialog.close>
-                <button type="button" class="btn">{{ __('Cancel') }}</button>
+                <x-button type="button" variant="gray">{{ __('Cancel') }}</x-button>
             </x-dialog.close>
 
             <x-button>{{ __('Create Role') }}</x-button>

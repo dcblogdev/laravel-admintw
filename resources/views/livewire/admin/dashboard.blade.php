@@ -20,6 +20,20 @@
     </div>
 
     <div class="card">
+        <h2>Badges</h2>
+
+        <x-badge>Default</x-badge>
+        <x-badge variant="gray">Gray</x-badge>
+        <x-badge variant="red">Red</x-badge>
+        <x-badge variant="yellow">Yellow</x-badge>
+        <x-badge variant="green">Green</x-badge>
+        <x-badge variant="blue">Blue</x-badge>
+        <x-badge variant="indigo">Indigo</x-badge>
+        <x-badge variant="purple">Purple</x-badge>
+        <x-badge variant="pink">Pink</x-badge>
+    </div>
+
+    <div class="card">
         <h2>Buttons</h2>
 
         <x-button>Default</x-button>
@@ -96,6 +110,98 @@
             <x-button>Submit</x-button>
 
         </x-form>
+
+    </div>
+
+    <x-2col>
+        <x-slot name="left">
+            <p class="bg-primary text-white p-1">Left</p>
+        </x-slot>
+        <x-slot name="right">
+            <p class="bg-primary text-white p-1">Right</p>
+        </x-slot>
+    </x-2col>
+
+    <x-dropdown class="mt-5" label="Action">
+        <x-dropdown.link href="#">Edit</x-dropdown.link>
+        <x-dropdown.link href="#">Delete</x-dropdown.link>
+    </x-dropdown>
+
+    <x-tabs name="company">
+
+        <x-tabs.header>
+            <x-tabs.link name="details">Details</x-tabs.link>
+            <x-tabs.link name="company">Company</x-tabs.link>
+            <x-tabs.link name="team">Team</x-tabs.link>
+        </x-tabs.header>
+
+        <x-tabs.div name="details">
+            <p>Details</p>
+        </x-tabs.div>
+
+        <x-tabs.div name="company">
+            <p>Company</p>
+        </x-tabs.div>
+
+        <x-tabs.div name="team">
+            <p>Team</p>
+        </x-tabs.div>
+
+    </x-tabs>
+
+    <div class="card">
+
+        <h2>Modal</h2>
+
+        <x-modal>
+            <x-slot name="trigger">
+                <x-button @click="on = true">Open Modal</x-button>
+            </x-slot>
+
+            <x-slot name="modalTitle">Title</x-slot>
+
+            <x-slot name="content">
+                <p>Content</p>
+            </x-slot>
+
+            <x-slot name="footer">
+                <x-button variant="gray" @click="close()">{{ __('Close') }}</x-button>
+                <x-button @click="close()">{{ __('Do some action') }}</x-button>
+            </x-slot>
+
+        </x-modal>
+
+    </div>
+
+    <div class="card">
+        <h2>Confirm Modal</h2>
+
+        <div x-data="{ confirmation: '' }">
+            <x-modal>
+                <x-slot name="trigger">
+                    <x-button variant="red" @click="on = true">Delete</x-button>
+                </x-slot>
+
+                <x-slot name="modalTitle">
+                    <div class="mt-5">
+                        {{ __('Are you sure you want to delete this?') }}
+                    </div>
+                </x-slot>
+
+                <x-slot name="content">
+                    <label class="flex flex-col gap-2">
+                        {{ __('Type') }} "demo" {{ __('to confirm') }}
+                        <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
+                    </label>
+                </x-slot>
+
+                <x-slot name="footer">
+                    <x-button variant="gray" @click="close()">{{ __('Close') }}</x-button>
+                    <x-button type="submit" variant="red" x-bind:disabled="confirmation !== 'demo'">{{ __('Delete') }}</x-button>
+                </x-slot>
+
+            </x-modal>
+        </div>
 
     </div>
 

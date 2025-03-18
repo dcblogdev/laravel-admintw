@@ -5,7 +5,7 @@
 ])
 
 @php
-    $isActive = Route::is($route."*");
+    $isActive = request()->routeIs($route);
 @endphp
 
 <a @if($navEnabled) wire:navigate @endif

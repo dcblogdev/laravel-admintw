@@ -1,10 +1,11 @@
 @props([
     'type' => 'submit',
+    'disabled' => false,
 ])
 
 @php
 $class = "inline-flex items-center font-medium ease-in-out disabled:opacity-50
-disabled:pointer-events-none disabled:opacity-50 rounded-md cursor-pointer ";
+disabled:cursor-not-allowed disabled:opacity-50 rounded-md cursor-pointer ";
 
 $class .= " " . match($attributes->get("variant")) {
     default => "bg-primary text-white hover:bg-primary/90 shadow-md dark:bg-primary-dark dark:text-gray-200 dark:hover:bg-primary-dark/80",
@@ -27,9 +28,15 @@ $class .= " " . match($attributes->get("size")){
     'xl' => "px-8 py-4 ",
     'icon' => "size-10"
 };
+
+$disabledClasses = "opacity-50 cursor-not-allowed";
+
 @endphp
 
-<button type="{{ $type }}" {{$attributes->merge(["class" => $class])->except(['size', 'variant'])}}
+<button
+    type="{{ $type }}"
+    @disabled($disabled)
+    {{$attributes->merge(["class" => $class])->except(['size', 'variant'])}}
     >
     {{$slot}}
 </button>
