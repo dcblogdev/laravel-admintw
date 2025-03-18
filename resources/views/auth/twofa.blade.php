@@ -9,12 +9,12 @@
 
             <x-form.input name="code" :label="__('Code')">{{ old('code') }}</x-form.input>
 
-            <p><button class="justify-center w-full btn btn-primary">{{ __('Verify Code') }}</button></p>
+            <p><x-button class="justify-center w-full">{{ __('Verify Code') }}</x-button></p>
 
         </x-form>
 
         <x-form action="{{ route('logout') }}">
-            <p><button type="submit" class="float-right">{{ __('Logout') }}</button></p>
+            <p><x-button type="submit" class="float-right">{{ __('Logout') }}</x-button></p>
         </x-form>
 
 	</x-auth-card>

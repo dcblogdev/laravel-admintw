@@ -24,7 +24,7 @@
     {{ $attributes->merge(['class' => "w-full"]) }}
 >
 
-    <label class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
+    <x-form.label :$label :$required :$name />
     <div
         class="relative content-center w-full p-1 text-left bg-white border rounded-md sm:text-sm sm:leading-5"
         x-bind:class="{'border-blue-300 ring ring-blue-200 ring-opacity-50':open, 'bg-gray-200 cursor-default':disabled}"

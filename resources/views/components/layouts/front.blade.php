@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="dark:bg-gray-800 text-white">
+<body>
 
 <div class="relative" x-data="{ open: false }">
 

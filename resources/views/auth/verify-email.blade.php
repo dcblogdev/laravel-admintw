@@ -15,11 +15,11 @@
 
         <div class="mt-4 flex items-center justify-between">
             <x-form action="{{ route('verification.send') }}">
-                <button class="btn btn-primary">{{ __('Resend Verification Email') }}</button>
+                <x-button>{{ __('Resend Verification Email') }}</x-button>
             </x-form>
 
             <x-form action="{{ route('logout') }}">
-                <button class="btn btn-primary">{{ __('Log Out') }}</button>
+                <x-button>{{ __('Log Out') }}</x-button>
             </x-form>
         </div>
 

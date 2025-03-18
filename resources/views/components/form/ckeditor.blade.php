@@ -22,7 +22,7 @@
 @endif
 <div wire:ignore class="mt-5">
     @if ($label !='none')
-        <label aria-label="{{ $label }}" for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
+        <x-form.label :$label :$required :$name />
     @endif
     <textarea
         id="{{ $name }}"

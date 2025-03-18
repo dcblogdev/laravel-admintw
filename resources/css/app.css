@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@source "./../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views";
 @source "../views";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
@@ -70,17 +70,5 @@ tbody td a {
 }
 
 .card {
-    @apply bg-white dark:bg-gray-800 dark:text-white border-t-4 border-sky-500 shadow rounded-md p-5 my-5;
-}
-
-.card-title {
-    @apply text-3xl font-bold pl-2 pt-2;
-}
-
-.card-footer {
-    @apply text-xs p-2 rounded-b-md;
-}
-
-.central-card {
-    @apply bg-white dark:bg-gray-700 p-10 rounded-lg shadow-lg w-full lg:w-1/2 mx-auto
+    @apply bg-white dark:bg-gray-800 dark:text-white shadow rounded-md p-5 my-5;
 }

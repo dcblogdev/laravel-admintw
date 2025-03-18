@@ -17,20 +17,7 @@
                 @endif
             </div>
 
-
-            <x-button class="w-full justify-center">Login</x-button><br>
-            <x-button>Default</x-button><br>
-            <x-button variant="destructive">destructive</x-button><br>
-            <x-button variant="outline">outline</x-button><br>
-            <x-button variant="secondary">secondary</x-button><br>
-            <x-button variant="ghost">ghost</x-button><br>
-            <x-button variant="link">link</x-button><br>
-            <br>
-            <x-button size="xs">xs</x-button><x-button size="xs">xs</x-button><br>
-            <x-button size="sm">sm</x-button><br>
-            <x-button size="lg">lg</x-button><br>
-            <x-button size="xl">xl</x-button><br>
-
+            <p><x-button class="w-full justify-center">Login</x-button></p>
 
         </x-form>
 
