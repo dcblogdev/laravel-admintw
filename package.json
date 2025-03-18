@@ -15,7 +15,8 @@
         "flatpickr": "^4.6.13",
         "laravel-vite-plugin": "^1.0",
         "tailwindcss": "^4.0.7",
-        "vite": "^6.0"
+        "vite": "^6.0",
+        "prismjs": "^1.23.0"
     },
     "dependencies": {
         "@alpinejs/ui": "^3.14.9"

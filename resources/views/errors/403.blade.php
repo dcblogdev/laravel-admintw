@@ -1,7 +1,7 @@
 <x-layouts.plain>
-@section('title', '401')
+@section('title', '403')
 
-<!-- Pages: Errors: 401 -->
+    <!-- Pages: Errors: 403 -->
 <!-- Page Container -->
 <div
   id="page-container"
@@ -14,11 +14,11 @@
     >
       <!-- Left/Right Background -->
       <div
-        class="absolute top-0 bottom-0 left-0 -ml-44 w-48 bg-purple-50 md:-ml-28 md:skew-x-6 dark:bg-purple-500/10"
+        class="absolute top-0 bottom-0 left-0 -ml-44 w-48 bg-orange-50 md:-ml-28 md:skew-x-6 dark:bg-orange-500/10"
         aria-hidden="true"
       ></div>
       <div
-        class="absolute top-0 right-0 bottom-0 -mr-44 w-48 bg-purple-50 md:-mr-28 md:skew-x-6 dark:bg-purple-500/10"
+        class="absolute top-0 right-0 bottom-0 -mr-44 w-48 bg-orange-50 md:-mr-28 md:skew-x-6 dark:bg-orange-500/10"
         aria-hidden="true"
       ></div>
       <!-- END Left/Right Background -->
@@ -28,9 +28,9 @@
         class="relative container mx-auto space-y-16 px-8 py-16 text-center lg:py-32 xl:max-w-7xl"
       >
         <div>
-          <div class="mb-5 text-purple-300 dark:text-purple-300/50">
+          <div class="mb-5 text-orange-300 dark:text-orange-300/50">
             <svg
-              class="hi-outline hi-shield-exclamation inline-block size-12"
+              class="hi-outline hi-hand-raised inline-block size-12"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -41,27 +41,27 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"
+                d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m-3.15 0l.075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 013.15 0V15M6.9 7.575a1.575 1.575 0 10-3.15 0v8.175a6.75 6.75 0 006.75 6.75h2.018a5.25 5.25 0 003.712-1.538l1.732-1.732a5.25 5.25 0 001.538-3.712l.003-2.024a.668.668 0 01.198-.471 1.575 1.575 0 10-2.228-2.228 3.818 3.818 0 00-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0116.35 15m.002 0h-.002"
               />
             </svg>
           </div>
           <div
-            class="text-6xl font-extrabold text-purple-600 md:text-7xl dark:text-purple-500"
+            class="text-6xl font-extrabold text-orange-600 md:text-7xl dark:text-orange-500"
           >
-            401
+            403
           </div>
           <div
             class="mx-auto my-6 h-1.5 w-12 rounded-lg bg-gray-200 md:my-10 dark:bg-gray-700"
             aria-hidden="true"
           ></div>
           <h1 class="mb-3 text-2xl font-extrabold md:text-3xl">
-            Hold It Right There, Partner
+            Not Your Lucky Day
           </h1>
           <h2
             class="mx-auto mb-5 font-medium text-gray-500 md:leading-relaxed lg:w-3/5 dark:text-gray-400"
           >
-            Sorry, but you don't have permission to access this page. Please log
-            in or contact us if you think this is a mistake.
+            Sorry, but it seems that today is not your lucky day. You don't have
+            permission to access this page. Please try again tomorrow.
           </h2>
         </div>
         <a
@@ -90,7 +90,6 @@
   <!-- END Page Content -->
 </div>
 <!-- END Page Container -->
-<!-- END Pages: Errors: 401 -->
-
+<!-- END Pages: Errors: 403 -->
 
 </x-layouts.plain>
