@@ -3,17 +3,20 @@
 ])
 
 @php
-$class = "inline-flex items-center border shadow-sm border-transparent font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background transition duration-150 ease-in-out disabled:opacity-50
+$class = "inline-flex items-center font-medium ease-in-out disabled:opacity-50
 disabled:pointer-events-none disabled:opacity-50 rounded-md cursor-pointer ";
 
-// Ensure proper spacing when concatenating classes
-$class .= " " . match($attributes->get("variant")){
-    default => "bg-primary text-white hover:bg-primary/90",
-    'destructive' => "bg-red-500 text-white hover:bg-red-500/90",
-    'outline' => "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-    'secondary' => "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-    'ghost' => "hover:bg-accent hover:text-accent-foreground",
-    'link' => "text-primary underline-offset-4 hover:underline"
+$class .= " " . match($attributes->get("variant")) {
+    default => "bg-primary text-white hover:bg-primary/90 shadow-md dark:bg-primary-dark dark:text-gray-200 dark:hover:bg-primary-dark/80",
+    'gray' => "bg-gray-200 text-gray-700 hover:bg-gray-300/90 shadow-md dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700/90",
+    'red' => "bg-red-500 text-red-200 hover:bg-red-500/90 shadow-md dark:bg-red-700 dark:text-red-100 dark:hover:bg-red-600/90",
+    'yellow' => "bg-yellow-500 text-yellow-200 hover:bg-yellow-500/90 shadow-md dark:bg-yellow-600 dark:text-yellow-100 dark:hover:bg-yellow-500/90",
+    'green' => "bg-green-500 text-green-200 hover:bg-green-500/90 shadow-md dark:bg-green-700 dark:text-green-100 dark:hover:bg-green-600/90",
+    'blue' => "bg-blue-500 text-blue-200 hover:bg-blue-500/90 shadow-md dark:bg-blue-700 dark:text-blue-100 dark:hover:bg-blue-600/90",
+    'indigo' => "bg-indigo-500 text-indigo-200 hover:bg-indigo-500/90 shadow-md dark:bg-indigo-700 dark:text-indigo-100 dark:hover:bg-indigo-600/90",
+    'purple' => "bg-purple-500 text-purple-200 hover:bg-purple-500/90 shadow-md dark:bg-purple-700 dark:text-purple-100 dark:hover:bg-purple-600/90",
+    'pink' => "bg-pink-500 text-pink-200 hover:bg-pink-500/90 shadow-md dark:bg-pink-700 dark:text-pink-100 dark:hover:bg-pink-600/90",
+    'link' => "text-primary underline-offset-4 hover:underline dark:text-primary-light"
 };
 
 $class .= " " . match($attributes->get("size")){
