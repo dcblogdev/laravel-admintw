@@ -136,7 +136,7 @@ test('can reset', function () {
         ->set('created_at', '2023-01-01 to 2023-01-31')
         ->call('resetFilters')
         ->assertOk()
-        ->assertSet('user_id', '0')
+        ->assertSet('user_id', '')
         ->assertSet('section', '')
         ->assertSet('type', '')
         ->assertSet('openFilter', false);

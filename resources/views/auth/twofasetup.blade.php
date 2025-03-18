@@ -7,7 +7,7 @@
         <p>{{ __('Authenticator apps generate random codes that you can use to sign in. They do not have access to your password or account information') }}.</p>
         <p>{{ __('We recommend using 1Password') }}.</p>
 
-        <p><img src='{{ $inlineUrl }}'></p>
+        <p><img alt="QR code" src="{{ $inlineUrl }}"></p>
 
         <p>{{ __('Scan bar code in your authenticator app or manually enter this key') }} {{ $secretKey }}</p>
 

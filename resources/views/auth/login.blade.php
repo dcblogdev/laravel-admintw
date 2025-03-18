@@ -17,9 +17,7 @@
                 @endif
             </div>
 
-            <p>
-                <button class="justify-center w-full btn btn-primary">Login</button>
-            </p>
+            <p><x-button class="w-full justify-center">Login</x-button></p>
 
         </x-form>
 

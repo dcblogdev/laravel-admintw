@@ -26,7 +26,7 @@ class AuditTrails extends Component
      */
     public array $checked = [];
 
-    public int $user_id = 0;
+    public ?string $user_id = null;
 
     public string $title = '';
 

@@ -9,40 +9,31 @@
 
             @if ($role->name !== 'admin')
                 @can('delete_roles')
+                    <div x-data="{ confirmation: '' }">
+                        <x-modal>
+                            <x-slot name="trigger">
+                                <a href="#" @click="on = true">{{ __('Delete') }}</a>
+                            </x-slot>
 
-                    <x-dialog>
-                        <x-dialog.open>
-                            <a class="link" href="#">{{ __('Delete') }}</a>
-                        </x-dialog.open>
+                            <x-slot name="modalTitle">
+                                <div class="pt-5">
+                                    {{ __('Are you sure you want to delete') }}: <b>{{ $role->label }}</b>
+                                </div>
+                            </x-slot>
 
-                        <x-dialog.panel>
+                            <x-slot name="content">
+                                <label class="flex flex-col gap-2">
+                                    <div>{{ __('Type') }} <span class="font-bold">"{{ $role->label }}"</span> {{ __('to confirm') }}</div>
+                                    <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
+                                </label>
+                            </x-slot>
 
-                            <div class="flex flex-col gap-6" x-data="{ confirmation: '' }">
-                                <h2 class="font-semibold text-3xl">{{ __('Are you sure you want to delete this role?') }}</h2>
-
-                                <form wire:submit="$dispatch('delete')">
-
-                                    <label class="flex flex-col gap-2">
-                                        {{ __('Type') }} "{{ $role->label }}" {{ __('to confirm') }}
-                                        <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg" placeholder="CONFIRM">
-                                    </label>
-
-                                    <x-dialog.footer>
-                                        <x-dialog.close>
-                                            <button type="button" class="btn mr-5">{{ __('Cancel') }}</button>
-                                        </x-dialog.close>
-
-                                        <x-dialog.close>
-                                            <button type="submit" :disabled="confirmation !== '{{ $role->label }}'" class="btn btn-red text-center disabled:cursor-not-allowed disabled:opacity-50">{{ __('Delete Role') }}</button>
-                                        </x-dialog.close>
-                                    </x-dialog.footer>
-
-                                </form>
-                            </div>
-
-                        </x-dialog.panel>
-
-                     </x-dialog>
+                            <x-slot name="footer">
+                                <x-button variant="gray" @click="on = false">{{ __('Cancel') }}</x-button>
+                                <x-button variant="red" x-bind:disabled="confirmation !== '{{ $role->label }}'" wire:click="deleteRole('{{ $role->id }}')">{{ __('Delete Role') }}</x-button>
+                            </x-slot>
+                        </x-modal>
+                        </div>
                 @endcan
             @endif
         </div>

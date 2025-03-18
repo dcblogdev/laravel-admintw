@@ -1,5 +1,3 @@
 @if (session('success'))
-    <div class="alert alert-green">
-        {{ session('success') }}
-    </div>
+    <x-alert variant="red">{{ session('success') }}</x-alert>
 @endif

@@ -1,3 +1,12 @@
+@import 'tailwindcss';
+@source "./../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views";
+@source "../views";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-primary: #3c8dbc;
+  --color-secondary: #F6F6F7;
+}
+
 h1 {
     @apply text-4xl text-gray-900 dark:text-gray-300;
 }
@@ -54,4 +63,12 @@ tbody td {
 
 tbody td a {
     @apply text-sky-600 dark:text-sky-300;
+}
+
+.error {
+    @apply text-red-500 dark:text-red-300
+}
+
+.card {
+    @apply bg-white dark:bg-gray-800 dark:text-white shadow rounded-md p-5 my-5;
 }

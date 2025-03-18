@@ -23,13 +23,13 @@
 
 <div class="mb-5">
     @if ($label !='none')
-        <label aria-label="{{ $label }}" for='{{ $name }}' class='block mb-2 font-bold text-sm text-gray-600 dark:text-gray-200'>{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
+        <x-form.label :$label :$required :$name />
     @endif
     <select
         name='{{ $name }}'
         id='{{ $name }}'
         {{ $required }}
-        {{ $attributes->merge(['class' => 'border border-gray-300 dark:bg-gray-500 dark:text-gray-200 p-1 w-full rounded']) }}
+        {{ $attributes->merge(['class' => 'border border-gray-300 bg-white dark:bg-gray-500 dark:text-gray-200 py-2 px-3 w-full rounded-md shadow']) }}
         @error($name)
             aria-invalid="true"
             aria-description="{{ $message }}"
