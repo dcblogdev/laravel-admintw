@@ -15,9 +15,12 @@
 
     <div class="card">
 
-        <div class="alert alert-info py-2 px-4 my-5 rounded-md">
-            {{ __('By default only Admin have full access, additional roles will need permissions applying to them by editing the roles below.') }}
-        </div>
+        <x-alert>
+            <x-heroicon-c-information-circle class="size-6 sm:size-5 mr-2 sm:mr-1.5 flex-shrink-0" />
+            <span class="flex-1">
+                {{ __("By default, only admin roles have full access. Additional roles will need permissions applied by editing the roles below.") }}
+            </span>
+        </x-alert>
 
         <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4">
 

@@ -10,12 +10,12 @@
             <div class="card">
                 <x-form wire:submit="update" method="put">
 
-                    <div class="alert alert-primary">
+                    <x-alert>
                         <p class="text-white">{{ __('New password must be at least 8 characters in length') }}<br>
                         {{ __('at least one lowercase letter') }}<br>
                         {{ __('at least one uppercase letter') }}<br>
                         {{ __('at least one digit') }}</p>
-                    </div>
+                    </x-alert>
 
                     <x-form.input wire:model="newPassword" type="password" :label="__('New Password')" name='newPassword' />
                     <x-form.input wire:model="confirmPassword" type="password" :label="__('Confirm Password')" name='confirmPassword' />
