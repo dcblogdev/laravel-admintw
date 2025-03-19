@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Storage;
 if (! function_exists('can')) {
     function can(string $action): bool
     {
-        if (auth()->user() === null) {
-            return false;
-        }
-
         return auth()->user()->can($action);
     }
 }
@@ -19,10 +15,6 @@ if (! function_exists('can')) {
 if (! function_exists('cannot')) {
     function cannot(string $action): bool
     {
-        if (auth()->user() === null) {
-            return false;
-        }
-
         return auth()->user()->cannot($action);
     }
 }
@@ -30,10 +22,6 @@ if (! function_exists('cannot')) {
 if (! function_exists('hasRole')) {
     function hasRole(string $role): bool
     {
-        if (auth()->user() === null) {
-            return false;
-        }
-
         return auth()->user()->hasRole($role);
     }
 }
