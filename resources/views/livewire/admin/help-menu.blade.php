@@ -12,7 +12,8 @@
         @click.away="isOpen = false"
         class="absolute w-48 origin-top-right right-14">
         <div class="relative z-30 bg-white border border-gray-100 shadow-xs rounded-b-md dark:bg-gray-700">
-            <a href="http://laraveladmintw.com/docs" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Theme Docs') }}</a>
+            <a href="http://laraveladmintw.com/docs" target="_blank" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Theme Docs (External)') }}</a>
+            <a href="{{ route('developer-reference') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Developer Reference') }}</a>
         </div>
 
     </div>
