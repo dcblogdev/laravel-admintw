@@ -22,6 +22,9 @@ Route::get('/', WelcomeController::class);
 Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'activeUser', 'ipCheckMiddleware'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
 
+    Route::view('developer-reference', 'developer-reference')
+    ->name('developer-reference');
+
     Route::get('2fa', [TwoFaController::class, 'index'])->name('admin.2fa');
     Route::post('2fa', [TwoFaController::class, 'update'])->name('admin.2fa.update');
     Route::get('2fa-setup', [TwoFaController::class, 'setup'])->name('admin.2fa-setup');
