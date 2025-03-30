@@ -37,7 +37,7 @@
              x-transition:leave-end="opacity-0 transform translate-x-full"
              class="fixed z-50 inset-0 overflow-hidden"
              aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-                <div class="absolute inset-0 overflow-hidden bg-gray-500 bg-gray-500/75 transition-opacity">
+                <div class="absolute inset-0 overflow-hidden bg-gray-500/75 transition-opacity">
 
                     <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16">
 
