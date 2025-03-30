@@ -18,7 +18,7 @@
                             <div class="flex items-center h-5">
                                 <input wire:model="isForced2Fa" id="isForced2Fa" type="checkbox" class="h-4 w-4 text-light-blue-600 cursor-pointer focus:ring-light-blue-500 border-gray-300">
                             </div>
-                            <label for="isOfficeLoginOnly" class="ml-3 flex flex-col cursor-pointer">
+                            <label for="isForced2Fa" class="ml-3 flex flex-col cursor-pointer">
                                 <span class="block text-sm font-medium text-gray-900 dark:text-gray-300">
                                     {{ __('Enforce 2FA') }}
                                 </span>
