@@ -40,12 +40,12 @@ class RegisteredUserController extends Controller
         $user->image = $this->generateImage($user);
         $user->save();
 
-        Role::create([
+        Role::firstOrCreate([
             'name' => 'admin',
             'label' => 'Admin',
         ]);
 
-        Role::create([
+        Role::firstOrCreate([
             'name' => 'user',
             'label' => 'User',
         ]);
