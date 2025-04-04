@@ -39,9 +39,7 @@
             aria-invalid="true"
             aria-description="{{ $message }}"
         @enderror
-    >
-        {{ $slot }}
-    </textarea>
+    >{{ $slot }}</textarea>
 </div>
 @error($name)
     <p class="error" aria-live="assertive">{{ $message }}</p>
