@@ -2,6 +2,8 @@
 
 use App\Models\User;
 
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Support\Facades\Notification;
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
@@ -66,8 +68,30 @@ test('users can register', function () {
     expect($user->hasRole('admin'))->toBeTrue();
 });
 
+test('users can register multiple times', function () {
+    //first user
+    post(route('register'), [
+        'name' => fake()->name(),
+        'email' => fake()->email(),
+        'password' => 'ght73A3!$^DS',
+        'confirmPassword' => 'ght73A3!$^DS',
+    ]);
+
+    //second user
+    post(route('register'), [
+        'name' => fake()->name(),
+        'email' => fake()->email(),
+        'password' => 'ght73A3!$^DS',
+        'confirmPassword' => 'ght73A3!$^DS',
+    ])
+        ->assertValid()
+        ->assertRedirect();
+
+    expect(User::count())->toBe(2);
+});
+
 test('users can register and receive only one email verification notification', function () {
-    \Illuminate\Support\Facades\Notification::fake();
+    Notification::fake();
 
     $password = 'ght73A3!$^DS';
     $email = fake()->email();
@@ -82,9 +106,9 @@ test('users can register and receive only one email verification notification', 
 
     $user = User::where('email', $email)->first();
 
-    \Illuminate\Support\Facades\Notification::assertSentTo(
+    Notification::assertSentTo(
         [$user],
-        \Illuminate\Auth\Notifications\VerifyEmail::class,
+        VerifyEmail::class,
         1
     );
 
