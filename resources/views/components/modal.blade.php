@@ -15,7 +15,7 @@
             this.on = false;
             document.body.classList.remove('overflow-hidden'); // Restore background scroll
         }
-    }">
+    }" x-on:close-modal.window="close()">
 
     <!-- Trigger -->
     {{ $trigger }}

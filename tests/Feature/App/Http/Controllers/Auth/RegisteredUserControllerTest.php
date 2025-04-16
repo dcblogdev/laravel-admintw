@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\User;
-
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
+
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
@@ -69,7 +69,7 @@ test('users can register', function () {
 });
 
 test('users can register multiple times', function () {
-    //first user
+    // first user
     post(route('register'), [
         'name' => fake()->name(),
         'email' => fake()->email(),
@@ -77,7 +77,7 @@ test('users can register multiple times', function () {
         'confirmPassword' => 'ght73A3!$^DS',
     ]);
 
-    //second user
+    // second user
     post(route('register'), [
         'name' => fake()->name(),
         'email' => fake()->email(),
