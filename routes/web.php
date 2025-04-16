@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Auth\TwoFaController;
 use App\Http\Controllers\WelcomeController;
 use App\Livewire\Admin\AuditTrails;
@@ -21,6 +22,8 @@ Route::get('/', WelcomeController::class);
 
 Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'activeUser', 'ipCheckMiddleware'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
+
+    Route::post('image-upload', UploadController::class)->name('image-upload');
 
     Route::view('developer-reference', 'developer-reference')
         ->name('developer-reference');

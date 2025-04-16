@@ -1,5 +1,5 @@
 @push('scripts')
-  <script src="/js/ckeditor/ckeditor.js"></script>
+    <script src="{{ url('js/ckeditor5.js') }}"></script>
 @endpush
 
 @props([
@@ -22,24 +22,31 @@
 @endif
 <div wire:ignore class="mt-5">
     @if ($label !='none')
-        <x-form.label :$label :$required :$name />
+        <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span aria-hidden="true" class="error">*</span>@endif</label>
     @endif
     <textarea
-        id="{{ $name }}"
         x-data
         x-init="
-            editor = CKEDITOR.replace($refs.item);
-            editor.on('change', function(event){
-                @this.set('{{ $name }}', event.editor.getData());
-            })
+            ClassicEditor
+                .create($refs.item, {
+                simpleUpload: {
+                    uploadUrl: '{{ url('admin/image-upload') }}'
+                }
+                })
+                .then(editor => {
+                    editor.model.document.on('change:data', () => {
+                    @this.set('{{ $name }}', editor.getData());
+                    })
+               })
+                .catch(error => {
+                    console.error(error);
+                });
         "
         x-ref="item"
         {{ $attributes }}
-        @error($name)
-            aria-invalid="true"
-            aria-description="{{ $message }}"
-        @enderror
-    >{{ $slot }}</textarea>
+    >
+        {{ $slot }}
+    </textarea>
 </div>
 @error($name)
     <p class="error" aria-live="assertive">{{ $message }}</p>
