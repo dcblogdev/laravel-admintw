@@ -7,32 +7,36 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
 
 class UploadController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
-        try {
-            $request->validate([
-                'upload' => [
-                    'required',
-                    'image',
-                    'mimes:jpeg,png,jpg,gif',
-                ],
-            ]);
-        } catch (ValidationException $e) {
-            return response()->json([
-                'error' => $e->validator->errors(),
-            ], 422);
-        }
+        $request->validate([
+            'upload' => [
+                'required',
+                'file',
+                'image',
+                'mimes:jpeg,png,jpg,gif',
+            ],
+        ]);
 
         if ($request->hasFile('upload')) {
 
             $file = $request->file('upload');
+
+            if (is_array($file)) {
+                $file = $file[0];
+            }
+
+            if (! $file instanceof UploadedFile) {
+                return response()->json(['error' => 'Invalid upload'], 400);
+            }
+
             $originalName = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
@@ -50,8 +54,6 @@ class UploadController extends Controller
             ]);
         }
 
-        return response()->json([
-            'error' => 'No file was uploaded',
-        ], 400);
+        return response()->json(['error' => 'No file uploaded'], 422);
     }
 }

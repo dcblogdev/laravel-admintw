@@ -23,7 +23,7 @@ Route::get('/', WelcomeController::class);
 Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'activeUser', 'ipCheckMiddleware'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
 
-    Route::post('image-upload', UploadController::class);
+    Route::post('image-upload', UploadController::class)->name('image-upload');
 
     Route::view('developer-reference', 'developer-reference')
         ->name('developer-reference');
