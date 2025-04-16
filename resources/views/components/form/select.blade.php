@@ -55,6 +55,6 @@
         {{ $slot }}
     </select>
     @error($name)
-        <p class="text-red-500 dark:text-red-300" aria-live="assertive">{{ $message }}</p>
+        <p class="error" aria-live="assertive">{{ $message }}</p>
     @enderror
 </div>
