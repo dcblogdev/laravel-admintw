@@ -46,16 +46,16 @@
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
             <!-- Scrollable Content -->
-            <div class="flex flex-col max-h-screen overflow-y-auto p-6">
-                <header class="text-center mb-4">
+            <div class="flex flex-col max-h-screen overflow-y-auto">
+                <header class="text-center mb-4 px-6">
                     <h2 class="text-lg font-semibold">{{ $modalTitle ?? '' }}</h2>
                 </header>
 
-                <main class="mb-4">
+                <main class="mb-4 px-6">
                     {{ $content ?? '' }}
                 </main>
 
-                <footer class="p-4 py-4 px-4 -mx-8 -mb-8 mt-8 bg-slate-100 dark:bg-gray-500">
+                <footer class="p-4 mt-8 bg-slate-100 dark:bg-gray-500">
                     <div class="flex justify-end gap-4">
                         {{ $footer ?? '' }}
                     </div>
