@@ -25,7 +25,7 @@
                 <div class="mt-5 text-left">
                     <div class="flex border-b pb-2">
                         <i class="pt-1 pr-1 fa fa-envelope"></i>
-                        <div style="width:200px; overflow: scroll">{{ $user->email }}</div>
+                        <div class="w-auto overflow-hidden text-ellipsis whitespace-nowrap">{{ $user->email }}</div>
                     </div>
                 </div>
 
