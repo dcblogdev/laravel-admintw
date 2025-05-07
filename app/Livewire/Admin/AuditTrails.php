@@ -73,7 +73,7 @@ class AuditTrails extends Component
     }
 
     /**
-     * @return LengthAwarePaginator<AuditTrail>
+     * @return LengthAwarePaginator<int, AuditTrail>
      */
     public function userLogs(): LengthAwarePaginator
     {

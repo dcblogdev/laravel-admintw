@@ -71,7 +71,7 @@ class Users extends Component
     }
 
     /**
-     * @return LengthAwarePaginator<User>
+     * @return LengthAwarePaginator<int, User>
      */
     public function users(): LengthAwarePaginator
     {
