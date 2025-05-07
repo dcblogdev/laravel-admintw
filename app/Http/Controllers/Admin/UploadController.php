@@ -29,10 +29,6 @@ class UploadController extends Controller
 
             $file = $request->file('upload');
 
-            if (is_array($file)) {
-                $file = $file[0];
-            }
-
             if (! $file instanceof UploadedFile) {
                 return response()->json(['error' => 'Invalid upload'], 400);
             }
