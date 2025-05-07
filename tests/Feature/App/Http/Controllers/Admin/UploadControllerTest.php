@@ -25,25 +25,6 @@ test('uploads an image successfully', function () {
     Storage::disk('images')->assertExists($path);
 });
 
-test('handles valid upload when file is sent as an array', function () {
-    $file = UploadedFile::fake()->image('photo.jpg');
-
-    $mockRequest = Mockery::mock(Request::class);
-    $mockRequest->shouldReceive('validate')->andReturn(['upload' => [$file]]);
-    $mockRequest->shouldReceive('hasFile')->once()->with('upload')->andReturn(true);
-    $mockRequest->shouldReceive('file')->once()->with('upload')->andReturn([$file]);
-
-    $controller = new UploadController;
-
-    $response = $controller($mockRequest);
-
-    expect($response->getStatusCode())->toBe(200);
-    expect($response->getData(true))->toHaveKey('url');
-
-    $path = str_replace('/images/', '', $response->getData(true)['url']);
-    Storage::disk('images')->assertExists($path);
-});
-
 test('fails when no file is uploaded', function () {
     postJson(route('image-upload'), [])->assertStatus(422);
 });

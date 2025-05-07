@@ -47,7 +47,7 @@ class Roles extends Component
     }
 
     /**
-     * @return LengthAwarePaginator<Role>
+     * @return LengthAwarePaginator<int, Role>
      */
     public function roles(): LengthAwarePaginator
     {
