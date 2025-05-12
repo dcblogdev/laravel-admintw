@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin\Users;
 
+use App\Actions\GetInitialsAction;
 use App\Mail\Users\SendInviteMail;
 use App\Models\Role;
 use App\Models\User;
@@ -11,8 +12,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Livewire\Attributes\Rule;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -20,19 +19,43 @@ class Invite extends Component
 {
     use withPagination;
 
-    #[Rule('required', message: 'Please enter a name')]
     public string $name = '';
 
-    #[Rule('required', as: 'email', message: 'Please enter an email address')]
-    #[Rule('email', message: 'The email must be a valid email address.')]
-    #[Rule('unique:users,email')]
     public string $email = '';
 
     /**
      * @var array<int>
      */
-    #[Validate('required', 'min:1', as: 'role', message: 'Please select at least one role')]
     public array $rolesSelected = [];
+
+    /**
+     * @var array<string, array<int, string>>
+     */
+    protected array $rules = [
+        'name' => [
+            'required',
+            'string',
+        ],
+        'email' => [
+            'required',
+            'string',
+            'email',
+            'unique:users,email',
+        ],
+        'rolesSelected' => [
+            'required',
+            'min:1',
+        ],
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    protected array $messages = [
+        'name.required' => 'Name is required',
+        'email.required' => 'Email is required',
+        'rolesSelected.required' => 'A role is required',
+    ];
 
     /**
      * @throws ValidationException
@@ -49,7 +72,7 @@ class Invite extends Component
         return view('livewire.admin.users.invite', compact('roles'));
     }
 
-    public function store(): void
+    public function store(GetInitialsAction $getInitialsAction): void
     {
         $this->validate();
 
@@ -65,7 +88,7 @@ class Invite extends Component
         ]);
 
         // generate image
-        $name = get_initials($user->name);
+        $name = $getInitialsAction($user->name);
         $id = $user->id.'.png';
         $path = 'users/';
         $imagePath = create_avatar($name, $id, $path);

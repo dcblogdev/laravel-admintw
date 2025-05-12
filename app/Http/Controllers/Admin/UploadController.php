@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Images\StoreUploadedImageAction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 class UploadController extends Controller
 {
@@ -33,20 +31,11 @@ class UploadController extends Controller
                 return response()->json(['error' => 'Invalid upload'], 400);
             }
 
-            $originalName = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
-
-            $name = Str::slug(date('Y-m-d-h-i-s').'-'.pathinfo($originalName, PATHINFO_FILENAME));
-            $image = Image::make($file);
-
-            $imageString = $image->stream()->__toString();
-            $name = "$name.$extension";
-
-            Storage::disk('images')
-                ->put('uploads/'.$name, $imageString);
+            /** @var UploadedFile $file */
+            $image = (new StoreUploadedImageAction)($file, 'images', width: 400);
 
             return response()->json([
-                'url' => "/images/uploads/$name",
+                'url' => storage_url($image),
             ]);
         }
 
