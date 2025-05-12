@@ -65,12 +65,11 @@ if (! function_exists('get_initials')) {
 }
 
 if (! function_exists('create_avatar')) {
-    function create_avatar(string $name, string $filename, string $path): string
+    function create_avatar(string $name, string $filename, string $path, string $disk = 'public'): string
     {
-        $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar;
-        $source = $avatar->background('#000')->color('#fff')->name($name)->generate()->stream();
+        Storage::disk($disk)->makeDirectory($path);
 
-        Storage::disk('public')->put($path.$filename, $source);
+        Avatar::create($name)->save(Storage::disk($disk)->path($path.$filename), 100);
 
         return $path.$filename;
     }
