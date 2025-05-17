@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Admin\Users\Activity;
 use App\Models\AuditTrail;
 use App\Models\User;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Admin\Roles\Roles;
 use App\Models\Role;
 use Livewire\Livewire;

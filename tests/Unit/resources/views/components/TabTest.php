@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can see tab component', function () {
     test()->blade('<x-tabs name="sections"></x-tabs>')->assertSee('sections');
 });

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can see dashboard as admin regardless of permission', function () {
     $this->authenticate();
     $this->get(route('dashboard'))->assertOk();

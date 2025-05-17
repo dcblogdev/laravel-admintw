@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can render checkbox', function () {
     test()->blade('<x-form.checkbox />')
         ->assertSee('type="checkbox"', false);

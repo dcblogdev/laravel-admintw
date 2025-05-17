@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Admin\Users\Invite;
 use App\Mail\Users\SendInviteMail;
 use App\Models\Role;

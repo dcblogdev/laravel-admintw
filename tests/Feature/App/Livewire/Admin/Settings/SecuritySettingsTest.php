@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Admin\Settings\SecuritySettings;
 use App\Models\Setting;
 use Livewire\Livewire;

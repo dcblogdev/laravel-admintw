@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can render button', function () {
     test()->blade('<x-button>Go</x-button>')
         ->assertSeeInOrder(['<button', 'type="submit"'], false);

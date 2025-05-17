@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can render modal', function () {
     test()->blade('<x-modal>
         <x-slot name="trigger">

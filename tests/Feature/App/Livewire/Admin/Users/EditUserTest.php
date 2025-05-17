@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can see edit user page', function () {
     $this->authenticate();
     $this

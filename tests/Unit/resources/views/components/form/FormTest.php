@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can render form', function () {
     test()->blade('<x-form></x-form>')
         ->assertSee('<form method="post"', false);

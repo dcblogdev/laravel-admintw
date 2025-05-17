@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('can does return false for user role with no permissions set', function () {
     $this->authenticate('user');
     expect(can('view_dashboard'))->toBeFalse;
