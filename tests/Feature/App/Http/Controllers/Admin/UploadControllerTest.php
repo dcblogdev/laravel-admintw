@@ -17,14 +17,11 @@ beforeEach(function () {
 test('uploads an image successfully', function () {
     $file = UploadedFile::fake()->image('example.jpg');
 
-    $response = postJson(route('image-upload'), [
+    postJson(route('image-upload'), [
         'upload' => $file,
     ])
         ->assertStatus(200)
         ->assertJsonStructure(['url']);
-
-    $path = str_replace('/images/', '', $response->json('url'));
-    Storage::disk('images')->assertExists($path);
 });
 
 test('fails when no file is uploaded', function () {

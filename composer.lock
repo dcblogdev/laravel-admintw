@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffa22265172b9fa56bc90549c0f57729",
+    "content-hash": "0e0ea1f05d03b5763df8eb1154230389",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -284,76 +284,6 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
-        },
-        {
-            "name": "dcblogdev/laravel-junie",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dcblogdev/laravel-junie.git",
-                "reference": "42892c6f2a5d1437216d1f5deefb16c05f21c36c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dcblogdev/laravel-junie/zipball/42892c6f2a5d1437216d1f5deefb16c05f21c36c",
-                "reference": "42892c6f2a5d1437216d1f5deefb16c05f21c36c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^12.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.13",
-                "orchestra/testbench": "^10.0",
-                "pestphp/pest": "^3.7",
-                "pestphp/pest-plugin-type-coverage": "^3.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "Junie": "Dcblogdev\\Junie\\Facades\\Junie"
-                    },
-                    "providers": [
-                        "Dcblogdev\\Junie\\JunieServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Dcblogdev\\Junie\\": "src/",
-                    "Dcblogdev\\Junie\\Tests\\": "tests"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Carr",
-                    "email": "dave@dcblog.dev",
-                    "homepage": "https://dcblog.dev"
-                }
-            ],
-            "description": "Install pre-configured guides for Jetbrains Junie",
-            "homepage": "https://github.com/dcblogdev/laravel-junie",
-            "keywords": [
-                "Junie",
-                "jetbrains",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/dcblogdev/laravel-junie/issues",
-                "source": "https://github.com/dcblogdev/laravel-junie/tree/v1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/dcblogdev",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-05-17T02:35:33+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1275,50 +1205,32 @@
             "time": "2025-02-03T10:55:03+00:00"
         },
         {
-            "name": "intervention/image",
-            "version": "2.7.2",
+            "name": "intervention/gif",
+            "version": "4.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Intervention/image.git",
-                "reference": "04be355f8d6734c826045d02a1079ad658322dad"
+                "url": "https://github.com/Intervention/gif.git",
+                "reference": "5999eac6a39aa760fb803bc809e8909ee67b451a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/04be355f8d6734c826045d02a1079ad658322dad",
-                "reference": "04be355f8d6734c826045d02a1079ad658322dad",
+                "url": "https://api.github.com/repos/Intervention/gif/zipball/5999eac6a39aa760fb803bc809e8909ee67b451a",
+                "reference": "5999eac6a39aa760fb803bc809e8909ee67b451a",
                 "shasum": ""
             },
             "require": {
-                "ext-fileinfo": "*",
-                "guzzlehttp/psr7": "~1.1 || ^2.0",
-                "php": ">=5.4.0"
+                "php": "^8.1"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.2",
-                "phpunit/phpunit": "^4.8 || ^5.7 || ^7.5.15"
-            },
-            "suggest": {
-                "ext-gd": "to use GD library based image processing.",
-                "ext-imagick": "to use Imagick based image processing.",
-                "intervention/imagecache": "Caching extension for the Intervention Image library"
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^10.0 || ^11.0  || ^12.0",
+                "slevomat/coding-standard": "~8.0",
+                "squizlabs/php_codesniffer": "^3.8"
             },
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "Image": "Intervention\\Image\\Facades\\Image"
-                    },
-                    "providers": [
-                        "Intervention\\Image\\ImageServiceProvider"
-                    ]
-                },
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Intervention\\Image\\": "src/Intervention/Image"
+                    "Intervention\\Gif\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1332,19 +1244,17 @@
                     "homepage": "https://intervention.io/"
                 }
             ],
-            "description": "Image handling and manipulation library with support for Laravel integration",
-            "homepage": "http://image.intervention.io/",
+            "description": "Native PHP GIF Encoder/Decoder",
+            "homepage": "https://github.com/intervention/gif",
             "keywords": [
+                "animation",
                 "gd",
-                "image",
-                "imagick",
-                "laravel",
-                "thumbnail",
-                "watermark"
+                "gif",
+                "image"
             ],
             "support": {
-                "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/2.7.2"
+                "issues": "https://github.com/Intervention/gif/issues",
+                "source": "https://github.com/Intervention/gif/tree/4.2.2"
             },
             "funding": [
                 {
@@ -1354,9 +1264,89 @@
                 {
                     "url": "https://github.com/Intervention",
                     "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/interventionphp",
+                    "type": "ko_fi"
                 }
             ],
-            "time": "2022-05-21T17:30:32+00:00"
+            "time": "2025-03-29T07:46:21+00:00"
+        },
+        {
+            "name": "intervention/image",
+            "version": "3.11.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "ebbb711871fb261c064cf4c422f5f3c124fe1842"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/ebbb711871fb261c064cf4c422f5f3c124fe1842",
+                "reference": "ebbb711871fb261c064cf4c422f5f3c124fe1842",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "intervention/gif": "^4.2",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^10.0 || ^11.0 || ^12.0",
+                "slevomat/coding-standard": "~8.0",
+                "squizlabs/php_codesniffer": "^3.8"
+            },
+            "suggest": {
+                "ext-exif": "Recommended to be able to read EXIF data properly."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io/"
+                }
+            ],
+            "description": "PHP image manipulation",
+            "homepage": "https://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "resize",
+                "thumbnail",
+                "watermark"
+            ],
+            "support": {
+                "issues": "https://github.com/Intervention/image/issues",
+                "source": "https://github.com/Intervention/image/tree/3.11.2"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/interventionio",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Intervention",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/interventionphp",
+                    "type": "ko_fi"
+                }
+            ],
+            "time": "2025-02-27T13:08:55+00:00"
         },
         {
             "name": "laracasts/flash",
@@ -1417,16 +1407,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.12.0",
+            "version": "v12.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8f6cd73696068c28f30f5964556ec9d14e5d90d7"
+                "reference": "52b588bcd8efc6d01bc1493d2d67848f8065f269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8f6cd73696068c28f30f5964556ec9d14e5d90d7",
-                "reference": "8f6cd73696068c28f30f5964556ec9d14e5d90d7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/52b588bcd8efc6d01bc1493d2d67848f8065f269",
+                "reference": "52b588bcd8efc6d01bc1493d2d67848f8065f269",
                 "shasum": ""
             },
             "require": {
@@ -1447,7 +1437,7 @@
                 "guzzlehttp/uri-template": "^1.0",
                 "laravel/prompts": "^0.3.0",
                 "laravel/serializable-closure": "^1.3|^2.0",
-                "league/commonmark": "^2.6",
+                "league/commonmark": "^2.7",
                 "league/flysystem": "^3.25.1",
                 "league/flysystem-local": "^3.25.1",
                 "league/uri": "^7.5.1",
@@ -1539,7 +1529,7 @@
                 "php-http/discovery": "^1.15",
                 "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^10.5.35|^11.5.3|^12.0.1",
-                "predis/predis": "^2.3",
+                "predis/predis": "^2.3|^3.0",
                 "resend/resend-php": "^0.10.0",
                 "symfony/cache": "^7.2.0",
                 "symfony/http-client": "^7.2.0",
@@ -1571,7 +1561,7 @@
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (^5.0).",
                 "php-http/discovery": "Required to use PSR-7 bridging features (^1.15).",
                 "phpunit/phpunit": "Required to use assertions and run tests (^10.5.35|^11.5.3|^12.0.1).",
-                "predis/predis": "Required to use the predis connector (^2.3).",
+                "predis/predis": "Required to use the predis connector (^2.3|^3.0).",
                 "psr/http-message": "Required to allow Storage::put to accept a StreamInterface (^1.0).",
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^6.0|^7.0).",
                 "resend/resend-php": "Required to enable support for the Resend mail transport (^0.10.0).",
@@ -1628,7 +1618,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-05-01T16:13:12+00:00"
+            "time": "2025-05-07T17:29:01+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -1881,35 +1871,54 @@
             "time": "2025-01-27T14:24:01+00:00"
         },
         {
-            "name": "lasserafn/php-initial-avatar-generator",
-            "version": "4.4",
+            "name": "laravolt/avatar",
+            "version": "6.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/LasseRafn/php-initial-avatar-generator.git",
-                "reference": "149fb4e3d8c7009aa131eeac86ffc4b0e9d0a2b8"
+                "url": "https://github.com/laravolt/avatar.git",
+                "reference": "d0941f19aa2375b98333a80c1b272137bdd0a18b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-initial-avatar-generator/zipball/149fb4e3d8c7009aa131eeac86ffc4b0e9d0a2b8",
-                "reference": "149fb4e3d8c7009aa131eeac86ffc4b0e9d0a2b8",
+                "url": "https://api.github.com/repos/laravolt/avatar/zipball/d0941f19aa2375b98333a80c1b272137bdd0a18b",
+                "reference": "d0941f19aa2375b98333a80c1b272137bdd0a18b",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "intervention/image": "^2.3",
-                "lasserafn/php-initials": "^3.0",
-                "lasserafn/php-string-script-language": "^0.4",
-                "meyfa/php-svg": "^0.9.0",
-                "overtrue/pinyin": "^4.0",
-                "php": "^7.0|^7.1|^7.2|^7.3|^7.4|^8.0|^8.1|^8.2"
+                "illuminate/cache": "^10.0|^11.0|^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "intervention/image": "^3.4",
+                "php": ">=8.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.5"
+                "mockery/mockery": "^1.6.7",
+                "pestphp/pest": "^2.34|^3.7",
+                "pestphp/pest-plugin-type-coverage": "^2.8|^3.3",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^11.5.3",
+                "roave/security-advisories": "dev-latest"
+            },
+            "suggest": {
+                "ext-gd": "Needed to support image manipulation",
+                "ext-imagick": "Needed to support image manipulation, better than GD"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Avatar": "Laravolt\\Avatar\\Facade"
+                    },
+                    "providers": [
+                        "Laravolt\\Avatar\\ServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "6.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "LasseRafn\\InitialAvatarGenerator\\": "src/"
+                    "Laravolt\\Avatar\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1918,128 +1927,39 @@
             ],
             "authors": [
                 {
-                    "name": "Lasse Rafn",
-                    "email": "lasserafn@gmail.com"
+                    "name": "Bayu Hendra Winata",
+                    "email": "uyab.exe@gmail.com",
+                    "homepage": "https://laravolt.dev",
+                    "role": "Developer"
                 }
             ],
-            "description": "A package to generate avatars with initials for PHP",
+            "description": "Turn name, email, and any other string into initial-based avatar or gravatar.",
+            "homepage": "https://github.com/laravolt/avatar",
             "keywords": [
-                "Initials",
                 "avatar",
-                "image",
-                "svg"
+                "gravatar",
+                "laravel",
+                "laravolt"
             ],
             "support": {
-                "issues": "https://github.com/LasseRafn/php-initial-avatar-generator/issues",
-                "source": "https://github.com/LasseRafn/php-initial-avatar-generator/tree/4.4"
+                "issues": "https://github.com/laravolt/avatar/issues",
+                "source": "https://github.com/laravolt/avatar/tree/6.2.0"
             },
             "funding": [
                 {
-                    "url": "https://opencollective.com/ui-avatars",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2024-11-04T11:12:44+00:00"
-        },
-        {
-            "name": "lasserafn/php-initials",
-            "version": "3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LasseRafn/php-initials.git",
-                "reference": "d287e1542687390eb68de779949bc0adc49e2d52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-initials/zipball/d287e1542687390eb68de779949bc0adc49e2d52",
-                "reference": "d287e1542687390eb68de779949bc0adc49e2d52",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6|^7.0|^7.1|^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7",
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LasseRafn\\Initials\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+                    "url": "https://paypal.me/bayuhendra",
+                    "type": "custom"
+                },
                 {
-                    "name": "Lasse Rafn",
-                    "email": "lasserafn@gmail.com"
-                }
-            ],
-            "description": "A package to generate initials in PHP",
-            "keywords": [
-                "Initials",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/LasseRafn/php-initials/issues",
-                "source": "https://github.com/LasseRafn/php-initials/tree/3.1"
-            },
-            "time": "2020-12-24T12:25:51+00:00"
-        },
-        {
-            "name": "lasserafn/php-string-script-language",
-            "version": "0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LasseRafn/php-string-script-language.git",
-                "reference": "cab5612d4382067de855fcecc7c09108dca77fb5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LasseRafn/php-string-script-language/zipball/cab5612d4382067de855fcecc7c09108dca77fb5",
-                "reference": "cab5612d4382067de855fcecc7c09108dca77fb5",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6|^7.0|^7.1|^8.0|^8.1|^8.2"
-            },
-            "require-dev": {
-                "doctrine/instantiator": "1.0.5",
-                "phpunit/phpunit": "^5.6",
-                "phpunit/phpunit-mock-objects": "3.2.4",
-                "satooshi/php-coveralls": "^1.0",
-                "sebastian/exporter": "^1.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LasseRafn\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+                    "url": "https://ko-fi.com/bayuhendra",
+                    "type": "ko_fi"
+                },
                 {
-                    "name": "Lasse Rafn",
-                    "email": "lasserafn@gmail.com"
+                    "url": "https://www.patreon.com/uyab",
+                    "type": "patreon"
                 }
             ],
-            "description": "Detect language/encoding of a string in PHP",
-            "keywords": [
-                "language",
-                "php",
-                "string"
-            ],
-            "support": {
-                "issues": "https://github.com/LasseRafn/php-string-script-language/issues",
-                "source": "https://github.com/LasseRafn/php-string-script-language/tree/0.4"
-            },
-            "time": "2023-07-26T07:23:39+00:00"
+            "time": "2025-04-16T14:21:06+00:00"
         },
         {
             "name": "league/commonmark",
@@ -2669,56 +2589,6 @@
             "time": "2025-04-12T22:26:52+00:00"
         },
         {
-            "name": "meyfa/php-svg",
-            "version": "v0.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/meyfa/php-svg.git",
-                "reference": "34401edef1f724898f468f71b85505fbcc8351bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/meyfa/php-svg/zipball/34401edef1f724898f468f71b85505fbcc8351bb",
-                "reference": "34401edef1f724898f468f71b85505fbcc8351bb",
-                "shasum": ""
-            },
-            "require": {
-                "ext-gd": "*",
-                "ext-simplexml": "*",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "meyfa/phpunit-assert-gd": "^1.1",
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SVG\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabian Meyer",
-                    "homepage": "http://meyfa.net"
-                }
-            ],
-            "description": "Read, edit, write, and render SVG files with PHP",
-            "homepage": "https://github.com/meyfa/php-svg",
-            "keywords": [
-                "svg"
-            ],
-            "support": {
-                "issues": "https://github.com/meyfa/php-svg/issues",
-                "source": "https://github.com/meyfa/php-svg/tree/v0.9.1"
-            },
-            "time": "2019-07-30T18:41:25+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "3.9.0",
             "source": {
@@ -3135,31 +3005,31 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "52915afe6a1044e8b9cee1bcff836fb63acf9cda"
+                "reference": "dfa08f390e509967a15c22493dc0bac5733d9123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/52915afe6a1044e8b9cee1bcff836fb63acf9cda",
-                "reference": "52915afe6a1044e8b9cee1bcff836fb63acf9cda",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/dfa08f390e509967a15c22493dc0bac5733d9123",
+                "reference": "dfa08f390e509967a15c22493dc0bac5733d9123",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "php": "^8.2",
-                "symfony/console": "^7.1.8"
+                "symfony/console": "^7.2.6"
             },
             "require-dev": {
-                "illuminate/console": "^11.33.2",
-                "laravel/pint": "^1.18.2",
+                "illuminate/console": "^11.44.7",
+                "laravel/pint": "^1.22.0",
                 "mockery/mockery": "^1.6.12",
-                "pestphp/pest": "^2.36.0",
-                "phpstan/phpstan": "^1.12.11",
-                "phpstan/phpstan-strict-rules": "^1.6.1",
-                "symfony/var-dumper": "^7.1.8",
+                "pestphp/pest": "^2.36.0 || ^3.8.2",
+                "phpstan/phpstan": "^1.12.25",
+                "phpstan/phpstan-strict-rules": "^1.6.2",
+                "symfony/var-dumper": "^7.2.6",
                 "thecodingmachine/phpstan-strict-rules": "^1.0.0"
             },
             "type": "library",
@@ -3202,7 +3072,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v2.3.0"
+                "source": "https://github.com/nunomaduro/termwind/tree/v2.3.1"
             },
             "funding": [
                 {
@@ -3218,80 +3088,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-21T10:39:51+00:00"
-        },
-        {
-            "name": "overtrue/pinyin",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/overtrue/pinyin.git",
-                "reference": "4d0fb4f27f0c79e81c9489e0c0ae4a4f8837eae7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/pinyin/zipball/4d0fb4f27f0c79e81c9489e0c0ae4a4f8837eae7",
-                "reference": "4d0fb4f27f0c79e81c9489e0c0ae4a4f8837eae7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "brainmaestro/composer-git-hooks": "^2.7",
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "phpunit/phpunit": "~8.0"
-            },
-            "type": "library",
-            "extra": {
-                "hooks": {
-                    "pre-push": [
-                        "composer test",
-                        "composer check-style"
-                    ],
-                    "pre-commit": [
-                        "composer test",
-                        "composer fix-style"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/const.php"
-                ],
-                "psr-4": {
-                    "Overtrue\\Pinyin\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "overtrue",
-                    "email": "anzhengchao@gmail.com",
-                    "homepage": "http://github.com/overtrue"
-                }
-            ],
-            "description": "Chinese to pinyin translator.",
-            "homepage": "https://github.com/overtrue/pinyin",
-            "keywords": [
-                "Chinese",
-                "Pinyin",
-                "cn2pinyin"
-            ],
-            "support": {
-                "issues": "https://github.com/overtrue/pinyin/issues",
-                "source": "https://github.com/overtrue/pinyin/tree/4.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/overtrue",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-04-27T10:17:12+00:00"
+            "time": "2025-05-08T08:14:37+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7383,16 +7180,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "7ddfaa6523a675fae5c4123ee38fc6bfb8ee4f36"
+                "reference": "941d1927c5ca420c22710e98420287169c7bcaf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/7ddfaa6523a675fae5c4123ee38fc6bfb8ee4f36",
-                "reference": "7ddfaa6523a675fae5c4123ee38fc6bfb8ee4f36",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/941d1927c5ca420c22710e98420287169c7bcaf7",
+                "reference": "941d1927c5ca420c22710e98420287169c7bcaf7",
                 "shasum": ""
             },
             "require": {
@@ -7404,11 +7201,11 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.75.0",
-                "illuminate/view": "^11.44.2",
-                "larastan/larastan": "^3.3.1",
+                "illuminate/view": "^11.44.7",
+                "larastan/larastan": "^3.4.0",
                 "laravel-zero/framework": "^11.36.1",
                 "mockery/mockery": "^1.6.12",
-                "nunomaduro/termwind": "^2.3",
+                "nunomaduro/termwind": "^2.3.1",
                 "pestphp/pest": "^2.36.0"
             },
             "bin": [
@@ -7445,7 +7242,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2025-04-08T22:11:45+00:00"
+            "time": "2025-05-08T08:38:12+00:00"
         },
         {
             "name": "laravel/sail",
