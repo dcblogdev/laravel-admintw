@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.6",
+        "dcblogdev/laravel-junie": "^1.0",
         "guzzlehttp/guzzle": "^7.9.3",
         "intervention/image": "^2.7.2",
         "laracasts/flash": "^3.2.4",
