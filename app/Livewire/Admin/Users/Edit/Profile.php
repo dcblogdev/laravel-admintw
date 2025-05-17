@@ -46,29 +46,6 @@ class Profile extends Component
     }
 
     /**
-     * @return array<string, array<int, string>>
-     */
-    protected function rules(): array
-    {
-        return [
-            'name' => [
-                'required',
-                'string',
-            ],
-            'image' => [
-                'nullable',
-                'image',
-                'mimes:png,jpg,gif',
-                'max:5120',
-            ],
-            'email' => [
-                'required',
-                'email',
-            ],
-        ];
-    }
-
-    /**
      * @throws ValidationException
      */
     public function updated(string $propertyName): void
@@ -103,5 +80,28 @@ class Profile extends Component
         flash('Profile Updated!')->success();
 
         $this->dispatch('refreshAdminSettings');
+    }
+
+    /**
+     * @return array<string, array<int, string>>
+     */
+    protected function rules(): array
+    {
+        return [
+            'name' => [
+                'required',
+                'string',
+            ],
+            'image' => [
+                'nullable',
+                'image',
+                'mimes:png,jpg,gif',
+                'max:5120',
+            ],
+            'email' => [
+                'required',
+                'email',
+            ],
+        ];
     }
 }

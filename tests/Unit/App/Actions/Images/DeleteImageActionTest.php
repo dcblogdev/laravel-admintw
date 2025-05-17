@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Actions\Images\DeleteImageAction;
 use Illuminate\Support\Facades\Storage;
 

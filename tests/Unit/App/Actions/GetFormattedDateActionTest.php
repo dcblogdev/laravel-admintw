@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Actions\GetFormattedDateAction;
 
 test('date is a carbon instance', function () {

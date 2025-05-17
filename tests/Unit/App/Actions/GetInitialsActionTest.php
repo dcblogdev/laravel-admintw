@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Actions\GetInitialsAction;
 
 test('can get initials', function (?string $value, string $expected) {

@@ -14,10 +14,10 @@ class GetInitialsAction
 
         $parts = explode(' ', $name);
 
-        $initials = strtoupper($parts[0][0] ?? '');
+        $initials = mb_strtoupper($parts[0][0] ?? '');
 
         if (count($parts) > 1) {
-            $initials .= strtoupper(end($parts)[0] ?? '');
+            $initials .= mb_strtoupper(end($parts)[0] ?? '');
         }
 
         return $initials;

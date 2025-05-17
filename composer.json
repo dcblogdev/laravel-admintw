@@ -54,7 +54,7 @@
         "stan": "phpstan analyse",
         "pest": "pest",
         "pest-type-coverage": "pest --type-coverage",
-        "pest-coverage": "pest --coverage",
+        "pest-coverage": "pest --parallel --coverage",
         "test": [
             "@pint",
             "@stan",

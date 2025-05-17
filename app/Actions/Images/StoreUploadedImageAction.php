@@ -15,7 +15,7 @@ class StoreUploadedImageAction
         $name = md5(random_int(1, 10).microtime()).'.jpg';
         $img = app(ResizeImageAction::class)($image, $width, $height);
 
-        $destinationFolder = rtrim($destinationFolder, DIRECTORY_SEPARATOR);
+        $destinationFolder = mb_rtrim($destinationFolder, DIRECTORY_SEPARATOR);
 
         Storage::disk($disk)->put($destinationFolder.DIRECTORY_SEPARATOR.$name, $img);
 

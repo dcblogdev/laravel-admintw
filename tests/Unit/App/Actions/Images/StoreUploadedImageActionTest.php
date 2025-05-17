@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Actions\Images\ResizeImageAction;
 use App\Actions\Images\StoreUploadedImageAction;
 use Illuminate\Http\Testing\File;
