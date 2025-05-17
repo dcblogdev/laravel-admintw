@@ -52,28 +52,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
-    /**
-     * @return array<string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'last_logged_in_at' => 'datetime',
-            'invited_at' => 'datetime',
-            'joined_at' => 'datetime',
-            'last_activity' => 'datetime',
-            'two_fa_active' => 'boolean',
-            'is_active' => 'boolean',
-            'is_office_login_only' => 'boolean',
-        ];
-    }
-
-    protected static function newFactory(): UserFactory
-    {
-        return UserFactory::new();
-    }
-
     public function route(string $id): string
     {
         return route('admin.users.show', ['user' => $id]);
@@ -96,6 +74,28 @@ class User extends Authenticatable implements MustVerifyEmail
     public function invite(): HasOne
     {
         /** @var HasOne<User, User> */
-        return $this->hasOne(User::class, 'id', 'invited_by');
+        return $this->hasOne(self::class, 'id', 'invited_by');
+    }
+
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'last_logged_in_at' => 'datetime',
+            'invited_at' => 'datetime',
+            'joined_at' => 'datetime',
+            'last_activity' => 'datetime',
+            'two_fa_active' => 'boolean',
+            'is_active' => 'boolean',
+            'is_office_login_only' => 'boolean',
+        ];
     }
 }

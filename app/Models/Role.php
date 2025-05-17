@@ -11,9 +11,9 @@ class Role extends SpatieRole
 {
     use HasUuid;
 
-    protected $primaryKey = 'id';
-
     public $incrementing = false;
+
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that should be cast to native types.

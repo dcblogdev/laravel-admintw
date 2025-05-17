@@ -28,11 +28,6 @@ class AuditTrail extends Model
         'type',
     ];
 
-    protected static function newFactory(): AuditTrailsFactory
-    {
-        return AuditTrailsFactory::new();
-    }
-
     /**
      * @return BelongsTo<User, AuditTrail>
      */
@@ -40,5 +35,10 @@ class AuditTrail extends Model
     {
         /** @var BelongsTo<User, AuditTrail> */
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    protected static function newFactory(): AuditTrailsFactory
+    {
+        return AuditTrailsFactory::new();
     }
 }

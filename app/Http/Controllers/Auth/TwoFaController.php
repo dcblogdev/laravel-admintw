@@ -17,6 +17,14 @@ use RobThree\Auth\TwoFactorAuth;
 
 class TwoFaController extends Controller
 {
+    public function setup(TwoFactorAuth $twoFactorAuth): View
+    {
+        $secretKey = $twoFactorAuth->createSecret();
+        $inlineUrl = $twoFactorAuth->getQRCodeImageAsDataUri(config('app.name'), $secretKey);
+
+        return view('auth.twofasetup', compact('secretKey', 'inlineUrl'));
+    }
+
     public function index(): View|RedirectResponse
     {
         if (session('2fa-login') !== true) {
@@ -39,14 +47,6 @@ class TwoFaController extends Controller
         session()->forget('2fa-login');
 
         return redirect(route('dashboard'));
-    }
-
-    public function setup(TwoFactorAuth $twoFactorAuth): View
-    {
-        $secretKey = $twoFactorAuth->createSecret();
-        $inlineUrl = $twoFactorAuth->getQRCodeImageAsDataUri(config('app.name'), $secretKey);
-
-        return view('auth.twofasetup', compact('secretKey', 'inlineUrl'));
     }
 
     public function setupUpdate(Request $request, TwoFactorAuth $twoFactorAuth): RedirectResponse

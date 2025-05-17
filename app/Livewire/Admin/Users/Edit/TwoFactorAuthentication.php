@@ -29,6 +29,13 @@ class TwoFactorAuthentication extends Component
 
     protected TwoFactorAuth $twoFactorAuth;
 
+    /**
+     * @var array<string, string>
+     */
+    protected array $messages = [
+        'code.required' => 'Please enter the code from your authenticator app',
+    ];
+
     public function boot(TwoFactorAuth $twoFactorAuth): void
     {
         $this->twoFactorAuth = $twoFactorAuth;
@@ -47,27 +54,6 @@ class TwoFactorAuthentication extends Component
     {
         return view('livewire.admin.users.edit.two-factor-authentication');
     }
-
-    /**
-     * @return array<string, array<int, string|TwoFactorCodeRule>>
-     */
-    protected function rules(): array
-    {
-        return [
-            'code' => [
-                'required',
-                'min:6',
-                new TwoFactorCodeRule($this->twoFactorAuth),
-            ],
-        ];
-    }
-
-    /**
-     * @var array<string, string>
-     */
-    protected array $messages = [
-        'code.required' => 'Please enter the code from your authenticator app',
-    ];
 
     /**
      * @throws ValidationException
@@ -111,5 +97,19 @@ class TwoFactorAuthentication extends Component
         ]);
 
         flash('2FA turned off')->success();
+    }
+
+    /**
+     * @return array<string, array<int, string|TwoFactorCodeRule>>
+     */
+    protected function rules(): array
+    {
+        return [
+            'code' => [
+                'required',
+                'min:6',
+                new TwoFactorCodeRule($this->twoFactorAuth),
+            ],
+        ];
     }
 }

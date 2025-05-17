@@ -11,6 +11,8 @@ class Permission extends SpatiePermission
 {
     use HasUuid;
 
+    public $incrementing = false;
+
     protected $fillable = [
         'name',
         'label',
@@ -19,8 +21,6 @@ class Permission extends SpatiePermission
     ];
 
     protected $primaryKey = 'id';
-
-    public $incrementing = false;
 
     /**
      * @return array<string>

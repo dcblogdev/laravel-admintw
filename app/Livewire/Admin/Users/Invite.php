@@ -18,7 +18,7 @@ use Livewire\WithPagination;
 
 class Invite extends Component
 {
-    use withPagination;
+    use WithPagination;
 
     #[Rule('required', message: 'Please enter a name')]
     public string $name = '';

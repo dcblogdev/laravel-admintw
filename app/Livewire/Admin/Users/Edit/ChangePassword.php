@@ -23,32 +23,6 @@ class ChangePassword extends Component
 
     public string $confirmPassword = '';
 
-    public function render(): View
-    {
-        return view('livewire.admin.users.edit.change-password');
-    }
-
-    /**
-     * @return array<string, array<int, Password|string>>
-     */
-    protected function rules(): array
-    {
-        return [
-            'newPassword' => [
-                'required',
-                Password::min(8)
-                    ->mixedCase()
-                    ->letters()
-                    ->numbers()
-                    ->uncompromised(),
-            ],
-            'confirmPassword' => [
-                'required',
-                'same:newPassword',
-            ],
-        ];
-    }
-
     /**
      * @var array<string, string>
      */
@@ -58,6 +32,11 @@ class ChangePassword extends Component
         'confirmPassword.required' => 'Confirm password is required',
         'confirmPassword.same' => 'Confirm password and new password must match',
     ];
+
+    public function render(): View
+    {
+        return view('livewire.admin.users.edit.change-password');
+    }
 
     /**
      * @throws ValidationException
@@ -85,5 +64,26 @@ class ChangePassword extends Component
         $this->reset(['newPassword', 'confirmPassword']);
 
         flash('Password Updated!')->success();
+    }
+
+    /**
+     * @return array<string, array<int, Password|string>>
+     */
+    protected function rules(): array
+    {
+        return [
+            'newPassword' => [
+                'required',
+                Password::min(8)
+                    ->mixedCase()
+                    ->letters()
+                    ->numbers()
+                    ->uncompromised(),
+            ],
+            'confirmPassword' => [
+                'required',
+                'same:newPassword',
+            ],
+        ];
     }
 }

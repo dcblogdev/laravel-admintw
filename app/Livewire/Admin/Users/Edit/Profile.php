@@ -34,6 +34,13 @@ class Profile extends Component
      */
     protected $listeners = ['refreshProfile' => 'mount'];
 
+    /**
+     * @var array<string, string>
+     */
+    protected array $messages = [
+        'name.required' => 'Name is required',
+    ];
+
     public function mount(): void
     {
         $this->name = $this->user->name;
@@ -44,36 +51,6 @@ class Profile extends Component
     {
         return view('livewire.admin.users.edit.profile');
     }
-
-    /**
-     * @return array<string, array<int, string>>
-     */
-    protected function rules(): array
-    {
-        return [
-            'name' => [
-                'required',
-                'string',
-            ],
-            'image' => [
-                'nullable',
-                'image',
-                'mimes:png,jpg,gif',
-                'max:5120',
-            ],
-            'email' => [
-                'required',
-                'email',
-            ],
-        ];
-    }
-
-    /**
-     * @var array<string, string>
-     */
-    protected array $messages = [
-        'name.required' => 'Name is required',
-    ];
 
     /**
      * @throws ValidationException
@@ -122,5 +99,28 @@ class Profile extends Component
         flash('Profile Updated!')->success();
 
         $this->dispatch('refreshAdminSettings');
+    }
+
+    /**
+     * @return array<string, array<int, string>>
+     */
+    protected function rules(): array
+    {
+        return [
+            'name' => [
+                'required',
+                'string',
+            ],
+            'image' => [
+                'nullable',
+                'image',
+                'mimes:png,jpg,gif',
+                'max:5120',
+            ],
+            'email' => [
+                'required',
+                'email',
+            ],
+        ];
     }
 }

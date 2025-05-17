@@ -27,20 +27,6 @@ class Edit extends Component
     public array $permissions = [];
 
     /**
-     * @return array<string, array<int, Unique|string>>
-     */
-    protected function rules(): array
-    {
-        return [
-            'label' => [
-                'required',
-                'string',
-                Rule::unique('roles')->ignore($this->role->id),
-            ],
-        ];
-    }
-
-    /**
      * @var array<string, string>
      */
     protected array $messages = [
@@ -76,7 +62,7 @@ class Edit extends Component
 
         // @phpstan-ignore-next-line
         $this->role->label = $this->label;
-        $this->role->name = strtolower(str_replace(' ', '_', $this->label));
+        $this->role->name = mb_strtolower(str_replace(' ', '_', $this->label));
 
         if ($this->permissions) {
             $this->role->syncPermissions($this->permissions);
@@ -95,5 +81,19 @@ class Edit extends Component
         flash('Role updated')->success();
 
         return to_route('admin.settings.roles.index');
+    }
+
+    /**
+     * @return array<string, array<int, Unique|string>>
+     */
+    protected function rules(): array
+    {
+        return [
+            'label' => [
+                'required',
+                'string',
+                Rule::unique('roles')->ignore($this->role->id),
+            ],
+        ];
     }
 }

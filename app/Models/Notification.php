@@ -26,11 +26,6 @@ class Notification extends Model
         'viewed_at',
     ];
 
-    protected static function newFactory(): NotificationFactory
-    {
-        return NotificationFactory::new();
-    }
-
     /**
      * @return BelongsTo<User, Notification>
      */
@@ -47,5 +42,10 @@ class Notification extends Model
     {
         /** @var BelongsTo<User, Notification> */
         return $this->belongsTo(User::class, 'assigned_from_user_id');
+    }
+
+    protected static function newFactory(): NotificationFactory
+    {
+        return NotificationFactory::new();
     }
 }

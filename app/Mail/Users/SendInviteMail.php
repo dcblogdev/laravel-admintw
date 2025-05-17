@@ -20,7 +20,7 @@ class SendInviteMail extends Mailable
         $this->user = $user;
     }
 
-    public function build(): SendInviteMail
+    public function build(): self
     {
         return $this->to($this->user->email)
             ->subject('Invitation to '.config('app.name'))

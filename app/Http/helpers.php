@@ -29,7 +29,7 @@ if (! function_exists('hasRole')) {
 if (! function_exists('abort_if_cannot')) {
     function abort_if_cannot(string $action, int $code = 403): void
     {
-        $message = 'You do not have permissions to '.strtolower(str_replace('_', ' ', $action));
+        $message = 'You do not have permissions to '.mb_strtolower(str_replace('_', ' ', $action));
         abort_unless(auth()->user()->can($action), $code, $message);
     }
 }
@@ -98,10 +98,10 @@ if (! function_exists('in_array_r')) {
     /**
      * @param  array<string, mixed>  $haystack
      */
-    function in_array_r(string $needle, array $haystack, bool $strict = false): bool
+    function in_array_r(string|int $needle, array $haystack, bool $strict = false): bool
     {
         foreach ($haystack as $item) {
-            if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+            if (($strict ? $item === $needle : $item === $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
                 return true;
             }
         }

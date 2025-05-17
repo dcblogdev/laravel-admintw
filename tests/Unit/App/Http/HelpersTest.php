@@ -46,7 +46,7 @@ test('create_avatar returns string', function () {
 });
 
 test('can calculate vat', function () {
-    expect(vat(100, '120.00'))->toBe('2.20');
+    expect(vat(100, 120))->toBe('2.20');
 });
 
 test('can calculate size in readable format', function () {

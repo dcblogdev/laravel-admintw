@@ -16,19 +16,6 @@ class ApplicationSettings extends Component
     public bool $isForced2Fa = false;
 
     /**
-     * @return array<string, array<int, string>>
-     */
-    protected function rules(): array
-    {
-        return [
-            'siteName' => [
-                'required',
-                'string',
-            ],
-        ];
-    }
-
-    /**
      * @var array<string, string>
      */
     protected array $messages = [
@@ -70,5 +57,18 @@ class ApplicationSettings extends Component
         ]);
 
         flash('Application Settings Updated!')->success();
+    }
+
+    /**
+     * @return array<string, array<int, string>>
+     */
+    protected function rules(): array
+    {
+        return [
+            'siteName' => [
+                'required',
+                'string',
+            ],
+        ];
     }
 }

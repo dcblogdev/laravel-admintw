@@ -16,6 +16,40 @@ class Create extends Component
 
     public string $label = '';
 
+    public function render(): View
+    {
+        abort_if_cannot('add_roles');
+
+        return view('livewire.admin.roles.create');
+    }
+
+    public function store(): void
+    {
+        $this->validate();
+
+        /** @var Role $role */
+        $role = Role::create([
+            'label' => $this->label,
+            'name' => mb_strtolower(str_replace(' ', '_', $this->label)),
+        ]);
+
+        flash('Role created')->success();
+
+        add_user_log([
+            'title' => 'created role '.$this->label,
+            'link' => route('admin.settings.roles.edit', ['role' => $role->id]),
+            'reference_id' => $role->id,
+            'section' => 'Roles',
+            'type' => 'created',
+        ]);
+
+        $this->reset();
+
+        $this->showDialog = false;
+
+        $this->dispatch('added');
+    }
+
     /**
      * @return array<string, array<int, Unique|string>>
      */
@@ -39,39 +73,5 @@ class Create extends Component
             'label.required' => 'The role is required.',
             'label.unique' => 'The role has already been taken.',
         ];
-    }
-
-    public function render(): View
-    {
-        abort_if_cannot('add_roles');
-
-        return view('livewire.admin.roles.create');
-    }
-
-    public function store(): void
-    {
-        $this->validate();
-
-        /** @var Role $role */
-        $role = Role::create([
-            'label' => $this->label,
-            'name' => strtolower(str_replace(' ', '_', $this->label)),
-        ]);
-
-        flash('Role created')->success();
-
-        add_user_log([
-            'title' => 'created role '.$this->label,
-            'link' => route('admin.settings.roles.edit', ['role' => $role->id]),
-            'reference_id' => $role->id,
-            'section' => 'Roles',
-            'type' => 'created',
-        ]);
-
-        $this->reset();
-
-        $this->showDialog = false;
-
-        $this->dispatch('added');
     }
 }
